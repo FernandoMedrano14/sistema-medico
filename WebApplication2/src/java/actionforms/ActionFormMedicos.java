@@ -1,19 +1,25 @@
+
 package actionforms;
 
+
 import java.util.List;
+import persistencia.Especialidades;
 import persistencia.Medicos;
 
-public class ActionFormMedicos extends org.apache.struts.action.ActionForm {
+public class ActionFormMedicos extends org.apache.struts.action.ActionForm   {
+    
 
-    private Integer idMedico;
-    private Integer idEspecialidad;
-    private String nombre;
-    private String apellido;
-    private String especialidad;
-    private String telefono;
-    private String action;
-    private String error;
-    private List<Medicos> listamedi;
+
+     private Integer idMedico;
+     private Integer idEspecialidad;
+     private String nombre;
+     private String apellido;
+     private String especialidad;
+     private String telefono;
+     private String action;
+     private String error;
+     private List<Medicos> listamedi;
+     private List<Especialidades> listaEspecilidad;
 
     public Integer getIdMedico() {
         return idMedico;
@@ -79,6 +85,14 @@ public class ActionFormMedicos extends org.apache.struts.action.ActionForm {
         this.error = error;
     }
 
+    public List<Especialidades> getListaEspecilidad() {
+        return listaEspecilidad;
+    }
+
+    public void setListaEspecilidad(List<Especialidades> listaEspecilidad) {
+        this.listaEspecilidad = listaEspecilidad;
+    }
+
     public List<Medicos> getListamedi() {
         return listamedi;
     }
@@ -86,5 +100,8 @@ public class ActionFormMedicos extends org.apache.struts.action.ActionForm {
     public void setListamedi(List<Medicos> listamedi) {
         this.listamedi = listamedi;
     }
-
+     
+     
 }
+
+

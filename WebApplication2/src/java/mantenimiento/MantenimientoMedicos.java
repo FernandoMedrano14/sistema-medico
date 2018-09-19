@@ -13,7 +13,24 @@ public class MantenimientoMedicos {
 
     public static void main(String[] args) {
         MantenimientoMedicos medi = new MantenimientoMedicos();
-        System.out.println(medi.guardar(0, 1, "Dante", "Vergili", "neurologo", "12458989"));
+        //MantenimientoEspecialidades espe = new MantenimientoEspecialidades();
+        //System.out.println(medi.guardar(0, 1, "Dante", "Vergili", "pedriatra", "12458989"));
+
+        /*int idMedico =5;
+        String respuesta = medi.eliminar(idMedico);
+        System.out.println("se elimino con exito");*/
+        List<Medicos> listamedi = null;
+        listamedi = medi.consultar();
+        //System.out.println(listamedi.get(0).getNombre());
+        
+        for (Medicos m : listamedi) {
+            System.out.println("codigo" + m.getIdMedico());
+            System.out.println("nombre" + m.getNombre());
+            System.out.println("apellido" + m.getApellido());
+            System.out.println("telefono" + m.getTelefono());
+            System.out.println("codigo" + m.getEspecialidad());
+
+        }
     }
 
     SessionFactory factory;
@@ -43,7 +60,6 @@ public class MantenimientoMedicos {
         try {
             session.beginTransaction();
             session.save(medi);
-            session.getTransaction();
             session.getTransaction().commit();
             mensaje = "se guardo con exito los datos";
         } catch (Exception e) {
@@ -57,7 +73,7 @@ public class MantenimientoMedicos {
         return mensaje;
     }
 
-    public String eliminar(Integer idMedico) {
+    public int eliminar(Integer idMedico) {
 
         Medicos medi = new Medicos();
 
@@ -74,20 +90,20 @@ public class MantenimientoMedicos {
                 session.getTransaction().rollback();
                 mensaje = "no se inserto por " + e;
             }
-        } finally {
-            session.close();
-        }
-        return mensaje;
+        } //finally {
+            //session.close();
+        //}
+        return 0;
     }
 
     public List<Medicos> consultar() {
         List<Medicos> lista = null;
         session.beginTransaction();
         try {
-            Query query = session.createQuery("from Especialidades");
+            Query query = session.createQuery("from Medicos");
             lista = query.list();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("ERROR AL CONSULTAR: "+e);
         } finally {
             session.close();
         }
@@ -111,7 +127,6 @@ public class MantenimientoMedicos {
         try {
             session.beginTransaction();
             session.update(medi);
-            session.getTransaction();
             session.getTransaction().commit();
             mensaje = "se modifico con exito los datos";
         } catch (Exception e) {
@@ -119,9 +134,9 @@ public class MantenimientoMedicos {
                 session.getTransaction().rollback();
                 mensaje = "ERROR al guardar los datos " + e;
             }
-        } finally {
-            session.close();
-        }
+        } //finally {
+            //session.close();
+        //}
         return mensaje;
     }
 
@@ -131,7 +146,7 @@ public class MantenimientoMedicos {
         try {
             session.beginTransaction();
             medi = (Medicos) session.get(Medicos.class, idMedico);
-            session.getTransaction();
+           // session.getTransaction();
             session.getTransaction().commit();
             mensaje = "se busco por id con exito";
         } catch (Exception e) {
