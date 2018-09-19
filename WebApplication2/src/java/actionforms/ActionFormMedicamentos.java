@@ -1,7 +1,9 @@
 package actionforms;
 
 import java.util.List;
+import persistencia.Farmacias;
 import persistencia.Medicamentos;
+import persistencia.Proveedores;
 
 public class ActionFormMedicamentos extends org.apache.struts.action.ActionForm {
 
@@ -13,6 +15,24 @@ public class ActionFormMedicamentos extends org.apache.struts.action.ActionForm 
     private String action;
     private String error;
     private List<Medicamentos> listaMedicamentos;
+    private List<Farmacias> listaFarmacias;
+    private List<Proveedores> listaProveedores;
+
+    public List<Farmacias> getListaFarmacias() {
+        return listaFarmacias;
+    }
+
+    public void setListaFarmacias(List<Farmacias> listaFarmacias) {
+        this.listaFarmacias = listaFarmacias;
+    }
+
+    public List<Proveedores> getListaProveedores() {
+        return listaProveedores;
+    }
+
+    public void setListaProveedores(List<Proveedores> listaProveedores) {
+        this.listaProveedores = listaProveedores;
+    }
 
     public Integer getIdMedicamento() {
         return idMedicamento;

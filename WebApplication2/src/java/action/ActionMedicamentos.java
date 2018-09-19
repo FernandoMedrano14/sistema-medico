@@ -7,15 +7,25 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import java.util.List;
+import mantenimiento.MantenimientoFarmacias;
 
 import persistencia.Medicamentos;
 import mantenimiento.MantenimientoMedicamentos;
+import mantenimiento.MantenimientoProveedores;
+import persistencia.Farmacias;
+import persistencia.Proveedores;
 
 public class ActionMedicamentos extends org.apache.struts.action.Action {
 
     private static final String Confirmar = "confirmarMedicamentos";
     private static final String Eliminar = "eliminarMedicamentos";
     private static final String Error = "errorMedicamentos";
+    private static final String guardado ="guardadoMedicamentos";
+    private static final String agregar = "irAgregar";
+    private static final String confirmarID = "consultaId";
+    private static final String consultar = "consultarMedicamentos";
+    private static final String modificar = "modificarMedicamentos";
+    private static final String irmodificar = "irmodificarMedicamentos";
 
     MantenimientoMedicamentos med = new MantenimientoMedicamentos();
 
@@ -35,68 +45,144 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             return mapping.findForward(Error);
         }
 
-        if (action.equals("Agregar")) {
-            String adver = "";
+        if (action.equals("Agregar Medicamentos")) {
+            MantenimientoFarmacias farmacia = new MantenimientoFarmacias();
+            List<Farmacias> listaFarmacias = farmacia.consultarTodoFarmacias();
+            formed.setListaFarmacias(listaFarmacias);
+            request.setAttribute("listaFarmacias", listaFarmacias);
 
+            MantenimientoProveedores proveedores = new MantenimientoProveedores();
+            List<Proveedores> listaProveedores = proveedores.consultarTodoProveedores();
+            formed.setListaProveedores(listaProveedores);
+            request.setAttribute("listaProveedores", listaProveedores);
+            return mapping.findForward(agregar);
+        }
+        if (action.equals("Agregar")) {
+            String advertencia = "";
             if (idFarmacia == null || idFarmacia.equals("")) {
-                adver = "Es imprescindible agregar el Id de Farmacia";
+                advertencia = "Es necesario agregar el campo de farmacias";
             }
             if (idProveedor == null || idProveedor.equals("")) {
-                adver = "Es imprescindible agregar el Id de Proveedores";
+                advertencia = "Es necesario agregar el campo de proveedor";
             }
             if (nombre == null || nombre.equals("")) {
-                adver = "por favor agrege el nombre del medicamento";
+                advertencia = "es necesario agregar el nombre";
             }
             if (tipo == null || tipo.equals("")) {
-                adver = "por favor agregue el tipo de medicamento no sea Nerwin";
+                advertencia = "es imprescindible agregar el tipo";
             }
-            if (!adver.equals("")) {
-                formed.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + adver + "</span>");
+            if (!advertencia.equals("")) {
+                formed.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
                 return mapping.findForward(Error);
             }
+
+            MantenimientoMedicamentos med = new MantenimientoMedicamentos();
+            MantenimientoFarmacias farmacia = new MantenimientoFarmacias();
+            MantenimientoProveedores proveedores = new MantenimientoProveedores();
             String respuesta = med.guardar(idMedicamento, idFarmacia, idProveedor, nombre, tipo);
+
             if (respuesta.equals("")) {
-                return mapping.findForward(Confirmar);
-            } else {
-                formed.setError("hat problemas al insertar");
+                formed.setError("Error al guardar");
                 return mapping.findForward(Error);
             }
+            List<Farmacias> listaFarmacias = farmacia.consultarTodoFarmacias();
+            formed.setListaFarmacias(listaFarmacias);
+            request.setAttribute("listaFarmacias", listaFarmacias);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Los medicamentos han sido guardados.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+            
+            
+            List<Proveedores>listaProveedores = proveedores.consultarTodoProveedores();
+            formed.setListaProveedores(listaProveedores);
+            request.setAttribute("listaProveedores", listaProveedores);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Los medicamentos han sido guardados.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+            return mapping.findForward(guardado);
+            
         }
 
         if (action.equals("Eliminar")) {
-            med.eliminar(idMedicamento);
+            MantenimientoMedicamentos medi = new MantenimientoMedicamentos();
+            int idRecibido = (Integer.parseInt(request.getParameter("id")));
+
+            if (medi.eliminar(idRecibido) == 0) {
+                formed.setError("<spam style='color:red'> El registro no existe" + "<br></spam>");
+                return mapping.findForward(Error);
+            } else {
+                List<Medicamentos> lista = medi.mostrar();
+                formed.setListaMedicamentos(lista);
+                formed.setIdMedicamento(idRecibido);
+            }
             return mapping.findForward(Eliminar);
         }
 
-        if (action.equals("Consultar")) {
+        if (action.equals("Consultar_Medicamentos")) {
+            MantenimientoMedicamentos med = new MantenimientoMedicamentos();
             List<Medicamentos> lista = med.mostrar();
             if (lista == null) {
                 formed.setError("<span style='color:white'>Usuario ya existente" + "<br></span>");
                 return mapping.findForward(Error);
             } else {
                 formed.setListaMedicamentos(lista);
-                return mapping.findForward(Error);
+                return mapping.findForward(consultar);
             }
         }
         if (action.equals("BuscarId")) {
-            Medicamentos medi = new Medicamentos();
-            if (medi == null) {
-                formed.setError("<spam style='color:red'> El Registro no existe" + "<br></spam>");
-                return mapping.findForward(Error);
-            } else {
-                formed.setIdMedicamento(idMedicamento);
-                formed.setIdFarmacia(idFarmacia);
-                formed.setIdProveedor(idProveedor);
-                formed.setNombre(nombre);
-                formed.setTipo(tipo);
-                return mapping.findForward(Confirmar);
-            }
-        }
-        if(action.equals("Modificar")){
-            med.modificar(idMedicamento, idFarmacia, idProveedor, nombre, tipo);
-            return mapping.findForward(Error);
-        }
-        return mapping.findForward(Confirmar);
-    }
+            MantenimientoMedicamentos medi = new MantenimientoMedicamentos();
+            Integer idRecibido = (Integer.parseInt(request.getParameter("id")));
+            Medicamentos m = medi.buscarById(idRecibido);
+            formed.setIdMedicamento(m.getIdMedicamento());
+            formed.setIdFarmacia(m.getFarmacias().getIdFarmacia());
+            formed.setIdProveedor(m.getProveedores().getIdProveedor());
+            formed.setNombre(m.getNombre());
+            formed.setTipo(m.getTipo());
+            return mapping.findForward(confirmarID);
 
+        }
+        if (action.equals("Modificar")) {
+            String advertencia = "";
+            Medicamentos m = new Medicamentos();
+            m.setIdMedicamento(idMedicamento);
+            Farmacias f = new Farmacias();
+            f.setIdFarmacia(idFarmacia);
+            Proveedores p = new Proveedores();
+            p.setIdProveedor(idProveedor);
+            m.setFarmacias(f);
+            m.setProveedores(p);
+            m.setNombre(nombre);
+            m.setTipo(tipo);
+
+            MantenimientoMedicamentos md = new MantenimientoMedicamentos();
+            md.modificar(idMedicamento, idFarmacia, idProveedor, nombre, tipo);
+            formed.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> El medicamento a sido modificado.\n</div>");
+            formed.setIdFarmacia(m.getFarmacias().getIdFarmacia());
+            formed.setIdProveedor(m.getProveedores().getIdProveedor());
+            formed.setNombre(m.getNombre());
+            formed.setTipo(m.getTipo());
+
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> El medicamento ha sido modificado.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+            List<Medicamentos> listm = md.mostrar();
+            formed.setListaMedicamentos(listm);
+            return mapping.findForward(consultar);
+        }
+
+        if (action.equals("irModificar")) {
+            System.out.println("estoy en irModificar");
+            String id = request.getParameter("id");
+            idMedicamento = Integer.parseInt(id);
+            System.out.println(id);
+            MantenimientoMedicamentos medi = new MantenimientoMedicamentos();
+            Medicamentos medicamentos = medi.buscarById(idMedicamento);
+
+            formed.setIdFarmacia(medicamentos.getIdMedicamento());
+            formed.setNombre(medicamentos.getNombre());
+            formed.setTipo(medicamentos.getTipo());
+
+            return mapping.findForward(irmodificar);
+        }
+
+        return mapping.findForward(Confirmar);
+
+    }
 }

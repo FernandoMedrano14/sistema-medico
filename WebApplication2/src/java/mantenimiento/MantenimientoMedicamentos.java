@@ -37,35 +37,39 @@ public class MantenimientoMedicamentos {
             session.beginTransaction();
             session.save(med);
             session.getTransaction().commit();
-            mensaje = "se inserto conexito la medicina";
+            mensaje = "se inserto con exito";
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
                 mensaje = "no pudimos insertar por " + e;
             }
-        } finally {
-            session.close();
         }
+        /*finally {
+            session.close();
+        }*/
         return mensaje;
     }
 
-    public String eliminar(Integer idMedicamentos) {
+    public int eliminar(Integer idMedicamentos) {
         Medicamentos med = new Medicamentos();
+        int mensaje = 0;
 
         try {
             session.beginTransaction();
             med = (Medicamentos) session.get(Medicamentos.class, idMedicamentos);
             session.delete(med);
+            session.getTransaction();
             session.getTransaction().commit();
-            mensaje = "delete exitoso";
+            mensaje = 1;
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                mensaje = "no se elimino por " + e;
+                mensaje = 2;
             }
-        } finally {
-            session.close();
         }
+        /*finally {
+            session.close();
+        }*/
         return mensaje;
     }
 
@@ -103,15 +107,15 @@ public class MantenimientoMedicamentos {
             session.beginTransaction();
             session.update(prov);
             session.getTransaction().commit();
-            mensaje = "se modifico conexito la medicina";
+            mensaje = "se modifico con exito";
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
                 mensaje = "no pudimos modificar por " + e;
             }
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
@@ -125,12 +129,23 @@ public class MantenimientoMedicamentos {
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                mensaje = "no consulto por id devido por " + e;
+                mensaje = "no consulto por id " + e;
+                med = null;
+                System.out.println("error" + e);
             }
+            e.printStackTrace();
         } finally {
             session.close();
         }
         return med;
     }
 
+    public static void main(String[] args) {
+        MantenimientoMedicamentos med = new MantenimientoMedicamentos();
+        // System.out.println(med.guardar(0, 2, 2, "acetaminofen", "analgesico"));
+        int idMedicamento = 4;
+        int respuesta = med.eliminar(idMedicamento);
+        System.out.println("se elimino con exito");
+
+    }
 }
