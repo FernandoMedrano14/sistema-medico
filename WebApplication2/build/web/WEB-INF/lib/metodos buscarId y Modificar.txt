@@ -1,0 +1,48 @@
+
+     public int modificar (Integer idConsultorio, Integer numero, String area){
+        int mensaje = 0;
+        
+        Consultorios con = new Consultorios();
+        
+        con.setIdConsultorio(idConsultorio);
+        con.setNumero(numero);
+        con.setArea(area);
+        
+        session.beginTransaction();
+        
+        try {
+            session.update(con);
+            session.getTransaction();
+            session.getTransaction().commit();
+            mensaje = 1;
+        } catch (Exception e) {
+            if(session.getTransaction().isActive()){
+                session.getTransaction().rollback();
+                mensaje = 2;
+            }
+        } finally {
+            session.close();
+        }
+        return mensaje;
+    }
+     
+     public Consultorios consultarId (Integer idConsultorio){
+         Consultorios con = null;
+         String mensaje = "";
+         try {
+             session.beginTransaction();
+             con = (Consultorios) session.get(Consultorios.class, idConsultorio);
+//             session.getTransaction();
+             session.getTransaction().commit();
+             mensaje = "se busco por id con exito";
+         } catch (Exception e) {
+             if(session.getTransaction().isActive()){
+                 session.getTransaction().rollback();
+                 mensaje ="no pudo busar por id por "+e;
+             }
+             e.printStackTrace();
+         } finally {
+             session.close();
+         }
+         return con;
+     }

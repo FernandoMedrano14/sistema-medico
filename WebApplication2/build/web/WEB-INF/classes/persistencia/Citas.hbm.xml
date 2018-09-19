@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-21-2018 10:52:14 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="persistencia.Citas" table="citas" catalog="sistema_medico" optimistic-lock="version">
+        <id name="idCita" type="java.lang.Integer">
+            <column name="id_cita" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="consultorios" class="persistencia.Consultorios" fetch="select">
+            <column name="id_consultorio" />
+        </many-to-one>
+        <many-to-one name="medicos" class="persistencia.Medicos" fetch="select">
+            <column name="id_medico" />
+        </many-to-one>
+        <many-to-one name="pacientes" class="persistencia.Pacientes" fetch="select">
+            <column name="id_paciente" />
+        </many-to-one>
+        <property name="fechaCita" type="string">
+            <column name="fecha_cita" length="100" />
+        </property>
+        <property name="horaCita" type="string">
+            <column name="hora_cita" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

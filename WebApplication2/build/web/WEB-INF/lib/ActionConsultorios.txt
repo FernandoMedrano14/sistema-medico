@@ -1,0 +1,28 @@
+  
+    
+    if(action.equals("BuscarId")){
+        MantCon con = new MantCon();
+        Consultorios consultorio = con.consultarId(idConsultorio);
+        
+        if(consultorio == null){
+            formcon.setError("<spam style='color:red'> El Registro no existe" + "<br></spam>");
+            return mapping.findForward(Error);
+        } else {
+            formcon.setIdConsultorio(consultorio.getIdConsultorio());
+            formcon.setNumero(consultorio.getNumero());
+            formcon.setArea(consultorio.getArea());
+            return mapping.findForward(Confirmar);
+        }
+        
+    }
+    
+    if(action.equals("Modificar")){
+        MantCon con = new MantCon();
+        con.modificar(idConsultorio, numero, area);
+        System.out.println("error al modificar");
+    }
+     return mapping.findForward(Confirmar);
+    }
+    
+   
+ 

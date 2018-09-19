@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-21-2018 10:52:14 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="persistencia.Usuarios" table="usuarios" catalog="sistema_medico" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="100" />
+        </property>
+        <property name="contra" type="string">
+            <column name="contra" length="100" />
+        </property>
+        <property name="genero" type="string">
+            <column name="genero" length="100" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

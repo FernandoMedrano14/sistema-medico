@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+     <form-bean name="ActionFormUsuarios" type="actionforms.ActionFormUsuarios"/>
+     
+     <form-bean name="ActionFormProveedores" type="actionforms.ActionFormProveedores"/>
+     
+     <form-bean name="ActionFormFarmacias" type="actionforms.ActionFormFarmacias"/>
+     
+     <form-bean name="ActionFormConsultorios" type="actionforms.ActionFormConsultorios"/>
+     
+     <form-bean name="ActionFormEspecialidades" type="actionforms.ActionFormEspecialidades"/>
+     
+     <form-bean name="ActionFormClinicas" type="actionforms.ActionFormClinicas"/>
+     
+     <form-bean name="LoginForm" type="actionforms.LoginForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
+        <forward name="confirmacionNuevoUsuario" path="/confirmacionNuevoUsuario.jsp"/>
+        <forward name="errorMantenimientoUsuario" path="/mantenimientoUsuarios.jsp"/>
+        
+                                          <!-- Forward Farmacias --> 
+        <forward name="eliminarFarmacia" path="/consultarFarmacias.jsp"/>
+        <forward name="guardadoFarmacia" path="/mantenimientoFarmacias.jsp"/>
+        <forward name="confirmacionConsultaIdFarmacia" path="/modificarFarmacias.jsp"/>
+        <forward name="modificarFarmacia" path="/modificarFarmacias.jsp"/>
+        <forward name="consultarFarmacia" path="/consultarFarmacias.jsp"/>
+        <forward name="errorMantenimientoFarmacias" path="/mantenimientoFarmacias.jsp"/>
+        
+                                      <!-- Forward Proveedores --> 
+        <forward name="eliminarProveedor" path="/consultarProveedores.jsp"/>
+        <forward name="guardadoProveedor" path="/mantenimientoProveedores.jsp"/>
+        <forward name="confirmacionConsultaIdProveedor" path="/modificarProveedores.jsp"/>
+        <forward name="modificarProveedor" path="/modificarProveedores.jsp"/>
+        <forward name="consultarProveedor" path="/consultarProveedores.jsp"/>
+        <forward name="confirmacionNuevoProveedor" path="/confirmacionNuevoProveedor.jsp"/>
+        <forward name="errorMantenimientoProveedores" path="/mantenimientoProveedores.jsp"/>
+        
+                                         <!-- Forward Consultorios --> 
+        <forward name="eliminarConsultorio" path="/consultarConsultorios.jsp"/>
+        <forward name="guardadoConsultorio" path="/mantenimientoConsultorios.jsp"/>
+        <forward name="confirmacionConsultaId" path="/modificarConsultorios.jsp"/>
+        <forward name="modificar" path="/modificarConsultorios.jsp"/>
+        <forward name="consultarConsultorio" path="/consultarConsultorios.jsp"/>
+        <forward name="irmodificarConsultorios" path="/modificarConsultorios.jsp"/>
+        
+                                         <!-- Forward Especialidades--> 
+        <forward name="eliminarEspecialidades" path="/consultarEspecialidades.jsp"/>
+        <forward name="guardadoEspecialidades" path="/mantenimientoEspecialidades.jsp"/>
+        <forward name="confirmacionConsultaIdEspe" path="/modificarEspecailidades.jsp"/>
+        <forward name="modificar" path="/modificarEspecialidades.jsp"/>
+        <forward name="consultarEspecialidades" path="/consultarEspecialidades.jsp"/>
+        <forward name="irmodificarEspecialidades" path="/modificarEspecialidades.jsp"/>
+        
+                                           <!-- Forward Clinicas-->
+        <forward name="eliminarClinicas" path="/consultarClinicas.jsp"/>
+        <forward name="consultaId" path="/modificarClinicas.jsp"/>
+        <forward name="guardadoClinica" path="/mantenimientoClinicas.jsp"/>
+        <forward name="confirmacionConsultaIdCli" path="/modificarClinicas.jsp"/>
+        <forward name="modificarClinicas" path="/modificarClinicas.jsp"/>
+        <forward name="consultarClinicas" path="/consultarClinicas.jsp"/>
+        <forward name="irmodificarClinicas" path="/modificarClinicas.jsp"/>
+        <forward name="irAgregar" path="/mantenimientoClinicas.jsp"/>
+        
+        
+        
+        <forward name="recuperacion" path="/recuperacion.jsp"/>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action name="ActionFormUsuarios" path="/MantenimientoUsuarios" scope="request" type="action.ActionUsuarios"/>
+        <action name="ActionFormProveedores" path="/MantenimientoProveedores" scope="request" type="action.ActionProveedores"/>
+        <action name="ActionFormFarmacias" path="/MantenimientoFarmacias" scope="request" type="action.ActionFarmacias"/>
+        <action name="ActionFormConsultorios" path="/MantenimientoConsultorios" scope="request" type="action.ActionConsultorios"/>
+        <action name="ActionFormEspecialidades" path="/MantenimientoEspecialidades" scope="request" type="action.ActionEspecialidades"/>
+        <action name="ActionFormClinicas" path="/MantenimientoClinicas" scope="request" type="action.ActionClinicas"/>
+        <!--<action name="LoginForm" path="/LAct" scope="request" type="action.ActionUsuarios"/>-->
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        
+        <action input="/index.jsp" name="LoginForm" path="/LAct" scope="session" type="action.LoginAction">
+        <forward name="success" path="/inicio.jsp"/>
+        <forward name="failure" path="/failure.jsp"/>
+        </action>
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!--========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
