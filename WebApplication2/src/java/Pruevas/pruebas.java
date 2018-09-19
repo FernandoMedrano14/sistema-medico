@@ -13,6 +13,7 @@ import persistencia.Farmacias;
 public class pruebas {
 
     public static void main(String[] args) {
+        System.out.println("hola mundo");
         MantenimientoConsultorios con = new MantenimientoConsultorios();
         //System.out.println(con.guardar(0, 72716503, "Oncologia"));
         //System.out.println(con.eliminar(6));
