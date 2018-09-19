@@ -64,10 +64,7 @@
             </div>
         </nav>
 
-        <html:form action="/MantenimientoClinicas">
-            <br>
-            <br>
-            <br>  
+        <html:form action="/MantenimientoClinicas"> 
             <br>
             <br>
             <br>
