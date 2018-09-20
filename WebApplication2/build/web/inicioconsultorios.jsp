@@ -61,7 +61,7 @@
                             Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoConsultorios.do?action=Agregar" ><b>Agregar Consultorio</b></b></a>
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp" ><b>Agregar Consultorio</b></b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="MantenimientoConsultorios.do?action=Consultar_Consultorios"><b>Consultar Consultorios</b></a>
                         </div>
