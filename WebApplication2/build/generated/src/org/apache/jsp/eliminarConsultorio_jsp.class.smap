@@ -1,0 +1,21 @@
+SMAP
+eliminarConsultorio_jsp.java
+JSP
+*S JSP
+*F
++ 0 eliminarConsultorio.jsp
+eliminarConsultorio.jsp
+*L
+5,16:66
+20:112,8
+21,19:120
+39:180,7
+39,4:141
+42:200,7
+42,7:147
+48:220,7
+48,6:156
+53,4:84
+56:240,14
+56,5:90
+*E

@@ -41,28 +41,33 @@
                         <a class="btn btn-outline-info" href="#">Galeria</a>
                     </li>
                     <p>  </p>
-                    <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones
+                            Areas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="inicioclinicas.jsp">Clinicas</a>
-                            <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>
-                            <a class="dropdown-item" href="inicioConsultorios.jsp">Consultorios</a>
-                            <a class="dropdown-item" href="inicioEspecialidades.jsp">Especialidades</a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
                     </li>
                     <p>  </p>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="mantenimientoFarmacias.jsp">Agregar Farmacia</a>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoFarmacias.jsp" ><b>Agregar Farmacia</b></b></a>
+                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Clinicas"><b>Consultar Clinicas</b></a>
+                        </div>
                     </li>
-                     <p>  </p>
-                    <html:form action = "/MantenimientoClinicas">
-                        <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Clinicas"/>
-                    </html:form>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
@@ -105,7 +110,7 @@
                                                 <bean:write name="ver" property="direccion"/>
                                             </td>
                                             <td>
-                                                <a class="btn btn-success" href="MantenimientoFarmacias.do?action=Consulta&id=<bean:write name="ver" property="idFarmacia"/>">Modificar</a>
+                                                <a class="btn btn-success" href="MantenimientoFarmacias.do?action=irModificar&id=<bean:write name="ver" property="idFarmacia"/>">Modificar</a>
                                                 <a class="btn btn-danger" href="MantenimientoFarmacias.do?action=Eliminar&id=<bean:write name="ver" property="idFarmacia"/>">Eliminar</a>
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
                                             </td>

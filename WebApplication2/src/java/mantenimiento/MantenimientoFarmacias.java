@@ -147,11 +147,39 @@ public class MantenimientoFarmacias {
                 session.getTransaction().rollback();
                 mensaje = "no pudo buscar por id por " + e;
             }
-            e.printStackTrace();
+           // e.printStackTrace();
             flag=2;
-        } finally {
-            session.close();
-        }
+        } //finally {
+           // session.close();
+        //}
         return flag;
     }
+    
+    public Farmacias consultaId(Integer idFarmacia) {
+        Farmacias con = null;
+        String mensaje = "";
+        System.out.println("Id en mantenimiento: "+idFarmacia);
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+//        int flag=0;
+        try {
+            session.beginTransaction();
+            con = (Farmacias) session.get(Farmacias.class, idFarmacia);
+            session.getTransaction().commit();
+            mensaje = "se busco por id con exito";
+            //flag=1;
+        } catch (Exception e) {
+            if (session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+                mensaje = "no pudo buscar por id por " + e;
+                con = null;
+            }
+//            e.printStackTrace();
+            //flag=2;
+        }// finally {
+           // session.close();
+        //}
+        return con;
+    }
+    
 }

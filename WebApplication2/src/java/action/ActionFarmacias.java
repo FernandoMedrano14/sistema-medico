@@ -20,6 +20,7 @@ public class ActionFarmacias extends org.apache.struts.action.Action {
     private static final String confirmarID = "confirmacionConsultaIdFarmacia";
     private static final String consultar = "consultarFarmacia";
     private static final String modificar = "modificarFarmacia";
+    private static final String irmodificar = "irmodificarFarmacia";
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -74,6 +75,7 @@ public class ActionFarmacias extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Eliminar")) {
+            String advertencia = "";
             MantenimientoFarmacias farmacias = new MantenimientoFarmacias();
             int idRecibido = (Integer.parseInt(request.getParameter("id")));
             String recibido = request.getParameter("direccion");
@@ -85,6 +87,8 @@ public class ActionFarmacias extends org.apache.struts.action.Action {
                 List<Farmacias> lista = farmacias.consultarTodoFarmacias();
                 formBean.setListaFarmacias(lista);
                 formBean.setIdFarmacia(idRecibido);
+                advertencia = ("<div class=\"alert alert-danger\">\n<strong>Registro eliminado:</strong> La Farmacia ha sido eliminada.\n</div>");
+                request.setAttribute("advertencia", advertencia);
             }
             return mapping.findForward(Eliminar);
         }
@@ -104,7 +108,7 @@ public class ActionFarmacias extends org.apache.struts.action.Action {
             }
         }
 
-        if (action.equals("Modificar")) {
+       /* if (action.equals("Modificar")) {
             MantenimientoFarmacias farmacias = new MantenimientoFarmacias();
             String advertencia = "";
             farmacias.modificar(idFarmacia, direccion);
@@ -114,9 +118,9 @@ public class ActionFarmacias extends org.apache.struts.action.Action {
             List<Farmacias> listaFarmacias = farmacias.consultarTodoFarmacias();
             formBean.setListaFarmacias(listaFarmacias);
             /*List<Especialidades> lista = espe.consultar();
-            formEspe.setListaEspe(lista)*/
+            formEspe.setListaEspe(lista)
             return mapping.findForward(consultar);
-        }
+        }*/
 
         /*  if(action.equals("irModificar")){
             System.out.println("Estoy en irmodificar");
@@ -125,6 +129,33 @@ public class ActionFarmacias extends org.apache.struts.action.Action {
             MantenimientoFarmacias farmacias = new MantenimientoFarmacias();
             formBean.setDireccion(farmacias.getDireccion());
         }*/
+        
+        if(action.equals("Modificar")){
+            System.out.println("estoy en modificar");
+            MantenimientoFarmacias farmacia = new MantenimientoFarmacias();
+            System.out.println(idFarmacia + direccion);
+            
+            int confirmar = farmacia.modificar(idFarmacia, direccion);
+            System.out.println(confirmar);
+            
+            List<Farmacias> lista = farmacia.consultarTodoFarmacias();
+            formBean.setListaFarmacias(lista);
+            return mapping.findForward(consultar);
+        }
+        
+        if(action.equals("irModificar")){
+            System.out.println("estoy en ir modificar");
+            String id = request.getParameter("id");
+            idFarmacia = Integer.parseInt(id);
+            System.out.println(id);
+            MantenimientoFarmacias farmacia = new MantenimientoFarmacias();
+            Farmacias far = farmacia.consultaId(idFarmacia);
+            
+            formBean.setIdFarmacia(far.getIdFarmacia());
+            formBean.setDireccion(far.getDireccion());
+            return mapping.findForward(irmodificar);
+        }
+        
         return mapping.findForward(Confirmar);
     }
 }

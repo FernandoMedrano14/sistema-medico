@@ -61,14 +61,14 @@
                         </div>
                     </li>
                     <p>  </p>
-                     <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp" ><b>Agregar Consultorio</b></b></a>
                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item bg-info text-white" href="MantenimientoConsultorios.do?action=Consultar_Consultorios"><b>Consultar Consultorios</b></a>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoConsultorios.do?action=Consultar_Consultorios"><b>Consultar Consultorios</b></a>
                         </div>
                     </li>
                     <p>  </p>

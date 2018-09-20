@@ -44,18 +44,32 @@
                     <p>  </p>
                     <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones
+                            Areas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>
-                            <a class="dropdown-item" href="inicioconsultorios.jsp">Consultorios</a>
-                            <a class="dropdown-item" href="inicioespecialidades.jsp">Especialidades</a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
                     </li>
                     <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoFarmacias.jsp" ><b>Agregar Farmacias</b></b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoFarmacias.do?action=Consultar_Farmacias"><b>Consultar Farmacias</b></a>
+                        </div>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="btn btn-outline-info" href="mantenimientoFarmacias.jsp">Agregar Farmacia</a>
                     </li>
@@ -104,7 +118,7 @@
                                         <html:text readonly="true" property="idFarmacia" size="10" maxlength="" ></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="direccion" size="60" maxlength="" ></html:text>
+                                        <html:text property="direccion" size="60" maxlength="" readonly="re" ></html:text>
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>

@@ -38,6 +38,7 @@
         <forward name="modificarFarmacia" path="/modificarFarmacias.jsp"/>
         <forward name="consultarFarmacia" path="/consultarFarmacias.jsp"/>
         <forward name="errorMantenimientoFarmacias" path="/mantenimientoFarmacias.jsp"/>
+        <forward name="irmodificarFarmacia" path="/modificarFarmacias.jsp"/>
         
                                       <!-- Forward Proveedores --> 
         <forward name="eliminarProveedor" path="/consultarProveedores.jsp"/>

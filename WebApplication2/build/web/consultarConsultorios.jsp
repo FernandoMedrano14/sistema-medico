@@ -54,8 +54,6 @@
                             <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
                     <p>  </p>
