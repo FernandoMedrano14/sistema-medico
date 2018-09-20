@@ -106,7 +106,7 @@ public class MantenimientoProveedores {
     
      public int modificar (Integer idProveedor, String rubro, String encargado){
         
-         SessionFactory factory = HibernateUtil.getSessionFactory();
+        SessionFactory factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
          int mensaje = 0;
         
@@ -135,26 +135,48 @@ public class MantenimientoProveedores {
     }
      
      public int consultarId (Integer idProveedor){
-         SessionFactory factory = HibernateUtil.getSessionFactory();
+        SessionFactory factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
          Proveedores proveedores = null;
-         int flag=0;
+         String mensaje = "error en el try-catch";
          try {
              session.beginTransaction();
              proveedores = (Proveedores) session.get(Proveedores.class, idProveedor);
 //             session.getTransaction();
              session.getTransaction().commit();
-             flag=1;
+             mensaje = "Exito en la operacion";
          } catch (Exception e) {
              if(session.getTransaction().isActive()){
                  session.getTransaction().rollback();
-                flag = 2;
+                mensaje = "ocurrio un error por "+e;
              }
              e.printStackTrace();
-         } finally {
-             session.close();
-         }
-         return flag;
+         } //finally {
+            // session.close();
+         //}
+         return 0;
      }
-
+       
+     public Proveedores consultaId (Integer idProveedor){
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+         Proveedores prov = null;
+         String mensaje = "error en el try-catch";
+         try {
+             session.beginTransaction();
+             prov = (Proveedores) session.get(Proveedores.class, idProveedor);
+             session.getTransaction().commit();
+             mensaje = "Exito en la operacion";
+         } catch (Exception e) {
+             if(session.getTransaction().isActive()){
+                 session.getTransaction().rollback();
+                mensaje = "ocurrio un error por "+e;
+             }
+             e.printStackTrace();
+         } //finally {
+            // session.close();
+         //}
+         return prov;
+     }
+     
 }

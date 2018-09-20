@@ -104,7 +104,7 @@
                                                 <bean:write name="ver" property="encargado"/>
                                             </td>
                                             <td>
-                                                <a class="btn btn-success" href="MantenimientoProveedores.do?action=Consulta&id=<bean:write name="ver" property="idProveedor"/>">Modificar</a>
+                                                <a class="btn btn-success" href="MantenimientoProveedores.do?action=irModificar&id=<bean:write name="ver" property="idProveedor"/>">Modificar</a>
                                                 <a class="btn btn-danger" href="MantenimientoProveedores.do?action=Eliminar&id=<bean:write name="ver" property="idProveedor"/>">Eliminar</a>
                                             </td>
                                         </html:form>

@@ -19,6 +19,7 @@ public class ActionProveedores extends org.apache.struts.action.Action {
     private static final String ConfirmarID = "confirmacionConsultaIdProveedor";
     private static final String consultar = "consultarProveedor";
     private static final String modificar = "modificarProveedor";
+    private static final String irmodificar = "irmodificarProveedor";
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response) {
@@ -91,26 +92,59 @@ public class ActionProveedores extends org.apache.struts.action.Action {
 
         if (action.equals("Consulta")) {
             MantenimientoProveedores proveedores = new MantenimientoProveedores();
-            int idRecibido = (Integer.parseInt(request.getParameter("id")));
+            //int idRecibido = (Integer.parseInt(request.getParameter("id")));
             /*String rubroRecibido = request.getParameter("rubro");
             String encargadoRecibido = request.getParameter("encargado");*/
 
-            if (proveedores.consultarId(idRecibido) == 0) {
-                formBean.setError("<spam style='color:red'> El registro no existe" + "<br></spam>");
+//            if (proveedores.consultarId(idRecibido)==0) {
+//                formBean.setError("<spam style='color:red'> El registro no existe" + "<br></spam>");
+//                return mapping.findForward(Error);
+//            } else {
+//                formBean.setIdProveedor(idRecibido);
+//               /* formBean.setRubro(rubroRecibido);
+//                formBean.setEncargado(encargadoRecibido);*/
+//                return mapping.findForward(ConfirmarID);
+//            }
+            List<Proveedores> lista = proveedores.consultarTodoProveedores();
+            if (lista == null) {
+                formBean.setError("<span style='color:white'>Consultorio ya existente" + "<br></span>");
                 return mapping.findForward(Error);
             } else {
-                formBean.setIdProveedor(idRecibido);
-               /* formBean.setRubro(rubroRecibido);
-                formBean.setEncargado(encargadoRecibido);*/
-                return mapping.findForward(ConfirmarID);
+                formBean.setListaProveedores(lista);
+                return mapping.findForward(consultar);
             }
         }
 
+//        if (action.equals("Modificar")) {
+//            MantenimientoProveedores proveedores = new MantenimientoProveedores();
+//            proveedores.modificar(idProveedor, rubro, encargado);
+//            System.out.println("error al modificar");
+//            return mapping.findForward(modificar);
+//        }
         if (action.equals("Modificar")) {
-            MantenimientoProveedores proveedores = new MantenimientoProveedores();
-            proveedores.modificar(idProveedor, rubro, encargado);
-            System.out.println("error al modificar");
-            return mapping.findForward(modificar);
+            System.out.println("estoy en modificar");
+            MantenimientoProveedores pro = new MantenimientoProveedores();
+            System.out.println(idProveedor + rubro + encargado);
+            int confirmacion = pro.modificar(idProveedor, rubro, encargado);
+            System.out.println(confirmacion);
+            List<Proveedores> listaPro = pro.consultarTodoProveedores();
+            formBean.setListaProveedores(listaPro);
+            return mapping.findForward(consultar);
+        }
+
+        if (action.equals("irModificar")) {
+            System.out.println("estoy en irModificar");
+            String id = request.getParameter("id");
+            idProveedor = Integer.parseInt(id);
+            System.out.println(id);
+
+            MantenimientoProveedores pro = new MantenimientoProveedores();
+            Proveedores prov = pro.consultaId(idProveedor);
+
+            formBean.setIdProveedor(prov.getIdProveedor());
+            formBean.setRubro(prov.getRubro());
+            formBean.setEncargado(prov.getEncargado());
+            return mapping.findForward(irmodificar);
         }
 
         return mapping.findForward(Confirmar);

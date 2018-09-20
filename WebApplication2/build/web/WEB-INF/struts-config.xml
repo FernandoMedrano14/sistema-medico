@@ -48,6 +48,7 @@
         <forward name="consultarProveedor" path="/consultarProveedores.jsp"/>
         <forward name="confirmacionNuevoProveedor" path="/confirmacionNuevoProveedor.jsp"/>
         <forward name="errorMantenimientoProveedores" path="/mantenimientoProveedores.jsp"/>
+        <forward name="irmodificarProveedor" path="/modificarProveedores.jsp"/>
         
                                          <!-- Forward Consultorios --> 
         <forward name="eliminarConsultorio" path="/consultarConsultorios.jsp"/>

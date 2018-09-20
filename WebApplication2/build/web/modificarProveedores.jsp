@@ -90,10 +90,10 @@
                                         <html:text readonly="true" property="idProveedor" size="10" maxlength="" ></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="rubro" size="60" maxlength="" ></html:text>
+                                        <html:text property="rubro" size="60" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="encargado" size="60" maxlength="" ></html:text>
+                                        <html:text property="encargado" size="60" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
