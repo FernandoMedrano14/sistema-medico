@@ -41,14 +41,18 @@
                     <p>  </p>
                     <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones
+                            Areas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="inicioclinicas.jsp">Clinicas</a>
-                            <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>
-                            <a class="dropdown-item" href="inicioconsultorios.jsp">Consultorios</a>
-                            <a class="dropdown-item" href="inicioespecialidades.jsp">Especialidades</a>
+                       <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                             <%--<div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>

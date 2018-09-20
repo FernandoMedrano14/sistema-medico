@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -42,23 +42,33 @@
                     <p>  </p>
                     <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones
+                            Areas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="inicioclinicas.jsp">Clinicas</a>
-                            <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>
-                            <a class="dropdown-item" href="inicioconsultorios.jsp">Consultorios</a>
-                            <a class="dropdown-item" href="inicioespecialidades.jsp">Especialidades</a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                             <%--<div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
                     <p>  </p>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="mantenimientoClinicas.jsp">Agregar Clinicas</a>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Agregar Clinica" ><b>Agregar Clinica</b></b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Clinicas"><b>Consultar Clinicas</b></a>
+                        </div>
                     </li>
-                    <p>  </p>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
@@ -101,23 +111,20 @@
                                 <tr align="center">
                                     <td>
                                         <%--<html:text property="idFarmacia" size="10" maxlength="" ></html:text>--%>
-                                        <html:text readonly="true" property="idClinica" size="10" maxlength="" ></html:text>
+                                        <html:text readonly="true" property="idClinica" size="5" maxlength="" ></html:text>
                                             <!--<input class="form-control" name="idFarmacia" value="{MantenimientoFarmacias.idFarmacia}" placeholder="Id" readonly="re">-->
                                         </td>
                                         <td>
-                                        <html:text readonly="true" property="idFarmacia" size="10" maxlength="" ></html:text>
+                                        <html:text readonly="true" property="idFarmacia" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="direccion" size="50" maxlength="" readonly="re"></html:text>
+                                        <html:text property="direccion" size="60" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="horario" size="25" maxlength="" readonly="re"></html:text>
+                                        <html:text property="horario" size="15" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
-                                    </td>
-                                    <td>
-                                        <html:submit styleClass="btn btn-outline-success" property="action" value="Consultar_Clinicas"/>
                                     </td>
                                 </tr>
                             <br>

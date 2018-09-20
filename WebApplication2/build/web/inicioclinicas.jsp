@@ -60,7 +60,7 @@
                     <p>  </p>
                     <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Areas
+                            Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Agregar Clinica" ><b>Agregar Clinica</b></b></a>

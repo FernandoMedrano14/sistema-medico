@@ -100,7 +100,7 @@ public final class inicioconsultorios_jsp extends org.apache.jasper.runtime.Http
       out.write("                            Acciones\n");
       out.write("                        </a>\n");
       out.write("                        <div class=\"dropdown-menu bg-info \" aria-labelledby=\"navbarDropdown\">\n");
-      out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"MantenimientoConsultorios.jsp\" ><b>Agregar Consultorio</b></b></a>\n");
+      out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"mantenimientoConsultorios.jsp\" ><b>Agregar Consultorio</b></b></a>\n");
       out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"MantenimientoConsultorios.do?action=Consultar_Consultorios\"><b>Consultar Consultorios</b></a>\n");
       out.write("                        </div>\n");
