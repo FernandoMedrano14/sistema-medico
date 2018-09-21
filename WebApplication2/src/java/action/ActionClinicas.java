@@ -17,14 +17,14 @@ import persistencia.Farmacias;
 public class ActionClinicas extends org.apache.struts.action.Action {
 
     private static final String Confirmar = "confirmarClinicas";
-    private static final String Eliminar = "eliminarClinicas";
+    private static final String Eliminar = "eliminarClinicas";//
     private static final String Error = "errorClinicas";
-    private static final String guardado = "guardadoClinica";
-    private static final String AGREGAR = "irAgregar";
-    private static final String confirmarID = "consultaId";
-    private static final String consultar = "consultarClinicas";
-    private static final String modificar = "modificarClinica";
-    private static final String irmodificar = "irmodificarClinica";
+    private static final String guardado = "guardadoClinica";//
+    private static final String AGREGAR = "irAgregarClinica";//
+    private static final String confirmarID = "consultaId";//
+    private static final String consultar = "consultarClinicas";//
+    private static final String modificar = "modificarClinica";//
+    private static final String irmodificar = "irmodificarClinica";//
 
     MantenimientoClinicas cli = new MantenimientoClinicas();
 

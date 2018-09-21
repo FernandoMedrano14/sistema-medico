@@ -19,6 +19,8 @@
      
      <form-bean name="ActionFormClinicas" type="actionforms.ActionFormClinicas"/>
      
+     <form-bean name="ActionFormMedicos" type="actionforms.ActionFormMedicos"/>
+     
      <form-bean name="LoginForm" type="actionforms.LoginForm"/>
     </form-beans>
     
@@ -74,7 +76,17 @@
         <forward name="modificarClinicas" path="/modificarClinicas.jsp"/>
         <forward name="consultarClinicas" path="/consultarClinicas.jsp"/>
         <forward name="irmodificarClinicas" path="/modificarClinicas.jsp"/>
-        <forward name="irAgregar" path="/mantenimientoClinicas.jsp"/>
+        <forward name="irAgregarClinica" path="/mantenimientoClinicas.jsp"/>
+        
+                                          <!-- Forward Medicos-->
+        <forward name="eliminarMedico" path="/consultarMedicos.jsp"/>
+        <forward name="consultaId" path="/modificarMedicos.jsp"/>
+        <forward name="guardadoMedicos" path="/mantenimientoMedicos.jsp"/>
+        <forward name="confirmacionConsultaIdEspecialidad" path="/modificarMedicos.jsp"/>
+        <forward name="modificarMedicos" path="/modificarMedicos.jsp"/>
+        <forward name="consultarMedicos" path="/consultarMedicos.jsp"/>
+        <forward name="irmodificarMedicos" path="/modificarMedicos.jsp"/>
+        <forward name="irAgregarMedico" path="/mantenimientoMedicos.jsp"/>
         
         
         
@@ -89,6 +101,7 @@
         <action name="ActionFormConsultorios" path="/MantenimientoConsultorios" scope="request" type="action.ActionConsultorios"/>
         <action name="ActionFormEspecialidades" path="/MantenimientoEspecialidades" scope="request" type="action.ActionEspecialidades"/>
         <action name="ActionFormClinicas" path="/MantenimientoClinicas" scope="request" type="action.ActionClinicas"/>
+        <action name="ActionFormMedicos" path="/MantenimientoMedicos" scope="request" type="action.ActionMedicos"/>
         <!--<action name="LoginForm" path="/LAct" scope="request" type="action.ActionUsuarios"/>-->
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         

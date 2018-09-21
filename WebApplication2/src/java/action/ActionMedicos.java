@@ -19,7 +19,7 @@ public class ActionMedicos extends org.apache.struts.action.Action {
     private static final String Error = "errorMedico";
     private static final String guardado = "guardadoMedicos";
     private static final String confirmarID = "consultaId";
-    private static final String agregar = "irAgregar";
+    private static final String AGREGAR = "irAgregarMedico";
     private static final String consultar = "consultarMedicos";
     private static final String modificar = "modificarMedicos";
     private static final String irmodificar = "irmodificarMedicos";
@@ -44,9 +44,9 @@ public class ActionMedicos extends org.apache.struts.action.Action {
         if (action.equals("Agregar Medico")) {
             MantenimientoEspecialidades manEspe = new MantenimientoEspecialidades();
             List<Especialidades> listaEspecialidad = manEspe.consultar();
-            formMedi.setListaEspecilidad(listaEspecialidad);
+            formMedi.setListaEspecialidad(listaEspecialidad);
             request.setAttribute("listaEspecialidad", listaEspecialidad);
-            return mapping.findForward(agregar);
+            return mapping.findForward(AGREGAR);
         }
 
         if (action.equals("Agregar")) {
@@ -83,14 +83,14 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             }
 
             List<Especialidades> listaEspecialidades = manEspe.consultar();
-            formMedi.setListaEspecilidad(listaEspecialidades);
+            formMedi.setListaEspecialidad(listaEspecialidades);
             request.setAttribute("listaEspecialidades", listaEspecialidades);
             advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> La Clinica ha sido guardada.\n</div>");
             request.setAttribute("advertencia", advertencia);
             return mapping.findForward(guardado);
         }
 
-        if (action.equals("Consultar")) {
+        if (action.equals("Consultar Medicos")) {
             MantenimientoMedicos medi = new MantenimientoMedicos();
             List<Medicos> lista = medi.consultar();
             if (lista == null) {

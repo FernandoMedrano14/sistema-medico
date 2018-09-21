@@ -22,7 +22,7 @@ public class MantenimientoMedicos {
         List<Medicos> listamedi = null;
         listamedi = medi.consultar();
         //System.out.println(listamedi.get(0).getNombre());
-        
+
         for (Medicos m : listamedi) {
             System.out.println("codigo" + m.getIdMedico());
             System.out.println("nombre" + m.getNombre());
@@ -33,17 +33,12 @@ public class MantenimientoMedicos {
         }
     }
 
-    SessionFactory factory;
-    Session session;
-
-    public MantenimientoMedicos() {
-        this.factory = HibernateUtil.getSessionFactory();
-        this.session = factory.openSession();
-    }
+    SessionFactory factory = HibernateUtil.getSessionFactory();
+    Session session = factory.openSession();
 
     public String guardar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String especialidad, String telefono) {
         System.out.println("ENTRE A GUARDAR");
-        String mensaje = "No funciona el try cacath";
+        String mensaje = "No funciona el try catch";
 
         Medicos medi = new Medicos();
         medi.setIdMedico(idMedico);
@@ -91,7 +86,7 @@ public class MantenimientoMedicos {
                 mensaje = "no se inserto por " + e;
             }
         } //finally {
-            //session.close();
+        //session.close();
         //}
         return 0;
     }
@@ -103,7 +98,7 @@ public class MantenimientoMedicos {
             Query query = session.createQuery("from Medicos");
             lista = query.list();
         } catch (Exception e) {
-            System.out.println("ERROR AL CONSULTAR: "+e);
+            e.printStackTrace();
         } finally {
             session.close();
         }
@@ -135,7 +130,7 @@ public class MantenimientoMedicos {
                 mensaje = "ERROR al guardar los datos " + e;
             }
         } //finally {
-            //session.close();
+        //session.close();
         //}
         return mensaje;
     }
@@ -146,7 +141,7 @@ public class MantenimientoMedicos {
         try {
             session.beginTransaction();
             medi = (Medicos) session.get(Medicos.class, idMedico);
-           // session.getTransaction();
+            // session.getTransaction();
             session.getTransaction().commit();
             mensaje = "se busco por id con exito";
         } catch (Exception e) {

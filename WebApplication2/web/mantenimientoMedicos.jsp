@@ -1,4 +1,10 @@
 <%-- 
+    Document   : mantenimientoMedicos
+    Created on : 09-21-2018, 09:21:40 AM
+    Author     : david.floresusam
+--%>
+
+<%-- 
     Document   : mantenimientoClinicas
     Created on : 09-14-2018, 09:11:41 AM
     Author     : david.floresusam
@@ -18,7 +24,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/Style.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="favicon.ico" />
-        <title>Matenimiento Clinicas</title>
+        <title>Matenimiento Medicos</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,7 +50,7 @@
                             Areas
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
+                            <a class="dropdown-item bg-info text-white" href="iniciomedio.jsp"><b>Medicos</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
                             <div class="dropdown-divider"></div>
@@ -70,43 +76,47 @@
             </div>
         </nav>
 
-        <html:form action="/MantenimientoClinicas"> 
+        <html:form action="/MantenimientoMedicos"> 
             <br>
             <br>
             <br>
             <br>
             <br>
             <br>
-            <h4 align="center">Formulario de ingreso para nueva Clinica</h4>
-            <h4 align="center">Ingrese la Informacion de la Clinica</h4>
+            <h4 align="center">Formulario de ingreso para nuevo médico</h4>
+            <h4 align="center">Ingrese la Informacion del médico</h4>
             <br>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-striped">
                             <thead align="center">
-                            <th>Id Farmacia</th>
-                            <th>Dirección Clinica</th>
-                            <th>Horario</th>
+                            <th>Id Especialidad</th>
+                            <th>Nombres Medico</th>
+                            <th>Apellidos Medico</th>
+                            <th>Especialidad</th>
+                            <th>Teléfono</th>
                             <th>Acciones</th>
                             <th>Extra</th>
                             </thead>
                             <tbody align="center">
                             <td>
-                                <html:select property="idFarmacia">
-                                    <logic:notEmpty name="ActionFormClinicas" property="listaFarmacias">
-                                        <logic:iterate id="ver" name="ActionFormClinicas" property="listaFarmacias">
-                                            <html:option value="${ver.idFarmacia}">
-                                                ${ver.idFarmacia}
+                                <html:select property="idEspecialidad">
+                                    <logic:notEmpty name="ActionFormMedicos" property="listaEspecialidad">
+                                        <logic:iterate id="ver" name="ActionFormMedicos" property="listaEspecialidad">
+                                            <html:option value="${ver.idEspecialidad}">
+                                                ${ver.idEspecialidad}
                                             </html:option>
                                         </logic:iterate>
                                     </logic:notEmpty>
                                 </html:select>
                             </td>
-                            <td><html:text property="direccion" size="40" maxlength="100"></html:text></td>
-                            <td><html:text property="horario" size="20" maxlength="100"></html:text></td>
+                            <td><html:text property="nombre" size="40" maxlength="100"></html:text></td>
+                            <td><html:text property="apellido" size="20" maxlength="100"></html:text></td>
+                            <td><html:text property="especialidad" size="20" maxlength="100"></html:text></td>
+                            <td><html:text property="telefono" size="20" maxlength="100"></html:text></td>
                             <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
-                            <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Clinicas"/></td>
+                            <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar Medicos"/></td>
                             </tbody>
                         </table>
                         <p align="center">${advertencia}</p>
@@ -121,3 +131,4 @@
         </html:form>
     </body>
 </html>
+
