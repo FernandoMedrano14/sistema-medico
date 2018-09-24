@@ -10,6 +10,12 @@ import org.apache.struts.action.ActionMapping;
 import java.util.List;
 import persistencia.Citas;
 import mantenimiento.MantenimientoCitas;
+import mantenimiento.MantenimientoConsultorios;
+import mantenimiento.MantenimientoMedicos;
+import mantenimiento.MantenimientoPacientes;
+import persistencia.Consultorios;
+import persistencia.Medicos;
+import persistencia.Pacientes;
 
 public class ActionCitas extends org.apache.struts.action.Action {
 
@@ -17,6 +23,7 @@ public class ActionCitas extends org.apache.struts.action.Action {
     private static final String Eliminar = "confirmacionEliminarCita";
     private static final String Error = "errorMantenimientoCita";
     private static final String guardado = "guardadoCita";
+    private static final String agregar = "irAgregar";
     private static final String confirmarID = "consultaId";
     private static final String consultar = "consultarCitas";
     private static final String modificar = "modificarCitas";
@@ -39,6 +46,25 @@ public class ActionCitas extends org.apache.struts.action.Action {
 
         if (formci == null || action == null) {
             return mapping.findForward(Error);
+        }
+
+        if (action.equals("Agregar Citas")) {
+            MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
+            List<Consultorios> listaConsultorio = consultorios.mostrarConsultorio();
+            formci.setListaConsultorio(listaConsultorio);
+            request.setAttribute("listaConsultorios", listaConsultorio);
+
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            List<Pacientes> listaPacientes = pacientes.mostrar();
+            formci.setListaPacientes(listaPacientes);
+            request.setAttribute("listaPacientes", listaPacientes);
+
+            MantenimientoMedicos medicos = new MantenimientoMedicos();
+            List<Medicos> listamedi = medicos.consultar();
+            formci.setListamedi(listamedi);
+            request.setAttribute("listaMedicos", listamedi);
+            return mapping.findForward(agregar);
+
         }
 
         if (action.equals("Agregar")) {
@@ -70,13 +96,31 @@ public class ActionCitas extends org.apache.struts.action.Action {
             }
 
             MantenimientoCitas citas = new MantenimientoCitas();
+            MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            MantenimientoMedicos medicos = new MantenimientoMedicos();
             String respuesta = cita.guardar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
             String advertencia = "";
             if (respuesta.equals("")) {
                 formci.setError("Ocurrio un error al guardar");
                 return mapping.findForward(Error);
             }
-            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> La cita ha sido guardada.\n</div>");
+            List<Consultorios> listaConsultorio = consultorios.mostrarConsultorio();
+            formci.setListaConsultorio(listaConsultorio);
+            request.setAttribute("listaConsultorio", listaConsultorio);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Las citas han sido guardadas.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+
+            List<Pacientes> listaPacientes = pacientes.mostrar();
+            formci.setListaPacientes(listaPacientes);
+            request.setAttribute("listaPacientes", listaPacientes);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Las citas han sido guardadas.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+
+            List<Medicos> listamedi = medicos.consultar();
+            formci.setListamedi(listamedi);
+            request.setAttribute("listamedi", listamedi);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Las citas han sido guardadas.\n</div>");
             request.setAttribute("advertencia", advertencia);
             return mapping.findForward(guardado);
         }
@@ -103,7 +147,7 @@ public class ActionCitas extends org.apache.struts.action.Action {
             } else {
                 List<Citas> lista = citas.mostrar();
                 formci.setListaCitas(lista);
-                formci.setIdCita(idCita);
+                formci.setIdCita(idRecibido);
             }
             //cita.eliminar(idCita);
             return mapping.findForward(Eliminar);
@@ -112,36 +156,65 @@ public class ActionCitas extends org.apache.struts.action.Action {
         if (action.equals("BuscarId")) {
             //int citas = cita.consutarId(idCita);
             MantenimientoCitas citas = new MantenimientoCitas();
-            int idRecibido = (Integer.parseInt(request.getParameter("id")));
-            if (citas.consultarId(idRecibido) == 0) {
-                formci.setError("<spam style='color:red'> El Registro no existe" + "<br></spam>");
-                return mapping.findForward(Error);
-            } else {
-                formci.setIdCita(idRecibido);
-                formci.setIdConsultorio(idConsultorio);
-                formci.setIdPaciente(idPaciente);
-                formci.setIdMedico(idMedico);
-                formci.setFecha_cita(fecha_cita);
-                formci.setHora_cita(hora_cita);
-                return mapping.findForward(confirmarID);
-            }
+            Integer idRecibido = (Integer.parseInt(request.getParameter("id")));
+            Citas c = citas.consultarId(idRecibido);
+            formci.setIdCita(c.getIdCita());
+            formci.setIdConsultorio(c.getConsultorios().getIdConsultorio());
+            formci.setIdPaciente(c.getPacientes().getIdPaciente());
+            formci.setIdMedico(c.getMedicos().getIdMedico());
+            formci.setFecha_cita(c.getFechaCita());
+            formci.setHora_cita(c.getHoraCita());
+            return mapping.findForward(confirmarID);
         }
 
         if (action.equals("Modificar")) {
-            System.out.println("Estoy en conchetumadre");
+            String advertencia = "";
+            Citas c = new Citas();
+            c.setIdCita(idCita);
+            Consultorios con = new Consultorios();
+            con.setIdConsultorio(idConsultorio);
+            Pacientes p = new Pacientes();
+            p.setIdPaciente(idPaciente);
+            Medicos med = new Medicos();
+            med.setIdMedico(idMedico);
+            c.setConsultorios(con);
+            c.setPacientes(p);
+            c.setMedicos(med);
+            c.setFechaCita(fecha_cita);
+            c.setHoraCita(hora_cita);
+
             MantenimientoCitas citas = new MantenimientoCitas();
-            System.out.println(idCita + idPaciente + idMedico + fecha_cita + hora_cita);
-            //cita.modificar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
-            int confirmación = citas.modificar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
-            System.out.println(confirmación);
-            
-            List<Citas> lista = citas.mostrar();
-            formci.setListaCitas(lista);
+            citas.modificar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
+            formci.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> las citas han sido modificadas.\n</div>");
+            formci.setIdConsultorio(c.getConsultorios().getIdConsultorio());
+            formci.setIdPaciente(c.getPacientes().getIdPaciente());
+            formci.setIdMedico(c.getMedicos().getIdMedico());
+            formci.setFecha_cita(c.getFechaCita());
+            formci.setHora_cita(c.getHoraCita());
+
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> las citas han sido modificadas.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+            List<Citas> listc = citas.mostrar();
+            formci.setListaCitas(listc);
             return mapping.findForward(consultar);
         }
-        
-        
-        return mapping.findForward(Confirmar);
-    }
 
+        if (action.equals("irModificar")) {
+            System.out.println("estoy en irModificar");
+            String id = request.getParameter("id");
+            idCita = Integer.parseInt(id);
+            System.out.println(id);
+            MantenimientoCitas cit = new MantenimientoCitas();
+            Citas citas = cit.consultarId(idCita);
+
+            formci.setIdCita(citas.getIdCita());
+            formci.setFecha_cita(citas.getFechaCita());
+            formci.setHora_cita(citas.getHoraCita());
+
+            return mapping.findForward(irmodificar);
+        }
+
+        return mapping.findForward(Confirmar);
+
+    }
 }

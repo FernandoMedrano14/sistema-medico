@@ -7,7 +7,11 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import java.util.List;
+import mantenimiento.MantenimientoClinicas;
+import mantenimiento.MantenimientoMedicamentos;
 import mantenimiento.MantenimientoPacientes;
+import persistencia.Clinicas;
+import persistencia.Medicamentos;
 import persistencia.Pacientes;
 
 public class ActionPacientes extends org.apache.struts.action.Action {
@@ -15,6 +19,13 @@ public class ActionPacientes extends org.apache.struts.action.Action {
     private static final String Confirmar = "confirmacionNuevoPaciente";
     private static final String Error = "errorMantenimientoPacientes";
     private static final String Eliminar = "confirmacionEliminarPacientes";
+    private static final String guardado ="guardadopacientes";
+    private static final String agregar ="irAgregar";
+    private static final String confirmarID ="consultaId";
+    private static final String consultar ="consultarpacientes";
+    private static final String modificar ="modificarpacientes";
+    private static final String irmodificar ="irmodificarpacientes";
+    
     MantenimientoPacientes pac = new MantenimientoPacientes();
 
     @Override
@@ -35,6 +46,19 @@ public class ActionPacientes extends org.apache.struts.action.Action {
 
         if (formpa == null || action == null) {
             return mapping.findForward(Error);
+        }
+        
+        if(action.equals("Agregar Pacientes")){
+            MantenimientoClinicas clinica = new MantenimientoClinicas();
+            List<Clinicas> listaClinicas = clinica.mostrar();
+            formpa.setListaClinicas(listaClinicas);
+            request.setAttribute("listaClinicas", listaClinicas);
+            
+            MantenimientoMedicamentos medicamentos = new MantenimientoMedicamentos();
+            List<Medicamentos> listaMedicamentos = medicamentos.mostrar();
+            formpa.setListaMedicamentos(listaMedicamentos);
+            request.setAttribute("listaMedicamentos", listaMedicamentos);
+            return mapping.findForward(agregar);
         }
 
         if (action.equals("Agregar")) {
@@ -76,12 +100,32 @@ public class ActionPacientes extends org.apache.struts.action.Action {
                 formpa.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + adver + "</span>");
                 return mapping.findForward(Error);
             }
-
-            String respuesta = pac.guardar(idPaciente, idMedicamento, idClinica, nombre, apellido, sexo, fecha_nacimiento, telefono, direccion);
-            return mapping.findForward(Confirmar);
+            
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            MantenimientoClinicas clinicas = new MantenimientoClinicas();
+            MantenimientoMedicamentos medicamentos = new MantenimientoMedicamentos();
+            String respuesta = pacientes.guardar(idPaciente, idMedicamento, idClinica, nombre, apellido, sexo, fecha_nacimiento, telefono, direccion);
+            String advertencia="";
+            if(respuesta.equals("")){
+                formpa.setError("ocurrio un error al guardar");
+                return mapping.findForward(Error);
+            }
+            List<Clinicas> listaClinicas = clinicas.mostrar();
+            formpa.setListaClinicas(listaClinicas);
+            request.setAttribute("listaClinicas",listaClinicas);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Los pacientes han sido guardados.\n</div>");
+            request.setAttribute("advertencia",advertencia);
+            
+            List<Medicamentos> listaMedicamentos = medicamentos.mostrar();
+            formpa.setListaMedicamentos(listaMedicamentos);
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Los pacientes han sido guardados.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+            return mapping.findForward(guardado);
+            
         }
 
-        if (action.equals("Consultar")) {
+        if (action.equals("Consultar_Pacientes")) {
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
             List<Pacientes> lista = pac.mostrar();
             if (lista == null) {
                 formpa.setError("<span style='color:white'>Error al consultar el listado de pacientes" + "<br></span>");
@@ -93,33 +137,94 @@ public class ActionPacientes extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Eliminar")) {
-            pac.eliminar(idPaciente);
-            return mapping.findForward(Eliminar);
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            int idRecibido =(Integer.parseInt(request.getParameter("id")));
+            
+            if (pacientes.eliminar(idRecibido) == 0) {
+                formpa.setError("<spam style='color:red'> El registro no existe" + "<br></spam>");
+                return mapping.findForward(Error);
+            } else {
+                List<Pacientes> lista = pacientes.mostrar();
+                formpa.setListaPacientes(lista);
+                formpa.setIdPaciente(idRecibido);
+            }
+           return mapping.findForward(Eliminar);
+                
+            
         }
 
         if (action.equals("BuscarId")) {
-            Pacientes paciente = pac.buscarById(idPaciente);
-            if (paciente == null) {
-                formpa.setError("<spam style='color:red'> El Registro no existe" + "<br></spam>");
-                return mapping.findForward(Error);
-            } else {
-                formpa.setIdPaciente(idPaciente);
-                formpa.setIdClinica(idClinica);
-                formpa.setIdMedicamento(idMedicamento);
-                formpa.setNombre(nombre);
-                formpa.setApellido(apellido);
-                formpa.setSexo(sexo);
-                formpa.setFecha_nacimiento(fecha_nacimiento);
-                formpa.setTelefono(telefono);
-                formpa.setDireccion(direccion);
-                return mapping.findForward(Confirmar);
-            }
+           MantenimientoPacientes pacientes = new MantenimientoPacientes();
+           Integer idRecibido =(Integer.parseInt(request.getParameter("id")));
+           Pacientes p = pacientes.buscarById(idRecibido);
+           formpa.setIdPaciente(p.getIdPaciente());
+           formpa.setIdClinica(p.getClinicas().getIdClinica());
+           formpa.setIdMedicamento(p.getMedicamentos().getIdMedicamento());
+           formpa.setNombre(p.getNombre());
+           formpa.setApellido(p.getApellido());
+           formpa.setSexo(p.getSexo());
+           formpa.setFecha_nacimiento(p.getFechaNacimiento());
+           formpa.setTelefono(p.getTelefono());
+           formpa.setDireccion(p.getDireccion());
+           return mapping.findForward(confirmarID);
+           
         }
 
         if (action.equals("Modificar")) {
-            pac.modificar(idPaciente, idMedicamento, idClinica, nombre, apellido, sexo, fecha_nacimiento, telefono, direccion);
-            return mapping.findForward(Error);
-        }
-        return mapping.findForward(Confirmar);
+            String advertencia="";
+            Pacientes p = new Pacientes();
+            p.setIdPaciente(idPaciente);
+            Clinicas c = new Clinicas();
+            c.setIdClinica(idClinica);
+            Medicamentos m = new Medicamentos();
+            m.setIdMedicamento(idMedicamento);
+            p.setClinicas(c);
+            p.setMedicamentos(m);
+            p.setNombre(nombre);
+            p.setApellido(apellido);
+            p.setSexo(sexo);
+            p.setFechaNacimiento(fecha_nacimiento);
+            p.setTelefono(telefono);
+            p.setDireccion(direccion);
+            
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            pacientes.modificar(idPaciente, idMedicamento, idClinica, nombre, apellido, sexo, fecha_nacimiento, telefono, direccion);
+            formpa.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> los pacientes han sido modificados.\n</div>");
+            formpa.setIdClinica(p.getClinicas().getIdClinica());
+            formpa.setIdMedicamento(p.getMedicamentos().getIdMedicamento());
+            formpa.setNombre(p.getNombre());
+            formpa.setApellido(p.getApellido());
+            formpa.setSexo(p.getSexo());
+            formpa.setFecha_nacimiento(p.getFechaNacimiento());
+            formpa.setTelefono(p.getTelefono());
+            formpa.setDireccion(p.getDireccion());
+            
+            advertencia=("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> los pacientes han sido modificados.\n</div>");
+            request.setAttribute("advertencia",advertencia);
+            List<Pacientes> listp= pacientes.mostrar();
+            formpa.setListaPacientes(listp);
+            return mapping.findForward(consultar);
     }
+        
+        if(action.equals("irModificar")){
+            System.out.println("estoy en irModificar");
+            String id = request.getParameter("id");
+            idPaciente = Integer.parseInt(id);
+            System.out.println(id);
+            MantenimientoPacientes pac = new MantenimientoPacientes();
+            Pacientes pacien = pac.buscarById(idPaciente);
+            
+            formpa.setIdPaciente(pacien.getIdPaciente());
+            formpa.setNombre(pacien.getNombre());
+            formpa.setApellido(pacien.getApellido());
+            formpa.setSexo(pacien.getSexo());
+            formpa.setFecha_nacimiento(pacien.getFechaNacimiento());
+            formpa.setTelefono(pacien.getTelefono());
+            formpa.setDireccion(pacien.getDireccion());
+            
+            return mapping.findForward(irmodificar);
+        }
+        
+        return mapping.findForward(Confirmar);
+}
 }

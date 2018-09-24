@@ -52,9 +52,9 @@ public class MantenimientoCitas {
                 session.getTransaction().rollback();
                 mensaje = "error al guardar por " + e;
             }
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
@@ -67,14 +67,15 @@ public class MantenimientoCitas {
             session.delete(ci);
             session.getTransaction();
             session.getTransaction().commit();
+            mensaje = 1;
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                mensaje = 1;
+                mensaje = 2;
             }
-        } finally {
+        } /*finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
@@ -122,28 +123,32 @@ public class MantenimientoCitas {
                 session.getTransaction().rollback();
                 mensaje = 2;
             }
-        } finally {
+        } /*finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
-    public int consultarId(Integer idCita) {
+    public Citas consultarId(Integer idCita) {
         Citas ci = new Citas();
-        int flag = 0;
+        
         try {
             session.getTransaction();
             ci = (Citas) session.get(Citas.class, idCita);
             session.getTransaction().commit();
-            flag = 1;
+            mensaje="exito al buscar por id";
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                flag = 2;
+                mensaje="no consulto por id"+e;
+                ci=null;
+                System.out.println("error"+e);
             }
+            e.printStackTrace();
         } finally {
             session.close();
         }
-        return flag;
+        return ci;
     }
 }
+

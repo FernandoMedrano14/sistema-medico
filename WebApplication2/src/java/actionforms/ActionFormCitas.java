@@ -2,6 +2,9 @@ package actionforms;
 
 import java.util.List;
 import persistencia.Citas;
+import persistencia.Consultorios;
+import persistencia.Medicos;
+import persistencia.Pacientes;
 
 public class ActionFormCitas extends org.apache.struts.action.ActionForm {
 
@@ -14,6 +17,33 @@ public class ActionFormCitas extends org.apache.struts.action.ActionForm {
     private String action;
     private String error;
     private List<Citas> listaCitas;
+    private List<Pacientes> listaPacientes;
+    private List<Consultorios> listaConsultorio;
+    private List<Medicos> listamedi;
+
+    public List<Pacientes> getListaPacientes() {
+        return listaPacientes;
+    }
+
+    public void setListaPacientes(List<Pacientes> listaPacientes) {
+        this.listaPacientes = listaPacientes;
+    }
+
+    public List<Consultorios> getListaConsultorio() {
+        return listaConsultorio;
+    }
+
+    public void setListaConsultorio(List<Consultorios> listaConsultorio) {
+        this.listaConsultorio = listaConsultorio;
+    }
+
+    public List<Medicos> getListamedi() {
+        return listamedi;
+    }
+
+    public void setListamedi(List<Medicos> listamedi) {
+        this.listamedi = listamedi;
+    }
 
     public Integer getIdCita() {
         return idCita;

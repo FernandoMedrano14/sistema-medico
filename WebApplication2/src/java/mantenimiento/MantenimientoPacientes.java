@@ -44,7 +44,7 @@ public class MantenimientoPacientes {
         try {
             session.beginTransaction();
             session.save(paciente);
-            session.getTransaction();
+
             session.getTransaction().commit();
             mensaje = "Exito al guardar";
         } catch (Exception e) {
@@ -52,14 +52,15 @@ public class MantenimientoPacientes {
                 session.getTransaction().rollback();
                 mensaje = "no funciono la operacion por " + e;
             }
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
-    public String eliminar(Integer idPaciente) {
+    public int eliminar(Integer idPaciente) {
         Pacientes pa = new Pacientes();
+        int mensaje=0;
 
         try {
             session.beginTransaction();
@@ -67,15 +68,15 @@ public class MantenimientoPacientes {
             session.delete(pa);
             session.getTransaction();
             session.getTransaction().commit();
-            mensaje = "Exito al eliminar";
+            mensaje =1;
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                mensaje = "error al eliminar por " + e;
+                mensaje = 2;
             }
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
@@ -117,7 +118,7 @@ public class MantenimientoPacientes {
         try {
             session.beginTransaction();
             session.update(paciente);
-            session.getTransaction();
+            
             session.getTransaction().commit();
             mensaje = "Exito al guardar";
         } catch (Exception e) {
@@ -125,9 +126,9 @@ public class MantenimientoPacientes {
                 session.getTransaction().rollback();
                 mensaje = "no funciono la operacion por " + e;
             }
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
@@ -144,6 +145,7 @@ public class MantenimientoPacientes {
                 session.getTransaction().rollback();
                 mensaje = "Error al buscar por Id por " + e;
             }
+            e.printStackTrace();
         } finally {
             session.close();
         }
