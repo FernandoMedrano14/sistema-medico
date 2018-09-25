@@ -34,7 +34,7 @@
                         <a class="btn btn-outline-info" href="#">Galeria</a>
                     </li>
                     <p>  </p>
-                          <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
@@ -55,13 +55,25 @@
                         </div>
                     </li>
                     <p>  </p>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="mantenimientoMedicos.jsp">Agregar Medico</a>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicos.do?action=Agregar Medico" ><b>Agregar Medico</b></b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Medicos"><b>Consultar Medicos</b></a>
+                        </div>
+                    </li>
+                    <%--<li class="nav-item">
+                        <html:form action = "/MantenimientoMedicos">
+                            <html:submit styleClass="btn btn-outline-info" property="action" value="Agregar Medico"/>
+                        </html:form>
                     </li>
                     <p>  </p>
-                    <html:form action = "/MantenimientoFarmacias">
+                    <html:form action = "/MantenimientoMedicos">
                         <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Farmacias"/>
-                    </html:form>
+                    </html:form>--%>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>

@@ -14,7 +14,6 @@ public class ActionFormMedicos extends org.apache.struts.action.ActionForm   {
      private Integer idEspecialidad;
      private String nombre;
      private String apellido;
-     private String especialidad;
      private String telefono;
      private String action;
      private String error;
@@ -51,14 +50,6 @@ public class ActionFormMedicos extends org.apache.struts.action.ActionForm   {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
     }
 
     public String getTelefono() {

@@ -93,7 +93,7 @@
                             </thead>
                             <tbody align="center">
                             <td>
-                                <html:select property="idFarmacia">
+                                <html:select property="idFarmacia" size="5">
                                     <logic:notEmpty name="ActionFormClinicas" property="listaFarmacias">
                                         <logic:iterate id="ver" name="ActionFormClinicas" property="listaFarmacias">
                                             <html:option value="${ver.idFarmacia}">

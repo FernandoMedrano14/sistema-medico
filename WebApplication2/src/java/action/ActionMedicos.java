@@ -18,7 +18,7 @@ public class ActionMedicos extends org.apache.struts.action.Action {
     private static final String Eliminar = "eliminarMedico";
     private static final String Error = "errorMedico";
     private static final String guardado = "guardadoMedicos";
-    private static final String confirmarID = "consultaId";
+    private static final String confirmarID = "consultaIdMedicos";
     private static final String AGREGAR = "irAgregarMedico";
     private static final String consultar = "consultarMedicos";
     private static final String modificar = "modificarMedicos";
@@ -33,7 +33,6 @@ public class ActionMedicos extends org.apache.struts.action.Action {
         Integer idEspecialidad = formMedi.getIdEspecialidad();
         String nombre = formMedi.getNombre();
         String apellido = formMedi.getApellido();
-        String especialidad = formMedi.getEspecialidad();
         String telefono = formMedi.getTelefono();
         String action = formMedi.getAction();
 
@@ -42,10 +41,19 @@ public class ActionMedicos extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Agregar Medico")) {
+            
+            
+            
             MantenimientoEspecialidades manEspe = new MantenimientoEspecialidades();
-            List<Especialidades> listaEspecialidad = manEspe.consultar();
-            formMedi.setListaEspecialidad(listaEspecialidad);
-            request.setAttribute("listaEspecialidad", listaEspecialidad);
+            List<Especialidades> listaEspecialidades = manEspe.consultar();
+            formMedi.setListaEspecialidad(listaEspecialidades);
+            request.setAttribute("listaEspecialidades", listaEspecialidades);
+            
+            
+////            List<Especialidades> listaEspecialidad = manEspe.consultar();
+////            ActionFormMedicos mform = new ActionFormMedicos();
+////            mform.setListaEspecialidad(listaEspecialidad);
+//            request.getSession().setAttribute("listaEspecialidad", listaEspecialidad);
             return mapping.findForward(AGREGAR);
         }
 
@@ -63,10 +71,6 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             if (telefono == null || telefono.equals("")) {
                 advertencia = "*Es necesario agregar el telefono del medico <br>";
             }
-            
-            if(especialidad == null || especialidad.equals("")){
-                advertencia = "*Es necesario agregar el especialidad del medico <br>";
-            }
 
             if (!advertencia.equals("")) {
                 formMedi.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
@@ -75,7 +79,7 @@ public class ActionMedicos extends org.apache.struts.action.Action {
 
             MantenimientoMedicos medi = new MantenimientoMedicos();
             MantenimientoEspecialidades manEspe = new MantenimientoEspecialidades();
-            String respuesta = medi.guardar(idMedico, idEspecialidad, nombre, apellido, especialidad, telefono);
+            String respuesta = medi.guardar(idMedico, idEspecialidad, nombre, apellido, telefono);
 
             if (respuesta.equals("")) {
                 formMedi.setError("<span style='color:red'> ocurrio un error al guardar la informacion " + "<br>" + advertencia + "</span>");
@@ -130,7 +134,6 @@ public class ActionMedicos extends org.apache.struts.action.Action {
                 formMedi.setIdEspecialidad(idEspecialidad);
                 formMedi.setNombre(nombre);
                 formMedi.setApellido(apellido);
-                formMedi.setEspecialidad(med.getEspecialidad());
                 formMedi.setTelefono(telefono);
                 return mapping.findForward(confirmarID);
             }
@@ -149,12 +152,11 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             m.setTelefono(telefono);
             
             MantenimientoMedicos medi = new MantenimientoMedicos();
-            medi.modificar(idMedico, idEspecialidad, nombre, apellido, especialidad, telefono);
+            medi.modificar(idMedico, idEspecialidad, nombre, apellido, telefono);
             formMedi.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> La clinica ha sido modificada.\n</div>");
             formMedi.setIdEspecialidad(m.getEspecialidades().getIdEspecialidad());
             formMedi.setNombre(m.getNombre());
             formMedi.setApellido(m.getApellido());
-            formMedi.setEspecialidad(m.getEspecialidad());
             formMedi.setTelefono(m.getTelefono());
             
             advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> La clinica ha sido modificada.\n</div>");
@@ -175,7 +177,6 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             formMedi.setIdEspecialidad(idEspecialidad);
             formMedi.setNombre(nombre);
             formMedi.setApellido(apellido);
-            formMedi.setEspecialidad(especialidad);
             formMedi.setTelefono(telefono);
             return mapping.findForward(irmodificar);
         }

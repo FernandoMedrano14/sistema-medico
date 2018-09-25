@@ -21,7 +21,7 @@ public class ActionClinicas extends org.apache.struts.action.Action {
     private static final String Error = "errorClinicas";
     private static final String guardado = "guardadoClinica";//
     private static final String AGREGAR = "irAgregarClinica";//
-    private static final String confirmarID = "consultaId";//
+    private static final String confirmarID = "consultaIdClinica";//
     private static final String consultar = "consultarClinicas";//
     private static final String modificar = "modificarClinica";//
     private static final String irmodificar = "irmodificarClinica";//

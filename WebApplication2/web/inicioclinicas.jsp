@@ -66,11 +66,6 @@
                             <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Agregar Clinica" ><b>Agregar Clinica</b></b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Clinicas"><b>Consultar Clinicas</b></a>
-                            <%--<html:form action = "/MantenimientoClinicas">
-                                <html:submit styleClass=" neg dropdown-item bg-info text-white" property="action" value="Agregar Clinica"/>
-                                <div class="dropdown-divider"></div>
-                                <html:submit styleClass="dropdown-item bg-info text-white" property="action" value="Consultar_Clinicas"/>
-                            </html:form>--%>
                         </div>
                     </li>
                 </ul>

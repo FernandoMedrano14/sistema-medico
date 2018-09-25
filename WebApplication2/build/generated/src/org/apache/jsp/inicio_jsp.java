@@ -78,11 +78,8 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            Areas\n");
       out.write("                        </a>\n");
       out.write("                        <div class=\"dropdown-menu bg-info \" aria-labelledby=\"navbarDropdown\">\n");
-<<<<<<< Updated upstream
-=======
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"iniciomedicos.jsp\"><b>Medicos</b></a>\n");
       out.write("                            <div class=\"dropdown-divider\"></div>\n");
->>>>>>> Stashed changes
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"inicioclinicas.jsp\"><b>Clinicas</b></a>\n");
       out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"inicioproveedores.jsp\"><b>Proveedores</b></a>\n");

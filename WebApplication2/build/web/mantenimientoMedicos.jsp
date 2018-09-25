@@ -50,7 +50,7 @@
                             Areas
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item bg-info text-white" href="iniciomedio.jsp"><b>Medicos</b></a>
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
                             <div class="dropdown-divider"></div>
@@ -61,9 +61,11 @@
                             <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
+                    </li>
+                    <p>  </p>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-info" href="MantenimientoClinicas.do?action=Consultar_Medicos"><b>Consultar Medicos</b></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -86,18 +88,18 @@
             <h4 align="center">Formulario de ingreso para nuevo médico</h4>
             <h4 align="center">Ingrese la Informacion del médico</h4>
             <br>
+            <br>
+            <br>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-striped">
                             <thead align="center">
-                            <th>Id Especialidad</th>
+                            <th>Especialidad</th>
                             <th>Nombres Medico</th>
                             <th>Apellidos Medico</th>
-                            <th>Especialidad</th>
                             <th>Teléfono</th>
                             <th>Acciones</th>
-                            <th>Extra</th>
                             </thead>
                             <tbody align="center">
                             <td>
@@ -105,18 +107,16 @@
                                     <logic:notEmpty name="ActionFormMedicos" property="listaEspecialidad">
                                         <logic:iterate id="ver" name="ActionFormMedicos" property="listaEspecialidad">
                                             <html:option value="${ver.idEspecialidad}">
-                                                ${ver.idEspecialidad}
+                                                ${ver.tipo}
                                             </html:option>
                                         </logic:iterate>
                                     </logic:notEmpty>
                                 </html:select>
                             </td>
                             <td><html:text property="nombre" size="40" maxlength="100"></html:text></td>
-                            <td><html:text property="apellido" size="20" maxlength="100"></html:text></td>
-                            <td><html:text property="especialidad" size="20" maxlength="100"></html:text></td>
-                            <td><html:text property="telefono" size="20" maxlength="100"></html:text></td>
+                            <td><html:text property="apellido" size="40" maxlength="100"></html:text></td>
+                            <td><html:text property="telefono" size="10" maxlength="100"></html:text></td>
                             <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
-                            <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar Medicos"/></td>
                             </tbody>
                         </table>
                         <p align="center">${advertencia}</p>

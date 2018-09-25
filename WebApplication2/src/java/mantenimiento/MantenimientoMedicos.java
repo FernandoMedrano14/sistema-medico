@@ -28,15 +28,14 @@ public class MantenimientoMedicos {
             System.out.println("nombre" + m.getNombre());
             System.out.println("apellido" + m.getApellido());
             System.out.println("telefono" + m.getTelefono());
-            System.out.println("codigo" + m.getEspecialidad());
-
+        
         }
     }
 
     SessionFactory factory = HibernateUtil.getSessionFactory();
     Session session = factory.openSession();
 
-    public String guardar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String especialidad, String telefono) {
+    public String guardar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido,  String telefono) {
         System.out.println("ENTRE A GUARDAR");
         String mensaje = "No funciona el try catch";
 
@@ -49,7 +48,6 @@ public class MantenimientoMedicos {
 
         medi.setNombre(nombre);
         medi.setApellido(apellido);
-        medi.setEspecialidad(especialidad);
         medi.setTelefono(telefono);
 
         try {
@@ -105,7 +103,7 @@ public class MantenimientoMedicos {
         return lista;
     }
 
-    public String modificar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String especialidad, String telefono) {
+    public String modificar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String telefono) {
         String mensaje = "no pudimos modificar los datos";
         Medicos medi = new Medicos();
         medi.setIdMedico(idMedico);
@@ -116,7 +114,6 @@ public class MantenimientoMedicos {
 
         medi.setNombre(nombre);
         medi.setApellido(apellido);
-        medi.setEspecialidad(especialidad);
         medi.setTelefono(telefono);
 
         try {

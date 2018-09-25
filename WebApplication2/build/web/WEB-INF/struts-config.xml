@@ -70,7 +70,7 @@
         
                                            <!-- Forward Clinicas-->
         <forward name="eliminarClinicas" path="/consultarClinicas.jsp"/>
-        <forward name="consultaId" path="/modificarClinicas.jsp"/>
+        <forward name="consultaIdClinica" path="/modificarClinicas.jsp"/>
         <forward name="guardadoClinica" path="/mantenimientoClinicas.jsp"/>
         <forward name="confirmacionConsultaIdCli" path="/modificarClinicas.jsp"/>
         <forward name="modificarClinicas" path="/modificarClinicas.jsp"/>
@@ -80,7 +80,7 @@
         
                                           <!-- Forward Medicos-->
         <forward name="eliminarMedico" path="/consultarMedicos.jsp"/>
-        <forward name="consultaId" path="/modificarMedicos.jsp"/>
+        <forward name="consultaIdMedicos" path="/modificarMedicos.jsp"/>
         <forward name="guardadoMedicos" path="/mantenimientoMedicos.jsp"/>
         <forward name="confirmacionConsultaIdEspecialidad" path="/modificarMedicos.jsp"/>
         <forward name="modificarMedicos" path="/modificarMedicos.jsp"/>

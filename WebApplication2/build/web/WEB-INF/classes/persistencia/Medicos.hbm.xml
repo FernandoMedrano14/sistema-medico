@@ -17,9 +17,6 @@
         <property name="apellido" type="string">
             <column name="apellido" length="100" />
         </property>
-        <property name="especialidad" type="string">
-            <column name="especialidad" length="100" />
-        </property>
         <property name="telefono" type="string">
             <column name="telefono" length="100" />
         </property>

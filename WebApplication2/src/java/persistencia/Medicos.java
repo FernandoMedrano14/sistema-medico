@@ -15,18 +15,16 @@ public class Medicos  implements java.io.Serializable {
      private Especialidades especialidades;
      private String nombre;
      private String apellido;
-     private String especialidad;
      private String telefono;
      private Set citases = new HashSet(0);
 
     public Medicos() {
     }
 
-    public Medicos(Especialidades especialidades, String nombre, String apellido, String especialidad, String telefono, Set citases) {
+    public Medicos(Especialidades especialidades, String nombre, String apellido, String telefono, Set citases) {
        this.especialidades = especialidades;
        this.nombre = nombre;
        this.apellido = apellido;
-       this.especialidad = especialidad;
        this.telefono = telefono;
        this.citases = citases;
     }
@@ -59,13 +57,7 @@ public class Medicos  implements java.io.Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public String getEspecialidad() {
-        return this.especialidad;
-    }
-    
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
+ 
     public String getTelefono() {
         return this.telefono;
     }
