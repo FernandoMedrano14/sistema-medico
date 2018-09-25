@@ -89,9 +89,9 @@ public class MantenimientoClinicas {
     public String modificar(Integer idClinica, Integer idFarmacia, String direccion, String horario) {
         
         String mensaje = "";
-
         Clinicas cli = new Clinicas();
         cli.setIdClinica(idClinica);
+        
         Farmacias farmacias = new Farmacias();
         farmacias.setIdFarmacia(idFarmacia);
         cli.setFarmacias(farmacias);

@@ -62,7 +62,7 @@
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="MantenimientoMedicos.do?action=Agregar Medico" ><b>Agregar Medico</b></b></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Medicos"><b>Consultar Medicos</b></a>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicos.do?action=Consultar_Medicos"><b>Consultar Medicos</b></a>
                         </div>
                     </li>
                     <%--<li class="nav-item">

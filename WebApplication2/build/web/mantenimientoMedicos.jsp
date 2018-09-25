@@ -63,10 +63,6 @@
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
                     </li>
-                    <p>  </p>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="MantenimientoClinicas.do?action=Consultar_Medicos"><b>Consultar Medicos</b></a>
-                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
@@ -117,6 +113,7 @@
                             <td><html:text property="apellido" size="40" maxlength="100"></html:text></td>
                             <td><html:text property="telefono" size="10" maxlength="100"></html:text></td>
                             <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
+                             <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Medicos"/></td>
                             </tbody>
                         </table>
                         <p align="center">${advertencia}</p>

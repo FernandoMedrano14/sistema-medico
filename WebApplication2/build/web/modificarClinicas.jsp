@@ -86,8 +86,8 @@
         <br>
         <br> 
         <br>
-        <h4 align="center">Formulario de modificación de Consultorios</h4>
-        <h4 align="center">Ingrese los nuevos datos del Consultorio</h4>
+        <h4 align="center">Formulario de modificación de Clinicas</h4>
+        <h4 align="center">Ingrese los nuevos datos de la Clinica</h4>
         <br>
         <br>
         <br>
@@ -110,9 +110,7 @@
                             <tbody>
                                 <tr align="center">
                                     <td>
-                                        <%--<html:text property="idFarmacia" size="10" maxlength="" ></html:text>--%>
                                         <html:text readonly="true" property="idClinica" size="5" maxlength="" ></html:text>
-                                            <!--<input class="form-control" name="idFarmacia" value="{MantenimientoFarmacias.idFarmacia}" placeholder="Id" readonly="re">-->
                                         </td>
                                         <td>
                                         <html:text readonly="true" property="idFarmacia" size="5" maxlength="" ></html:text>

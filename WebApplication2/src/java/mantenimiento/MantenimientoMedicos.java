@@ -70,23 +70,23 @@ public class MantenimientoMedicos {
 
         Medicos medi = new Medicos();
 
-        String mensaje = "error en  el try cacatch ";
+        int mensaje = 0;
 
         try {
             session.beginTransaction();
-            medi = (Medicos) session.get(Especialidades.class, idMedico);
+            medi = (Medicos) session.get(Medicos.class, idMedico);
             session.delete(medi);
             session.getTransaction().commit();
-            mensaje = "se elimino con exito";
+            mensaje = 1;
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                mensaje = "no se inserto por " + e;
+                mensaje = 2;
             }
         } //finally {
         //session.close();
         //}
-        return 0;
+        return mensaje;
     }
 
     public List<Medicos> consultar() {
