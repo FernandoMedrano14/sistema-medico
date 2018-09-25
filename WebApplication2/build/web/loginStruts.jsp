@@ -29,17 +29,23 @@
                 <html:form action="LAct">
                     <form  class="form-signin">
                         <span id="reauth-email" class="reauth-email"></span>
-                        <input type="email" name="username" value="" class="form-control" placeholder="Correo" required autofocus>
+                        <%--<input type="email" name="username" value="" class="form-control" placeholder="Correo" required autofocus>--%>
+                        <label>Usuario / Correo</label>
+                        <html:text property="username" styleClass="form-control"/>
                         <br>
-                        <input type="password" name="password" value="" class="form-control" placeholder="Contraseña" required>
+                        <%--<input type="password" name="password" value="" class="form-control" placeholder="Contraseña" required>--%>
+                        <label>Contraseña</label>
+                        <html:password property="password" styleClass="form-control"/>
                         <br>
                         <div id="remember" class="checkbox">
+                            ${mensaje}
                             <label>
                                 <input type="checkbox" value="remember-me"> Recordar
                             </label>
                         </div>
                         <br>
                         <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Iniciar Sesión</button>
+                        <html:submit property="action" value="Iniciar Sesion" styleClass="btn btn-lg btn-success btn-block btn-signin"/>
                         <br>
                         <div class="row" align="center">
                             <a href="mantenimientoUsuarios.jsp" class="btn btn-link">

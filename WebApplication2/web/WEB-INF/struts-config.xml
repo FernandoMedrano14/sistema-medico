@@ -29,6 +29,10 @@
     </global-exceptions>
 
     <global-forwards>
+        <!-- Fordward login -->
+        
+        
+        <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
         <forward name="confirmacionNuevoUsuario" path="/confirmacionNuevoUsuario.jsp"/>
         <forward name="errorMantenimientoUsuario" path="/mantenimientoUsuarios.jsp"/>

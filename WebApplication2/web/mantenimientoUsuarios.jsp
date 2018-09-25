@@ -92,17 +92,31 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"></th>
-                                    <td><html:text property="nombre" size="30" maxlength="100"></html:text>
-                                    <td><html:text property="correo" size="30" maxlength="50"></html:text>
-                                    <td><html:text property="contra" size="30" maxlength="16"></html:text>
-                                    <td><html:text property="genero" size="20" maxlength="25"></html:text>
-                                    <td><html:text property="tipo" size="10" maxlength="50"></html:text>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br>
-                            <br>
-                            <div align="center">
+                                    <td><html:text property="nombre" size="30" maxlength="100"/></td>
+                                    <td><html:text property="correo" size="30" maxlength="50"/></td>
+                                    <td><html:password property="contra" size="30" maxlength="16"/></td>
+                                    <td>
+                                        <html:select property="genero">
+                                            <html:option value="">Seleccione</html:option>
+                                            <html:option value="Masculino"/>
+                                            <html:option value="Femenino"/>
+                                        </html:select>
+                                    </td>
+                                    <td>
+                                        <html:select property="tipo">
+                                            <html:option value="">Seleccione</html:option>
+                                            <html:option value="Admin"/>
+                                            <html:option value="User"/>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <center>${advertencia}</center>
+
+                        <br>
+                        <div align="center">
                             <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
                             <html:submit styleClass="btn btn-info" property="action" value="Consultar"/>
                         </div>
