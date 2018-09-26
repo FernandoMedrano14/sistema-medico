@@ -44,6 +44,7 @@
                             Opciones
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="iniciomedicos.jsp">Medicos</a>
                             <a class="dropdown-item" href="iniciocitas.jsp">Citas</a>
                             <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
                             <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>

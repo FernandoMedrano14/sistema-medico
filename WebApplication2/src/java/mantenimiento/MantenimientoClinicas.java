@@ -88,6 +88,9 @@ public class MantenimientoClinicas {
 
     public String modificar(Integer idClinica, Integer idFarmacia, String direccion, String horario) {
         
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+        
         String mensaje = "";
         Clinicas cli = new Clinicas();
         cli.setIdClinica(idClinica);

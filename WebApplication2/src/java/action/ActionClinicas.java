@@ -115,6 +115,7 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             MantenimientoClinicas clinicas = new MantenimientoClinicas();
             Integer idRecibido = (Integer.parseInt(request.getParameter("id")));
             Clinicas cl = clinicas.consultarId(idRecibido);
+            
             formCli.setIdClinica(cl.getIdClinica());
             formCli.setIdFarmacia(cl.getFarmacias().getIdFarmacia());
             formCli.setDireccion(cl.getDireccion());
@@ -127,9 +128,11 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             String advertencia = "";
             Clinicas c = new Clinicas();
             c.setIdClinica(idClinica);
+            
             Farmacias f = new Farmacias();
             f.setIdFarmacia(idFarmacia);
             c.setFarmacias(f);
+            
             c.setDireccion(direccion);
             c.setHorario(horario);
 
@@ -156,7 +159,6 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             System.out.println(id);
             MantenimientoClinicas clinica = new MantenimientoClinicas();
             Clinicas clinicas = clinica.consultarId(idClinica);
-
             formCli.setIdClinica(clinicas.getIdClinica());
             formCli.setDireccion(clinicas.getDireccion());
 

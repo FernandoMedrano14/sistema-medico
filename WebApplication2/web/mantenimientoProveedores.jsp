@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-outline-info" href="inicio.jsp">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="btn btn-outline-info" href="inicio.jsp">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <p>  </p>
                     <li class="nav-item">
@@ -42,19 +42,28 @@
                     <p>  </p>
                     <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones
+                            Areas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>
-                            <a class="dropdown-item" href="inicioconsultorios.jsp">Consultorios</a>
-                            <a class="dropdown-item" href="inicioespecialidades.jsp">Especialidades</a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                             <%--<div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
+                    <a href="mantenimientoMedicamentos.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Medicamentos</a>
+                    <p>   </p>
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
                     <p>  </p>
                     <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
@@ -101,14 +110,14 @@
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
-                                        </td>
-                                        <td>
+                                    </td>
+                                    <td>
                                         <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Proveedores"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p align="center">${advertencia}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p align="center">${advertencia}</p>
                         <br>
                         <br>
                     </div>

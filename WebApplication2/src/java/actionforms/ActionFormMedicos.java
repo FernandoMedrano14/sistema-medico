@@ -17,7 +17,7 @@ public class ActionFormMedicos extends org.apache.struts.action.ActionForm   {
      private String telefono;
      private String action;
      private String error;
-     private List<Medicos> listamedi;
+     private List<Medicos> listaMedicos;
      private List<Especialidades> listaEspecialidad;
 
     public Integer getIdMedico() {
@@ -84,13 +84,15 @@ public class ActionFormMedicos extends org.apache.struts.action.ActionForm   {
         this.listaEspecialidad = listaEspecilidad;
     }
 
-    public List<Medicos> getListamedi() {
-        return listamedi;
+    public List<Medicos> getListaMedicos() {
+        return listaMedicos;
     }
 
-    public void setListamedi(List<Medicos> listamedi) {
-        this.listamedi = listamedi;
+    public void setListaMedicos(List<Medicos> listaMedicos) {
+        this.listaMedicos = listaMedicos;
     }
+
+ 
      
      
 }

@@ -19,7 +19,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/Style.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="favicon.ico" />
-        <title>Modificar Clinicas</title>
+        <title>Modificar Medicos</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -66,7 +66,7 @@
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="MantenimientoMedicos.do?action=Agregar Medico" ><b>Agregar Medico</b></b></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Medicos"><b>Consultar Medico</b></a>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicos.do?action=Consultar_Medicos"><b>Consultar Medico</b></a>
                         </div>
                     </li>
                 </ul>

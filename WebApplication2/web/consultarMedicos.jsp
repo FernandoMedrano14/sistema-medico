@@ -106,8 +106,8 @@
                         </thead>
                         <tbody>
 
-                            <logic:notEmpty name="ActionFormMedicos" property="listamedi" >
-                                <logic:iterate id="ver" name="ActionFormMedicos" property="listamedi">
+                            <logic:notEmpty name="ActionFormMedicos" property="listaMedicos" >
+                                <logic:iterate id="ver" name="ActionFormMedicos" property="listaMedicos">
                                     <tr align="center">
                                         <html:form action="/MantenimientoMedicos">
                                             <td>

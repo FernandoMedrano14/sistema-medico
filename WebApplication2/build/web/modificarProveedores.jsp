@@ -17,7 +17,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="favicon.ico" />
-        <title>Modificar Farmacia</title>
+        <title>Modificar Proveedores</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,34 +31,53 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="inicio.jsp">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="btn btn-outline-info" href="inicio.jsp">Inicio<span class="sr-only">(current)</span></a>
                     </li>
+                    <p>  </p>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Galeria</a>
+                        <a class="btn btn-outline-info" href="#">Galeria</a>
                     </li>
+                    <p>  </p>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Areas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="mantenimientoProveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="mantenimientoFarmacias.jsp">Farmacias</a>
-                            <a class="dropdown-item" href="mantenimientoConsultorios.jsp">Consultorios</a>
-                            <a class="dropdown-item" href="mantenimientoEspecialidades.jsp">Especialidades</a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                             <%--<div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Configuracion</a>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Agregar" ><b>Agregar Proveedor</b></b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Consultar_Proveedores"><b>Consultar Proveedores</b></a>
+                        </div>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoMedicamentos.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Medicamentos</a>
                     <p>   </p>
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
+                    <p>  </p>
+                    <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
                     <p>   </p>
-                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Cerrar</a>
+                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
                 </form>
             </div>
         </nav>
@@ -105,10 +124,6 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div align="center">
-                            <html:link styleClass="btn btn-info" page="/mantenimientoProveedores.jsp">Volver</html:link>
-                            <html:submit styleClass="btn btn-info" property="action" value="Consultar_Proveedores"/>
-                        </div>
                     </div>
                 </div>
             </div>

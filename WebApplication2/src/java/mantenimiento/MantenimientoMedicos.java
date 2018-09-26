@@ -104,6 +104,10 @@ public class MantenimientoMedicos {
     }
 
     public String modificar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String telefono) {
+        
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+        
         String mensaje = "no pudimos modificar los datos";
         Medicos medi = new Medicos();
         medi.setIdMedico(idMedico);
@@ -134,6 +138,8 @@ public class MantenimientoMedicos {
 
     public Medicos consultarById(Integer idMedico) {
         Medicos medi = null;
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
         String mensaje = "";
         try {
             session.beginTransaction();

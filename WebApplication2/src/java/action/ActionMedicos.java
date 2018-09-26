@@ -21,8 +21,8 @@ public class ActionMedicos extends org.apache.struts.action.Action {
     private static final String confirmarID = "consultaIdMedicos";
     private static final String AGREGAR = "irAgregarMedico";
     private static final String consultar = "consultarMedicos";
-    private static final String modificar = "modificarMedicos";
-    private static final String irmodificar = "irmodificarMedicos";
+    private static final String modificar = "modificarMedico";
+    private static final String irmodificar = "irmodificarMedico";
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -93,7 +93,7 @@ public class ActionMedicos extends org.apache.struts.action.Action {
                 formMedi.setError("<span style='color:white'>Usuario ya existente" + "<br></span>");
                 return mapping.findForward(Error);
             } else {
-                formMedi.setListamedi(lista);
+                formMedi.setListaMedicos(lista);
                 return mapping.findForward(consultar);
             }
         }
@@ -108,7 +108,7 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             } else {
                 System.out.println("Estoy aqui");
                 List<Medicos> listaMedicos = medi.consultar();
-                formMedi.setListamedi(listaMedicos);
+                formMedi.setListaMedicos(listaMedicos);
                 formMedi.setIdMedico(idRecibido);
                 advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro eliminado:</strong> El medico ha sido eliminado del registro.\n</div>");
                 request.setAttribute("advertencia", advertencia);
@@ -121,17 +121,17 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             Integer idRecibido = (Integer.parseInt(request.getParameter("id")));
             Medicos med = medi.consultarById(idRecibido);
 
-            if (med == null) {
+            /*if (med == null) {
                 formMedi.setError("<spam style='color:red'> El Registro no existe" + "<br></spam>");
                 return mapping.findForward(Error);
-            } else {
-                formMedi.setIdMedico(idMedico);
-                formMedi.setIdEspecialidad(idEspecialidad);
-                formMedi.setNombre(nombre);
-                formMedi.setApellido(apellido);
-                formMedi.setTelefono(telefono);
+            } else {*/
+                formMedi.setIdMedico(med.getIdMedico());
+                formMedi.setIdEspecialidad(med.getEspecialidades().getIdEspecialidad());
+                formMedi.setNombre(med.getNombre());
+                formMedi.setApellido(med.getApellido());
+                formMedi.setTelefono(med.getTelefono());
                
-            }
+            //}
              return mapping.findForward(confirmarID);
 
         }
@@ -139,13 +139,12 @@ public class ActionMedicos extends org.apache.struts.action.Action {
         if (action.equals("Modificar")) {
             String advertencia = "";
             Medicos m = new Medicos();
-            
             m.setIdMedico(idMedico);
             
             Especialidades espe = new Especialidades();
             espe.setIdEspecialidad(idEspecialidad);
-            
             m.setEspecialidades(espe);
+            
             m.setNombre(nombre);
             m.setApellido(apellido);
             m.setTelefono(telefono);
@@ -162,7 +161,7 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> El medico ha sido modificado.\n</div>");
             request.setAttribute("advertencia", advertencia);
             List<Medicos> listMedicos = medi.consultar();
-            formMedi.setListamedi(listMedicos);
+            formMedi.setListaMedicos(listMedicos);
             return mapping.findForward(consultar);
         }
 
@@ -173,8 +172,8 @@ public class ActionMedicos extends org.apache.struts.action.Action {
             idMedico = Integer.parseInt(id);
             
             System.out.println(id);
-            MantenimientoMedicos mMedicos = new MantenimientoMedicos();
-            Medicos med = mMedicos.consultarById(idMedico);
+            MantenimientoMedicos Medicos = new MantenimientoMedicos();
+            Medicos med = Medicos.consultarById(idMedico);
 
             formMedi.setIdMedico(med.getIdMedico());
             formMedi.setIdEspecialidad(idEspecialidad);
