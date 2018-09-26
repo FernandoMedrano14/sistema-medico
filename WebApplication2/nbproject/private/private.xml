@@ -4,11 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
 <<<<<<< Updated upstream
         <group>
-            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/WEB-INF/struts-config.xml</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/modificarMedicos.jsp</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/consultarMedicos.jsp</file>
             <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/mantenimientoMedicos.jsp</file>
-            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/mantenimientoClinicas.jsp</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/mantenimiento/MantenimientoMedicos.java</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/action/ActionMedicos.java</file>
             <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/iniciomedicos.jsp</file>
-            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/inicioclinicas.jsp</file>
         </group>
 =======
         <group/>

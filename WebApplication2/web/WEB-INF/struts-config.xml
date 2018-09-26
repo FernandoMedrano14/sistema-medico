@@ -79,17 +79,17 @@
         <forward name="confirmacionConsultaIdCli" path="/modificarClinicas.jsp"/>
         <forward name="modificarClinicas" path="/modificarClinicas.jsp"/>
         <forward name="consultarClinicas" path="/consultarClinicas.jsp"/>
-        <forward name="irmodificarClinicas" path="/modificarClinicas.jsp"/>
+        <forward name="irmodificarClinica" path="/modificarClinicas.jsp"/>
         <forward name="irAgregarClinica" path="/mantenimientoClinicas.jsp"/>
         
                                           <!-- Forward Medicos-->
         <forward name="eliminarMedico" path="/consultarMedicos.jsp"/>
         <forward name="consultaIdMedicos" path="/modificarMedicos.jsp"/>
         <forward name="guardadoMedicos" path="/mantenimientoMedicos.jsp"/>
-        <forward name="confirmacionConsultaIdEspecialidad" path="/modificarMedicos.jsp"/>
-        <forward name="modificarMedicos" path="/modificarMedicos.jsp"/>
+        <forward name="confirmacionConsultaIdEspe" path="/modificarMedicos.jsp"/>
+        <forward name="modificarMedico" path="/modificarMedicos.jsp"/>
         <forward name="consultarMedicos" path="/consultarMedicos.jsp"/>
-        <forward name="irmodificarMedicos" path="/modificarMedicos.jsp"/>
+        <forward name="irmodificarMedico" path="/modificarMedicos.jsp"/>
         <forward name="irAgregarMedico" path="/mantenimientoMedicos.jsp"/>
         
         

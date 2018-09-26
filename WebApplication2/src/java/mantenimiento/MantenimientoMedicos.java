@@ -70,23 +70,23 @@ public class MantenimientoMedicos {
 
         Medicos medi = new Medicos();
 
-        String mensaje = "error en  el try cacatch ";
+        int mensaje = 0;
 
         try {
             session.beginTransaction();
-            medi = (Medicos) session.get(Especialidades.class, idMedico);
+            medi = (Medicos) session.get(Medicos.class, idMedico);
             session.delete(medi);
             session.getTransaction().commit();
-            mensaje = "se elimino con exito";
+            mensaje = 1;
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
-                mensaje = "no se inserto por " + e;
+                mensaje = 2;
             }
         } //finally {
         //session.close();
         //}
-        return 0;
+        return mensaje;
     }
 
     public List<Medicos> consultar() {
@@ -104,6 +104,10 @@ public class MantenimientoMedicos {
     }
 
     public String modificar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String telefono) {
+        
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+        
         String mensaje = "no pudimos modificar los datos";
         Medicos medi = new Medicos();
         medi.setIdMedico(idMedico);
@@ -134,6 +138,8 @@ public class MantenimientoMedicos {
 
     public Medicos consultarById(Integer idMedico) {
         Medicos medi = null;
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
         String mensaje = "";
         try {
             session.beginTransaction();

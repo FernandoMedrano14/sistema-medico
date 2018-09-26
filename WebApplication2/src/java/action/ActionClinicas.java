@@ -112,44 +112,27 @@ public class ActionClinicas extends org.apache.struts.action.Action {
         }
 
         if (action.equals("BuscarId")) {
-//            System.out.println("entré");
-
             MantenimientoClinicas clinicas = new MantenimientoClinicas();
             Integer idRecibido = (Integer.parseInt(request.getParameter("id")));
-//            System.out.println("int recibido: " + idRecibido);
             Clinicas cl = clinicas.consultarId(idRecibido);
+            
             formCli.setIdClinica(cl.getIdClinica());
             formCli.setIdFarmacia(cl.getFarmacias().getIdFarmacia());
             formCli.setDireccion(cl.getDireccion());
             formCli.setHorario(cl.getHorario());
-//            System.out.println(cl.getFarmacias().toString());
             return mapping.findForward(confirmarID);
-
-            /*
-            if (cl == null) {
-                System.out.println("ERROR");
-                formCli.setError("<spam style='color:red'> El Registro no existe" + "<br></spam>");
-                return mapping.findForward(Error);
-            } else {
-                System.out.println("FARMACIAS: "+cl.getFarmacias().toString());
-                formCli.setIdClinica(idRecibido);
-                //formCli.setIdFarmacia(cl.getFarmacias().getIdFarmacia());
-                formCli.setDireccion(cl.getDireccion());
-                formCli.setMensaje("<spam style='color:green'> Ha sido modificado con exito");
-                /*formCli.setIdFarmacia(idFarmacia);
-                formCli.setDireccion(direccion);
-                formCli.setHorario(horario);*/
- /*     return mapping.findForward(confirmarID);
-            }*/
+            
         }
 
         if (action.equals("Modificar")) {
             String advertencia = "";
             Clinicas c = new Clinicas();
             c.setIdClinica(idClinica);
+            
             Farmacias f = new Farmacias();
             f.setIdFarmacia(idFarmacia);
             c.setFarmacias(f);
+            
             c.setDireccion(direccion);
             c.setHorario(horario);
 
@@ -167,14 +150,15 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             return mapping.findForward(consultar);
         }
 
-        if (action.equals("irModificar")) {
+        if (action.equals("irModificarClinicas")) {
+            
             System.out.println("estoy en irModificar");
             String id = request.getParameter("id");
             idClinica = Integer.parseInt(id);
+            
             System.out.println(id);
             MantenimientoClinicas clinica = new MantenimientoClinicas();
             Clinicas clinicas = clinica.consultarId(idClinica);
-
             formCli.setIdClinica(clinicas.getIdClinica());
             formCli.setDireccion(clinicas.getDireccion());
 

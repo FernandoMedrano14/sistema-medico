@@ -15,58 +15,64 @@
         <link href="css/styleinicio.css" rel="stylesheet" type="text/css"/>
         <title>Inicio Proveedores</title>
     </head>
+    <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <img id="logo" src="https://res.cloudinary.com/disputebills/image/upload/v1462474206/blue-mark_cnzgry.png">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#">
+                <img id="logo" src="https://res.cloudinary.com/disputebills/image/upload/v1462474206/blue-mark_cnzgry.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="btn btn-outline-info" href="inicio.jsp">Inicio <span class="sr-only">(current)</span></a>
-                </li>
-                <p>  </p>
-                <li class="nav-item">
-                    <a class="btn btn-outline-info" href="#">Galeria</a>
-                </li>
-                <p>  </p>
-                <li class="nav-item dropdown">
-                    <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Opciones
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="inicioproveedores.jsp">Proveedores</a>
-                        <a class="dropdown-item" href="inicioFarmacias.jsp">Farmacias</a>
-                        <a class="dropdown-item" href="inicioconsultorios.jsp">Consultorios</a>
-                        <a class="dropdown-item" href="inicioespecialidades.jsp">Especialidades</a>
-                        <%--<div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Configuración</a>--%>
-                    </div>
-                </li>
-                <p>  </p>
-                <li class="nav-item">
-                    <a class="btn btn-outline-info" href="mantenimientoProveedores.jsp">Agregar Proveedor</a>
-                </li>
-                <p>  </p>
-                <li>
-                <html:form action = "/MantenimientoProveedores">
-                    <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Proveedores"/>
-                </html:form>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
-                <p>  </p>
-                <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
-                <p>   </p>
-                <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
-            </form>
-        </div>
-    </nav>
-
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="btn btn-outline-info" href="inicio.jsp">Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <p>  </p>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-info" href="#">Galeria</a>
+                    </li>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Areas
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
+                            <%--<div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Configuración</a>--%>
+                        </div>
+                    </li>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Agregar" ><b>Agregar Proveedor</b></b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Consultar_Proveedores"><b>Consultar Proveedores</b></a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
+                    <p>   </p>
+                    <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
+                    <p>   </p>
+                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
+                </form>
+            </div>
+        </nav>
     <br>
     <center><h2>¡BIENVENIDOS A NUESTROS PROVEEDORES!</center></h2>
 <br>
