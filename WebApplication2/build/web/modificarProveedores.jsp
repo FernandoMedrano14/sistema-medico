@@ -51,7 +51,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                             <%--<div class="dropdown-divider"></div>
@@ -70,15 +70,11 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="mantenimientoMedicamentos.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Medicamentos</a>
-                    <p>   </p>
-                    <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
-                    <p>  </p>
-                    <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
-                    <p>   </p>
-                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
-                </form>
+                <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
+                    <html:submit property="action" value="Agregar Usuario" styleClass="btn btn-outline-info my-2 my-sm-0"/><p>  </p>
+                    <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
+                    <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
+                </html:form>
             </div>
         </nav>
         <br>

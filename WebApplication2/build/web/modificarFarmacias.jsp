@@ -47,7 +47,7 @@
                             Areas
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                             <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
                             <div class="dropdown-divider"></div>
@@ -55,7 +55,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
@@ -72,15 +72,11 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="mantenimientoMedicamentos.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Medicamentos</a>
-                    <p>   </p>
-                    <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
-                    <p>   </p>
-                    <a class="btn btn-outline-info disabled" href="#">Configuracion</a>
-                    <p>  </p>
-                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
-                </form>
+                <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
+                    <html:submit property="action" value="Agregar Usuario" styleClass="btn btn-outline-info my-2 my-sm-0"/><p>  </p>
+                    <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
+                    <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
+                </html:form>
             </div>
         </nav>
         <html:form action = "/MantenimientoFarmacias">
@@ -118,7 +114,7 @@
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
-                                        </td>
+                                    </td>
                                 </tr>
                             <br>
                             <tr colspan="3">

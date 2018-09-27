@@ -22,7 +22,7 @@
         <link href="css/Style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-               <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
                 <img id="logo" src="https://res.cloudinary.com/disputebills/image/upload/v1462474206/blue-mark_cnzgry.png">
             </a>
@@ -40,7 +40,7 @@
                         <a class="btn btn-outline-info" href="#">Galeria</a>
                     </li>
                     <p>  </p>
-                        <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
@@ -53,7 +53,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioFarmacias.jsp"><b>Farmacias</b></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="mantenimientoConsultorios.jsp"><b>Consultorios</b></a>
+                            <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
@@ -68,13 +68,11 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
-                    <p>   </p>
-                    <a class="btn btn-outline-info disabled" href="#">Configuracion</a>
-                    <p>  </p>
-                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
-                </form>
+                <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
+                    <html:submit property="action" value="Agregar Usuario" styleClass="btn btn-outline-info my-2 my-sm-0"/><p>  </p>
+                    <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
+                    <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
+                </html:form>
             </div>
         </nav>
 
@@ -98,27 +96,27 @@
                         </thead>
                         <tbody>
 
-                        <logic:notEmpty name="ActionFormEspecialidades" property="listaEspe" >
-                            <logic:iterate id="ver" name="ActionFormEspecialidades" property="listaEspe">
-                                <tr align="center">
-                                <html:form action="/MantenimientoEspecialidades">
-                                    <td>
-                                    <bean:write name="ver" property="idEspecialidad"/>
-                                    <div hidden="hidden"><html:text name="ver" property="idEspecialidad" styleClass="hidden"/></div>
-                                    </td>
-                                    <td>
-                                    <bean:write name="ver" property="tipo"/>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-success" href="MantenimientoEspecialidades.do?action=irModificar&id=<bean:write name="ver" property="idEspecialidad"/>">Modificar</a>
-                                        <a class="btn btn-danger" href="MantenimientoEspecialidades.do?action=Eliminar&id=<bean:write name="ver" property="idEspecialidad"/>">Eliminar</a>
+                            <logic:notEmpty name="ActionFormEspecialidades" property="listaEspe" >
+                                <logic:iterate id="ver" name="ActionFormEspecialidades" property="listaEspe">
+                                    <tr align="center">
+                                        <html:form action="/MantenimientoEspecialidades">
+                                            <td>
+                                                <bean:write name="ver" property="idEspecialidad"/>
+                                                <div hidden="hidden"><html:text name="ver" property="idEspecialidad" styleClass="hidden"/></div>
+                                            </td>
+                                            <td>
+                                                <bean:write name="ver" property="tipo"/>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-success" href="MantenimientoEspecialidades.do?action=irModificar&id=<bean:write name="ver" property="idEspecialidad"/>">Modificar</a>
+                                                <a class="btn btn-danger" href="MantenimientoEspecialidades.do?action=Eliminar&id=<bean:write name="ver" property="idEspecialidad"/>">Eliminar</a>
 
-                                        <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
-                                    </td>
-                                </html:form>
-                                </tr>
-                            </logic:iterate>
-                        </logic:notEmpty>
+                                                <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
+                                            </td>
+                                        </html:form>
+                                    </tr>
+                                </logic:iterate>
+                            </logic:notEmpty>
                         </tbody>
                     </table>
                 </div>
