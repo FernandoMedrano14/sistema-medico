@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,6 +55,9 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
+                    <html:form action="/AgregarUsuario">
+                        <html:submit property="action" value="Agregar Usuario" styleClass="btn btn-outline-info my-2 my-sm-0"/>
+                    </html:form>
                     <p>  </p>
                     <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
                     <p>   </p>

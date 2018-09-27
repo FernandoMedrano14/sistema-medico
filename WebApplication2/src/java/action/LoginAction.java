@@ -23,7 +23,8 @@ public class LoginAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String LoginError = "loginError";
+    private static final String loginError = "loginError";
+    private static final String agregarUsuario= "agregarUsuario";
 
     /* User Session */
     private static String acceso = "";
@@ -57,28 +58,54 @@ public class LoginAction extends org.apache.struts.action.Action {
 //            return mapping.findForward("failure");
 //        }
 //
-
+System.out.println("Action: "+loginform.getAction());
+System.out.println("Acceso: ("+acceso+")");
         switch (loginform.getAction()) {
             case "Iniciar Sesion":
                 List<Usuarios> listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
-                for (Usuarios usuarios : listaUsuarios) {
-                    if ((loginform.getUsername().equals(usuarios.getNombre()) || loginform.getUsername().equals(usuarios.getCorreo())) && loginform.getPassword().equals(usuarios.getContra())) {
-                        acceso = usuarios.getTipo();
-                    }
-                }
+//                for (Usuarios usuarios : listaUsuarios) {
+//                    if ((loginform.getUsername().equals(usuarios.getNombre()) || loginform.getUsername().equals(usuarios.getCorreo())) && loginform.getPassword().equals(usuarios.getContra())) {
+//                        acceso = usuarios.getTipo();
+//                    }
+//                }
+                listaUsuarios.stream().filter((usuarios) -> ((loginform.getUsername().equals(usuarios.getNombre()) || loginform.getUsername().equals(usuarios.getCorreo())) && loginform.getPassword().equals(usuarios.getContra()))).forEachOrdered((usuarios) -> {
+                    acceso = usuarios.getTipo();
+                });
                 if (acceso.equals("")) {
-                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">No se encontro usuario</div>";
+                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Usuario o contraseña incorrecta</div>";
                     request.setAttribute("mensaje", mensaje);
-                    return mapping.findForward(LoginError);
+                    return mapping.findForward(loginError);
                 }
                 if (acceso.equals("Admin")) {
                     return mapping.findForward(SUCCESS);
                 }
                 break;
+            case "Cerrar Sesion":
+                if (!acceso.equals("")) {
+                    acceso = "";
+                    mensaje = "<div class=\"alert alert-info\" style=\"text-align: center\">Sesion cerrada</div>";
+                    request.setAttribute("mensaje", mensaje);
+                    return mapping.findForward(loginError);
+                }
+                break;
+            case "Agregar Usuario":
+                System.out.println("En agregar usuario\nAcceso: ("+acceso+")");
+                if (acceso.equals("")) {
+                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion<strong/></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    return mapping.findForward(loginError);
+                }
+                if (acceso.equals("Admin")) {
+                    return mapping.findForward(agregarUsuario);
+                }
+                
+                break;
             case "":
                 break;
         }
-        return mapping.findForward(LoginError);
+        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Error desconocido</div>";
+        request.setAttribute("mensaje", mensaje);
+        return mapping.findForward(loginError);
 
 //        if (name.equals("Admin") && pass.equals("admin")) {
 //            

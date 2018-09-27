@@ -11,10 +11,23 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_submit_value_styleClass_property_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_form_action;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_html_form_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody.release();
+    _jspx_tagPool_html_form_action.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +54,8 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
@@ -96,6 +111,10 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </ul>\n");
       out.write("                <form class=\"form-inline my-2 my-lg-0\">\n");
       out.write("                    <a href=\"mantenimientoUsuarios.jsp\" class=\"btn btn-outline-info my-2 my-sm-0\" margin=\"2px\">Agregar Usuario</a>\n");
+      out.write("                    ");
+      if (_jspx_meth_html_form_0(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("                    <p>  </p>\n");
       out.write("                    <a href=\"#\" class=\"btn btn-outline-info disabled\">Configuracion</a>\n");
       out.write("                    <p>   </p>\n");
@@ -164,5 +183,56 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_html_form_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  html:form
+    org.apache.struts.taglib.html.FormTag _jspx_th_html_form_0 = (org.apache.struts.taglib.html.FormTag) _jspx_tagPool_html_form_action.get(org.apache.struts.taglib.html.FormTag.class);
+    _jspx_th_html_form_0.setPageContext(_jspx_page_context);
+    _jspx_th_html_form_0.setParent(null);
+    _jspx_th_html_form_0.setAction("/AgregarUsuario");
+    int _jspx_eval_html_form_0 = _jspx_th_html_form_0.doStartTag();
+    if (_jspx_eval_html_form_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                        ");
+        if (_jspx_meth_html_submit_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
+        int evalDoAfterBody = _jspx_th_html_form_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_html_form_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_html_form_action.reuse(_jspx_th_html_form_0);
+      return true;
+    }
+    _jspx_tagPool_html_form_action.reuse(_jspx_th_html_form_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_html_submit_0(javax.servlet.jsp.tagext.JspTag _jspx_th_html_form_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  html:submit
+    org.apache.struts.taglib.html.SubmitTag _jspx_th_html_submit_0 = (org.apache.struts.taglib.html.SubmitTag) _jspx_tagPool_html_submit_value_styleClass_property_nobody.get(org.apache.struts.taglib.html.SubmitTag.class);
+    _jspx_th_html_submit_0.setPageContext(_jspx_page_context);
+    _jspx_th_html_submit_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
+    _jspx_th_html_submit_0.setProperty("action");
+    _jspx_th_html_submit_0.setValue("Agregar Usuario");
+    _jspx_th_html_submit_0.setStyleClass("btn btn-outline-info my-2 my-sm-0");
+    int _jspx_eval_html_submit_0 = _jspx_th_html_submit_0.doStartTag();
+    if (_jspx_th_html_submit_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_0);
+      return true;
+    }
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_0);
+    return false;
   }
 }

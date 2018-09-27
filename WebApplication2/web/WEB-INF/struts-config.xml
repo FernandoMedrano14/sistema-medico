@@ -30,7 +30,9 @@
 
     <global-forwards>
         <!-- Fordward login -->
-        
+        <forward name="success" path="/inicio.jsp"/>
+        <forward name="agregarUsuario" path="/mantenimientoUsuarios.jsp"/>        
+        <forward name="loginError" path="/loginStruts.jsp"/>        
         
         <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
@@ -110,10 +112,11 @@
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         
         <action input="/index.jsp" name="LoginForm" path="/LAct" scope="session" type="action.LoginAction">
-        <forward name="success" path="/inicio.jsp"/>
         <forward name="failure" path="/failure.jsp"/>
         </action>
         
+        <!--Login & redirecciones-->
+        <action name="LoginForm" path="/AgregarUsuario" scope="request" type="action.LoginAction"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

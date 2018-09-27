@@ -10,3 +10,5 @@ WebApplication2/build/web/inicioconsultorios\.jsp
 WebApplication2/build/web/mantenimientoClinicas\.jsp
 
 WebApplication2/nbproject/private/private\.xml
+
+WebApplication2/build/web/WEB-INF/classes/action/ActionClinicas\.class
