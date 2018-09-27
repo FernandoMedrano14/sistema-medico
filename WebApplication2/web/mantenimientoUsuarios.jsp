@@ -106,7 +106,7 @@
                                         <html:select property="tipo">
                                             <html:option value="">Seleccione</html:option>
                                             <html:option value="Admin"/>
-                                            <html:option value="User"/>
+                                            <html:option value="Usuario"/>
                                         </html:select>
                                     </td>
                                 </tr>

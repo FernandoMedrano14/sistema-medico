@@ -68,6 +68,11 @@ System.out.println("Acceso: ("+acceso+")");
 //                        acceso = usuarios.getTipo();
 //                    }
 //                }
+                if (loginform.getUsername().equals("")||loginform.getPassword().equals("")) {
+                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Falta usuario o contraseña<br/><strong>Complete los campos<strong/></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    return mapping.findForward(loginError);
+                }
                 listaUsuarios.stream().filter((usuarios) -> ((loginform.getUsername().equals(usuarios.getNombre()) || loginform.getUsername().equals(usuarios.getCorreo())) && loginform.getPassword().equals(usuarios.getContra()))).forEachOrdered((usuarios) -> {
                     acceso = usuarios.getTipo();
                 });
@@ -92,6 +97,11 @@ System.out.println("Acceso: ("+acceso+")");
                 System.out.println("En agregar usuario\nAcceso: ("+acceso+")");
                 if (acceso.equals("")) {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion<strong/></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    return mapping.findForward(loginError);
+                }
+                if (acceso.equals("Usuario")) {
+                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion como administrador<strong/></div>";
                     request.setAttribute("mensaje", mensaje);
                     return mapping.findForward(loginError);
                 }
