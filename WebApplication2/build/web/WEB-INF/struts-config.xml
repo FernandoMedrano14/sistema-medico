@@ -36,7 +36,7 @@
         
         <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
-        <forward name="confirmacionNuevoUsuario" path="/confirmacionNuevoUsuario.jsp"/>
+        <forward name="confirmacionNuevoUsuario" path="/mantenimientoUsuarios.jsp"/>
         <forward name="errorMantenimientoUsuario" path="/mantenimientoUsuarios.jsp"/>
         
                                           <!-- Forward Farmacias --> 

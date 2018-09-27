@@ -46,6 +46,8 @@
                             Areas
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
@@ -64,8 +66,6 @@
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="mantenimientoFarmacias.jsp" ><b>Agregar Farmacia</b></b></a>
-                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Consultar_Clinicas"><b>Consultar Clinicas</b></a>
                         </div>
                     </li>
                 </ul>

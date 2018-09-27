@@ -47,6 +47,8 @@
                             Areas
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                             <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioproveedores.jsp"><b>Proveedores</b></a>
@@ -69,11 +71,6 @@
                             <a class="dropdown-item bg-info text-white" href="MantenimientoFarmacias.do?action=Consultar_Farmacias"><b>Consultar Farmacias</b></a>
                         </div>
                     </li>
-                    
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="mantenimientoFarmacias.jsp">Agregar Farmacia</a>
-                    </li>
-                    <p>  </p>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a href="mantenimientoMedicamentos.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Medicamentos</a>
@@ -109,23 +106,19 @@
                                     <th>Id Farmacia</th>
                                     <th>Nueva Direccion</th>
                                     <th>Acciones</th>
-                                    <th>Extra</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
                                 <tr>
                                     <td>
-                                        <html:text readonly="true" property="idFarmacia" size="10" maxlength="" ></html:text>
+                                        <html:text readonly="true" property="idFarmacia" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="direccion" size="60" maxlength="" readonly="re" ></html:text>
+                                        <html:text property="direccion" size="50" maxlength="" readonly="re" ></html:text>
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
-                                    </td>
-                                    <td>
-                                        <html:submit styleClass="btn btn-outline-success" property="action" value="Consultar_Farmacias"/>
-                                    </td>
+                                        </td>
                                 </tr>
                             <br>
                             <tr colspan="3">
