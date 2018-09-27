@@ -44,7 +44,7 @@
                             </label>
                         </div>
                         <br>
-                        <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Iniciar Sesión</button>
+                        <%--<button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Iniciar Sesión</button>--%>
                         <html:submit property="action" value="Iniciar Sesion" styleClass="btn btn-lg btn-success btn-block btn-signin"/>
                         <br>
                         <div class="row" align="center">

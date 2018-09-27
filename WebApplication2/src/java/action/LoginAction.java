@@ -81,7 +81,7 @@ System.out.println("Acceso: ("+acceso+")");
                     request.setAttribute("mensaje", mensaje);
                     return mapping.findForward(loginError);
                 }
-                if (acceso.equals("Admin")) {
+                if (acceso.equals("Admin") || acceso.equals("Usuario")) {
                     return mapping.findForward(SUCCESS);
                 }
                 break;
@@ -101,9 +101,10 @@ System.out.println("Acceso: ("+acceso+")");
                     return mapping.findForward(loginError);
                 }
                 if (acceso.equals("Usuario")) {
-                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion como administrador<strong/></div>";
+//                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion como administrador<strong/></div>";
+                    mensaje = "onload=\"document.getElementById('id01').style.display='block'\" style=\"width:auto;\"";
                     request.setAttribute("mensaje", mensaje);
-                    return mapping.findForward(loginError);
+                    return mapping.findForward(SUCCESS);
                 }
                 if (acceso.equals("Admin")) {
                     return mapping.findForward(agregarUsuario);
