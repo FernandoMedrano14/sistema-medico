@@ -20,12 +20,12 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
     private static final String Confirmar = "confirmarMedicamentos";
     private static final String Eliminar = "eliminarMedicamentos";
     private static final String Error = "errorMedicamentos";
-    private static final String guardado ="guardadoMedicamentos";
-    private static final String agregar = "irAgregar";
-    private static final String confirmarID = "consultaId";
+    private static final String guardado ="guardadoMedicamento";
+    private static final String AGREGAR = "irAgregarMedicamento";
+    private static final String confirmarID = "consultaIdMedicamento";
     private static final String consultar = "consultarMedicamentos";
-    private static final String modificar = "modificarMedicamentos";
-    private static final String irmodificar = "irmodificarMedicamentos";
+    private static final String modificar = "modificarMedicamento";
+    private static final String irmodificar = "irmodificarMedicamento";
 
     MantenimientoMedicamentos med = new MantenimientoMedicamentos();
 
@@ -55,7 +55,7 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             List<Proveedores> listaProveedores = proveedores.consultarTodoProveedores();
             formed.setListaProveedores(listaProveedores);
             request.setAttribute("listaProveedores", listaProveedores);
-            return mapping.findForward(agregar);
+            return mapping.findForward(AGREGAR);
         }
         if (action.equals("Agregar")) {
             String advertencia = "";
@@ -97,6 +97,7 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             request.setAttribute("listaProveedores", listaProveedores);
             advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Los medicamentos han sido guardados.\n</div>");
             request.setAttribute("advertencia", advertencia);
+            
             return mapping.findForward(guardado);
             
         }

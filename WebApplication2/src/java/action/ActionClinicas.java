@@ -72,7 +72,6 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             String respuesta = cli.guardar(idClinica, idFarmacia, direccion, horario);
 
             if (respuesta.equals("")) {
-                /*List<Farmacias> lista = farmacias.setIdFarmacia(idFarmacia);*/
                 formCli.setError("Error al guardar");
                 return mapping.findForward(Error);
             }

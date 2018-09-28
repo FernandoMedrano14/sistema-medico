@@ -21,6 +21,8 @@
      
      <form-bean name="ActionFormMedicos" type="actionforms.ActionFormMedicos"/>
      
+     <form-bean name="ActionFormMedicamentos" type="actionforms.ActionFormMedicamentos"/>
+     
      <form-bean name="LoginForm" type="actionforms.LoginForm"/>
     </form-beans>
     
@@ -94,6 +96,16 @@
         <forward name="irmodificarMedico" path="/modificarMedicos.jsp"/>
         <forward name="irAgregarMedico" path="/mantenimientoMedicos.jsp"/>
         
+                                         <!-- Forward Medicamentos-->
+        <forward name="eliminarMedicamentos" path="/consultarMedicamentos.jsp"/>
+        <forward name="consultaIdMedicamento" path="/modificarMedicamentos.jsp"/>
+        <forward name="guardadoMedicamento" path="/mantenimientoMedicamentos.jsp"/>
+        <forward name="confirmacionConsultaIdMed" path="/modificarMedicamentos.jsp"/>
+        <forward name="modificarMedicamento" path="/modificarMedicamentos.jsp"/>
+        <forward name="consultarMedicamentos" path="/consultarMedicamentos.jsp"/>
+        <forward name="irmodificarMedicamento" path="/modificarMedicamentos.jsp"/>
+        <forward name="irAgregarMedicamento" path="/mantenimientoMedicamentos.jsp"/>
+        
         
         
         <forward name="recuperacion" path="/recuperacion.jsp"/>
@@ -108,6 +120,7 @@
         <action name="ActionFormEspecialidades" path="/MantenimientoEspecialidades" scope="request" type="action.ActionEspecialidades"/>
         <action name="ActionFormClinicas" path="/MantenimientoClinicas" scope="request" type="action.ActionClinicas"/>
         <action name="ActionFormMedicos" path="/MantenimientoMedicos" scope="request" type="action.ActionMedicos"/>
+        <action name="ActionFormMedicos" path="/MantenimientoMedicamentos" scope="request" type="action.ActionMedicamentos"/>
         <!--<action name="LoginForm" path="/LAct" scope="request" type="action.ActionUsuarios"/>-->
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         
