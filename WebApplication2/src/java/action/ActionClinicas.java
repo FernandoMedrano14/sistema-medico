@@ -48,6 +48,7 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             List<Farmacias> listaFarmacias = farmacia.consultarTodoFarmacias();
             formCli.setListaFarmacias(listaFarmacias);
             request.setAttribute("listaFarmacias", listaFarmacias);
+            
             return mapping.findForward(AGREGAR);
         }
         if (action.equals("Agregar")) {
@@ -130,14 +131,14 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             
             Farmacias f = new Farmacias();
             f.setIdFarmacia(idFarmacia);
-            c.setFarmacias(f);
             
+            c.setFarmacias(f);
             c.setDireccion(direccion);
             c.setHorario(horario);
 
             MantenimientoClinicas cm = new MantenimientoClinicas();
             cm.modificar(idClinica, idFarmacia, direccion, horario);
-            formCli.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> La clinica ha sido modificada.\n</div>");
+            formCli.setError("<div class=\"alert alert-danger\">\n<strong>Registro NO modificado:</strong> La clinica no ha sido modificada.\n</div>");
             formCli.setIdFarmacia(c.getFarmacias().getIdFarmacia());
             formCli.setDireccion(c.getDireccion());
             formCli.setHorario(c.getHorario());

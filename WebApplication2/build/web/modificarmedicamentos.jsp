@@ -57,8 +57,17 @@
                             <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
+                        </div>
+                    </li>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicamentos.do?action=Agregar Medicamentos" ><b>Agregar Medicamentos</b></b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicamentos.do?action=Consultar_Medicamentos"><b>Consultar Medicamentos</b></a>
                         </div>
                     </li>
                 </ul>
@@ -70,40 +79,44 @@
         <br>
         <br> 
         <br>
-        <h4 align="center">Formulario de modificación de Clinicas</h4>
-        <h4 align="center">Ingrese los nuevos datos de la Clinica</h4>
+        <h4 align="center">Formulario de modificación de medicamentos</h4>
+        <h4 align="center">Ingrese los nuevos datos del medicamento</h4>
         <br>
         <br>
         <br>
         <br>
 
-        <html:form action = "/MantenimientoClinicas">
+        <html:form action = "/MantenimientoMedicamentos">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-stripped"> 
                             <thead>
                                 <tr align="center">
-                                    <th>Id Clinica</th>
+                                    <th>Id Medicamento</th>
+                                    <th>Id Proveedor</th>
                                     <th>Id Farmacia</th>
-                                    <th>Direccion Clinica</th>
-                                    <th>Horario</th>
+                                    <th>Nombre</th>
+                                    <th>Tipo</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr align="center">
                                     <td>
-                                        <html:text readonly="true" property="idClinica" size="5" maxlength="" ></html:text>
+                                        <html:text readonly="true" property="idMedicamento" size="5" maxlength="" ></html:text>
+                                        </td>
+                                        <td>
+                                        <html:text readonly="true" property="idProveedor" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
                                         <html:text readonly="true" property="idFarmacia" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="direccion" size="60" maxlength="" readonly="re"></html:text>
+                                        <html:text property="nombre" size="60" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
-                                        <html:text property="horario" size="15" maxlength="" readonly="re"></html:text>
+                                        <html:text property="tipo" size="15" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
@@ -111,15 +124,13 @@
                                 </tr>
                             <br>
                             <tr colspan="3">
-                                <bean:write name="ActionFormClinicas" property="error" filter="false"/>
+                                <bean:write name="ActionFormMedicamentos" property="error" filter="false"/>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <br>
-            <%-- <html:submit property="action" value="ConsultarId"/>--%>
         </html:form>
         <br>
     </body>

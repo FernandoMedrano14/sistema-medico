@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/eliseo.garciausam/Desktop/git/2/sistema-medico/WebApplication2/web/inicio.jsp</file>
-            <file>file:/C:/Users/eliseo.garciausam/Desktop/git/2/sistema-medico/WebApplication2/src/java/action/ActionPacientes.java</file>
-=======
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/WEB-INF/struts-config.xml</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/actionforms/ActionFormClinicas.java</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/action/ActionClinicas.java</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/mantenimientoClinicas.jsp</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/modificarMedicamentos.jsp</file>
             <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/consultarClinicas.jsp</file>
-            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/consultarFarmacias.jsp</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/modificarClinicas.jsp</file>
+            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/mantenimiento/MantenimientoClinicas.java</file>
         </group>
     </open-files>
 </project-private>

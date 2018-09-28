@@ -35,8 +35,8 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
 
         ActionFormMedicamentos formed = (ActionFormMedicamentos) form;
         Integer idMedicamento = formed.getIdMedicamento();
-        Integer idFarmacia = formed.getIdFarmacia();
         Integer idProveedor = formed.getIdProveedor();
+        Integer idFarmacia = formed.getIdFarmacia();
         String nombre = formed.getNombre();
         String tipo = formed.getTipo();
         String action = formed.getAction();
@@ -55,6 +55,7 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             List<Proveedores> listaProveedores = proveedores.consultarTodoProveedores();
             formed.setListaProveedores(listaProveedores);
             request.setAttribute("listaProveedores", listaProveedores);
+            
             return mapping.findForward(AGREGAR);
         }
         if (action.equals("Agregar")) {
@@ -88,9 +89,6 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             List<Farmacias> listaFarmacias = farmacia.consultarTodoFarmacias();
             formed.setListaFarmacias(listaFarmacias);
             request.setAttribute("listaFarmacias", listaFarmacias);
-            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Los medicamentos han sido guardados.\n</div>");
-            request.setAttribute("advertencia", advertencia);
-            
             
             List<Proveedores>listaProveedores = proveedores.consultarTodoProveedores();
             formed.setListaProveedores(listaProveedores);
@@ -144,10 +142,13 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             String advertencia = "";
             Medicamentos m = new Medicamentos();
             m.setIdMedicamento(idMedicamento);
+            
             Farmacias f = new Farmacias();
             f.setIdFarmacia(idFarmacia);
+            
             Proveedores p = new Proveedores();
             p.setIdProveedor(idProveedor);
+            
             m.setFarmacias(f);
             m.setProveedores(p);
             m.setNombre(nombre);
@@ -155,7 +156,7 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
 
             MantenimientoMedicamentos md = new MantenimientoMedicamentos();
             md.modificar(idMedicamento, idFarmacia, idProveedor, nombre, tipo);
-            formed.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> El medicamento a sido modificado.\n</div>");
+            formed.setError("<div class=\"alert alert-danger\">\n<strong>Registro NO modificado:</strong> El medicamento no ha sido modificado.\n</div>");
             formed.setIdFarmacia(m.getFarmacias().getIdFarmacia());
             formed.setIdProveedor(m.getProveedores().getIdProveedor());
             formed.setNombre(m.getNombre());
@@ -168,7 +169,7 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
             return mapping.findForward(consultar);
         }
 
-        if (action.equals("irModificar")) {
+        if (action.equals("irModificarMedicamento")) {
             System.out.println("estoy en irModificar");
             String id = request.getParameter("id");
             idMedicamento = Integer.parseInt(id);

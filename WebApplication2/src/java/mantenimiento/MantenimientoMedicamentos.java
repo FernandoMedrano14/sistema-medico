@@ -18,6 +18,9 @@ public class MantenimientoMedicamentos {
     String mensaje = "error en el try-catch";
 
     public String guardar(Integer idMedicamento, Integer idFarmacia, Integer idProveedor, String nombre, String tipo) {
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+         String mensaje = "error en el try-catch";
 
         Medicamentos med = new Medicamentos();
         med.setIdMedicamento(idMedicamento);
@@ -44,9 +47,7 @@ public class MantenimientoMedicamentos {
                 mensaje = "no pudimos insertar por " + e;
             }
         }
-        /*finally {
-            session.close();
-        }*/
+      
         return mensaje;
     }
 
@@ -105,7 +106,7 @@ public class MantenimientoMedicamentos {
 
         try {
             session.beginTransaction();
-            session.update(prov);
+            session.update(med);
             session.getTransaction().commit();
             mensaje = "se modifico con exito";
         } catch (Exception e) {
@@ -121,6 +122,9 @@ public class MantenimientoMedicamentos {
 
     public Medicamentos buscarById(Integer idMedicamentos) {
         Medicamentos med = new Medicamentos();
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+        String mensaje = "";
         try {
             session.getTransaction();
             med = (Medicamentos) session.get(Medicamentos.class, idMedicamentos);

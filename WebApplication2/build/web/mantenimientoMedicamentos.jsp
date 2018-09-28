@@ -102,8 +102,8 @@
                         </td>
                         <td>
                         <html:select property="idFarmacia">
-                            <logic:notEmpty name="ActionFormFarmacias" property="listaFarmacias">
-                                <logic:iterate id="ver" name="ActionFormFarmacias" property="listaFarmacias">
+                            <logic:notEmpty name="ActionFormMedicamentos" property="listaFarmacias">
+                                <logic:iterate id="ver" name="ActionFormMedicamentos" property="listaFarmacias">
                                     <html:option value="${ver.idFarmacia}">
                                         ${ver.idFarmacia}
                                     </html:option>

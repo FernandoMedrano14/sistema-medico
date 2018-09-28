@@ -120,7 +120,7 @@
         <action name="ActionFormEspecialidades" path="/MantenimientoEspecialidades" scope="request" type="action.ActionEspecialidades"/>
         <action name="ActionFormClinicas" path="/MantenimientoClinicas" scope="request" type="action.ActionClinicas"/>
         <action name="ActionFormMedicos" path="/MantenimientoMedicos" scope="request" type="action.ActionMedicos"/>
-        <action name="ActionFormMedicos" path="/MantenimientoMedicamentos" scope="request" type="action.ActionMedicamentos"/>
+        <action name="ActionFormMedicamentos" path="/MantenimientoMedicamentos" scope="request" type="action.ActionMedicamentos"/>
         <!--<action name="LoginForm" path="/LAct" scope="request" type="action.ActionUsuarios"/>-->
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         
