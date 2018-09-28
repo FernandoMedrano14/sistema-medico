@@ -84,19 +84,19 @@
         <br>
         <br>
         <br>
-        <html:form action="/MantenimientoUsuarios">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h4 align="center">Formulario de ingreso para nuevo usuario</h4>
-            <h4 align="center">Rellene todos los campos</h4>
-            <br>
-            <div class="container">
-                <div class="row>">
-                    <div class="col-12">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h4 align="center">Formulario de ingreso para nuevo usuario</h4>
+        <h4 align="center">Rellene todos los campos</h4>
+        <br>
+        <div class="container">
+            <div class="row>">
+                <div class="col-12">
+                    <html:form action="/MantenimientoUsuarios" styleClass="form">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -111,37 +111,51 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"></th>
-                                    <td><html:text property="nombre" size="30" maxlength="100"/></td>
-                                    <td><html:text property="correo" size="30" maxlength="50"/></td>
-                                    <td><html:password property="contra" size="30" maxlength="16"/></td>
+                                    <td><html:text property="nombre" size="30" maxlength="100" styleClass="form-control"/></td>
+                                    <td><html:text property="correo" size="30" maxlength="50" styleClass="form-control"/></td>
+                                    <td><html:password property="contra" size="30" maxlength="16" styleClass="form-control"/></td>
                                     <td>
-                                        <html:select property="genero">
+                                        <html:select property="genero" styleClass="form-control">
                                             <html:option value="">Seleccione</html:option>
                                             <html:option value="Masculino"/>
                                             <html:option value="Femenino"/>
                                         </html:select>
                                     </td>
                                     <td>
-                                        <html:select property="tipo">
+                                        <html:select property="tipo" styleClass="form-control">
                                             <html:option value="">Seleccione</html:option>
                                             <html:option value="Admin"/>
                                             <html:option value="Usuario"/>
                                         </html:select>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td><h5 style="text-align: center">Pregunta de seguridad: </h5></td>
+                                    <td>
+                                        <html:select property="pregunta" styleClass="form-control">
+                                            <html:option value="">Selecione una pregunta</html:option>
+                                            <html:option value="¿Cuál es tu fecha de nacimiento?"/>
+                                            <html:option value="¿Cuál es el nombre de tu mascota?"/>
+                                            <html:option value="¿Cuál es tu equipo de futbol favorito?"/>
+                                            <html:option value="¿Cuál es el nombre de la primera escuela a la que asististe?"/>
+                                        </html:select>
+                                    </td>
+                                    <td><h5 style="text-align: center">Respuesta: </h5></td>
+                                    <td><html:text property="respuesta" styleClass="form-control"/></td>
+                                </tr>
                             </tbody>
                         </table>
                         <br>
                         <center>${advertencia}</center>
-
                         <br>
                         <div align="center">
                             <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
                         </div>
-                    </div>
+                    </html:form>
                 </div>
             </div>
-        </html:form>
+        </div>
         <br>
         <br>
     </body>

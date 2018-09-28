@@ -27,8 +27,15 @@ public class LoginAction extends org.apache.struts.action.Action {
     private static final String agregarUsuario= "agregarUsuario";
 
     /* User Session */
-    private static String acceso = "";
-    private String mensaje = "";
+    private static String acceso;
+    private String mensaje;
+    private int intentos;
+
+    public LoginAction() {
+        acceso = "";
+        this.mensaje = "";
+        this.intentos = 0;        
+    }
 
     /**
      * This is the action called from the Struts framework.
@@ -58,8 +65,6 @@ public class LoginAction extends org.apache.struts.action.Action {
 //            return mapping.findForward("failure");
 //        }
 //
-System.out.println("Action: "+loginform.getAction());
-System.out.println("Acceso: ("+acceso+")");
         switch (loginform.getAction()) {
             case "Iniciar Sesion":
                 List<Usuarios> listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
@@ -68,7 +73,7 @@ System.out.println("Acceso: ("+acceso+")");
 //                        acceso = usuarios.getTipo();
 //                    }
 //                }
-                if (loginform.getUsername().equals("")||loginform.getPassword().equals("")) {
+                if (loginform.getUsername().equals("") || loginform.getPassword().equals("")) {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Falta usuario o contraseña<br/><strong>Complete los campos<strong/></div>";
                     request.setAttribute("mensaje", mensaje);
                     return mapping.findForward(loginError);
@@ -79,6 +84,11 @@ System.out.println("Acceso: ("+acceso+")");
                 if (acceso.equals("")) {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Usuario o contraseña incorrecta</div>";
                     request.setAttribute("mensaje", mensaje);
+                    intentos++;
+                    if (intentos>2) {
+                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Usuario o contraseña incorrecta</div>";
+                        request.setAttribute("mensaje", mensaje);
+                    }
                     return mapping.findForward(loginError);
                 }
                 if (acceso.equals("Admin") || acceso.equals("Usuario")) {
