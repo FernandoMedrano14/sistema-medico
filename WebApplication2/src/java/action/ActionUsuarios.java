@@ -27,6 +27,8 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
         String contra = formBean.getContra();
         String genero = formBean.getGenero();
         String tipo = formBean.getTipo();
+        String pregunta = formBean.getPregunta();
+        String respuesta = formBean.getRespuesta();
         String action = formBean.getAction();
 
         if (formBean == null || action == null) {
@@ -55,6 +57,14 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
             if (tipo == null || tipo.equals("")) {
                 advertencia = "*Definir si es administrador o usuario<br>";
             }
+            
+            if (pregunta == null || pregunta.equals("")) {
+                advertencia = "*Definir pregunta<br>";
+            }
+            
+            if (respuesta == null || respuesta.equals("")) {
+                advertencia = "*Definir respuesta<br>";
+            }
 
             if (!advertencia.equals("")) {
                 formBean.setError("<span style='color:red'> Complete los campos sin rellenar" + "<br>" + advertencia + "</span>");
@@ -70,8 +80,8 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
                     return mapping.findForward(Error);
                 }
             }
-            int respuesta = usuarios.guardarUsuario(idUsuario, nombre, correo, contra, genero, tipo);
-            if (respuesta == 1) {
+            int respue = usuarios.guardarUsuario(idUsuario, nombre, correo, contra, genero, tipo, pregunta, respuesta);
+            if (respue == 1) {
                 return mapping.findForward(Confirmar);
             } else {
                 formBean.setError("Ocurrio un error al insertar.");
@@ -111,13 +121,15 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
                 formBean.setContra(usuario.getContra());
                 formBean.setGenero(usuario.getGenero());
                 formBean.setTipo(usuario.getTipo());
+                formBean.setPregunta(pregunta);
+                formBean.setRespuesta(respuesta);
                 return mapping.findForward(Confirmar);
             }
         }
 
         if (action.equals("modificar")) {
             MantenimientoUsuarios usuarios = new MantenimientoUsuarios();
-            usuarios.modificar(idUsuario, nombre, correo, contra, genero, tipo);
+            usuarios.modificar(idUsuario, nombre, correo, contra, genero, tipo , pregunta ,respuesta);
             System.out.println("error al modificar");
         }
 

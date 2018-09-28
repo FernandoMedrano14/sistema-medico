@@ -150,8 +150,12 @@ public class ActionClinicas extends org.apache.struts.action.Action {
             return mapping.findForward(consultar);
         }
 
-        if (action.equals("irModificarClinicas")) {
+
+       
             
+
+        if (action.equals("irModificarClinica")) {
+
             System.out.println("estoy en irModificar");
             String id = request.getParameter("id");
             idClinica = Integer.parseInt(id);
@@ -167,4 +171,5 @@ public class ActionClinicas extends org.apache.struts.action.Action {
 
         return mapping.findForward(Confirmar);
     }
+
 }

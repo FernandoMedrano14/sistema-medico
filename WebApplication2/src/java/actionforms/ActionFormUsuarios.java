@@ -18,6 +18,8 @@ public class ActionFormUsuarios extends org.apache.struts.action.ActionForm {
     private String contra;
     private String genero;
     private String tipo;
+    private String pregunta;
+    private String respuesta;
     private String error;
     private String action;
     private List<Usuarios> listaUsuarios;
@@ -76,6 +78,22 @@ public class ActionFormUsuarios extends org.apache.struts.action.ActionForm {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
     }
 
     public String getError() {

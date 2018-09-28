@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/action/ActionUsuarios.java</file>
-            <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/mantenimientoUsuarios.jsp</file>
-=======
-            <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/web/WEB-INF/struts-config.xml</file>
-            <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/web/inicio.jsp</file>
-            <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/web/mantenimientoUsuarios.jsp</file>
-            <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/src/java/action/LoginAction.java</file>
-            <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/web/loginStruts.jsp</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/eliseo.garciausam/Desktop/git/2/sistema-medico/WebApplication2/web/inicio.jsp</file>
+            <file>file:/C:/Users/eliseo.garciausam/Desktop/git/2/sistema-medico/WebApplication2/src/java/action/ActionPacientes.java</file>
         </group>
     </open-files>
 </project-private>

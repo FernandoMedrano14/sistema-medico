@@ -79,7 +79,7 @@
         <forward name="consultaIdClinica" path="/modificarClinicas.jsp"/>
         <forward name="guardadoClinica" path="/mantenimientoClinicas.jsp"/>
         <forward name="confirmacionConsultaIdCli" path="/modificarClinicas.jsp"/>
-        <forward name="modificarClinicas" path="/modificarClinicas.jsp"/>
+        <forward name="modificarClinica" path="/modificarClinicas.jsp"/>
         <forward name="consultarClinicas" path="/consultarClinicas.jsp"/>
         <forward name="irmodificarClinica" path="/modificarClinicas.jsp"/>
         <forward name="irAgregarClinica" path="/mantenimientoClinicas.jsp"/>

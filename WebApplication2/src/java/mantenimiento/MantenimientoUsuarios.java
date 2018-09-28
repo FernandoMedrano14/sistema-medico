@@ -14,7 +14,7 @@ public class MantenimientoUsuarios {
     public static void main(String[] args) {
 
         MantenimientoUsuarios man = new MantenimientoUsuarios();
-//        System.out.println(man.guardarUsuario(0, "Diego Orellana", "sene69@hotmail.com", "123456", "Masculino", "admin"));
+      System.out.println(man.guardarUsuario(0, "Diego Orellana", "sene69@hotmail.com", "123456", "Masculino", "admin" ,"color favorito","azul"));
 //        List<Usuarios> usuario = man.consultarTodoUsuario();
 //        System.out.println("Id Usuario" + usuario.);
 //        System.out.println("Nombre Usuario" + usuario.getNombre());
@@ -26,12 +26,12 @@ public class MantenimientoUsuarios {
         
         
         //LOGIN
-        Usuarios u = man.login("davidflores@gmail.com", "123456");
-        System.out.println(u.getNombre());
+//        Usuarios u = man.login("davidflores@gmail.com", "123456");
+//        System.out.println(u.getNombre());
         
     }
 
-    public int guardarUsuario(Integer idUsuario, String nombre, String correo, String contra, String genero, String tipo) {
+    public int guardarUsuario(Integer idUsuario, String nombre, String correo, String contra, String genero, String tipo,String pregunta,String respuesta) {
         SessionFactory factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
         int flag = 0;
@@ -43,6 +43,8 @@ public class MantenimientoUsuarios {
         usuario.setContra(contra);
         usuario.setGenero(genero);
         usuario.setTipo(tipo);
+        usuario.setPregunta(pregunta);
+        usuario.setRespuesta(respuesta);
 
         session.beginTransaction();
         try {
@@ -122,7 +124,7 @@ public class MantenimientoUsuarios {
     }
     
     
-     public int modificar (Integer idUsuario, String nombre, String correo, String contra, String genero, String tipo){
+     public int modificar (Integer idUsuario, String nombre, String correo, String contra, String genero, String tipo , String pregunta, String respuesta){
         int mensaje = 0;
         
         SessionFactory factory = HibernateUtil.getSessionFactory();
@@ -136,6 +138,8 @@ public class MantenimientoUsuarios {
         usuario.setContra(contra);
         usuario.setGenero(genero);
         usuario.setTipo(tipo);
+        usuario.setPregunta(pregunta);
+        usuario.setRespuesta(respuesta);
         
         session.beginTransaction();
         

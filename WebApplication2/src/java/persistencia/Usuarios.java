@@ -15,16 +15,20 @@ public class Usuarios  implements java.io.Serializable {
      private String contra;
      private String genero;
      private String tipo;
+     private String pregunta;
+     private String respuesta;
 
     public Usuarios() {
     }
 
-    public Usuarios(String nombre, String correo, String contra, String genero, String tipo) {
+    public Usuarios(String nombre, String correo, String contra, String genero, String tipo ,String pregunta,String respuesta) {
        this.nombre = nombre;
        this.correo = correo;
        this.contra = contra;
        this.genero = genero;
        this.tipo = tipo;
+       this.pregunta = pregunta;
+       this.respuesta = respuesta;
     }
    
     public Integer getIdUsuario() {
@@ -69,6 +73,24 @@ public class Usuarios  implements java.io.Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
+    
+    
 
 
 
