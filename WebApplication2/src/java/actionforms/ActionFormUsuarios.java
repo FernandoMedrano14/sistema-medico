@@ -22,6 +22,7 @@ public class ActionFormUsuarios extends org.apache.struts.action.ActionForm {
     private String respuesta;
     private String error;
     private String action;
+    private String mensaje;
     private List<Usuarios> listaUsuarios;
 
     public List<Usuarios> getListaUsuarios() {
@@ -82,6 +83,14 @@ public class ActionFormUsuarios extends org.apache.struts.action.ActionForm {
 
     public String getPregunta() {
         return pregunta;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
     public void setPregunta(String pregunta) {

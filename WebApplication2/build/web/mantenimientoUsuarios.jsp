@@ -69,7 +69,7 @@
                             Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoUsuarios.do?action=Consultar"><b>Consultar usuarios</b></a>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoUsuarios.do?action=Consultar_Usuarios"><b>Consultar usuarios</b></a>
                         </div>
                     </li>
                 </ul>
@@ -86,10 +86,6 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <h4 align="center">Formulario de ingreso para nuevo usuario</h4>
         <h4 align="center">Rellene todos los campos</h4>
         <br>
@@ -98,7 +94,7 @@
                 <div class="col-12">
                     <html:form action="/MantenimientoUsuarios" styleClass="form">
                         <table class="table table-striped">
-                            <thead>
+                            <thead align="center">
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Nombre</th>
@@ -111,7 +107,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"></th>
-                                    <td><html:text property="nombre" size="30" maxlength="100" styleClass="form-control"/></td>
+                                    <td><html:text property="nombre" size="50" maxlength="100" styleClass="form-control"/></td>
                                     <td><html:text property="correo" size="30" maxlength="50" styleClass="form-control"/></td>
                                     <td><html:password property="contra" size="30" maxlength="16" styleClass="form-control"/></td>
                                     <td>
@@ -130,6 +126,8 @@
                                     </td>
                                 </tr>
                                 <tr>
+                            <br>
+                            <br>
                                     <td> </td>
                                     <td><h5 style="text-align: center">Pregunta de seguridad: </h5></td>
                                     <td>

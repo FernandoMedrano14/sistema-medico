@@ -35,6 +35,7 @@
         <forward name="success" path="/inicio.jsp"/>
         <forward name="agregarUsuario" path="/mantenimientoUsuarios.jsp"/>        
         <forward name="loginError" path="/loginStruts.jsp"/>        
+        <forward name="recuperar" path="/password_recovery.jsp"/>        
         
         <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
@@ -105,6 +106,16 @@
         <forward name="consultarMedicamentos" path="/consultarMedicamentos.jsp"/>
         <forward name="irmodificarMedicamento" path="/modificarMedicamentos.jsp"/>
         <forward name="irAgregarMedicamento" path="/mantenimientoMedicamentos.jsp"/>
+        
+                        <!-- Forward Usuarios-->
+        <forward name="eliminarUsuario" path="/consultarUsuarios.jsp"/>
+        <forward name="consultaIdUsuario" path="/modificarUsuarios.jsp"/>
+        <forward name="guardadoUsuario" path="/mantenimientoUsuarios.jsp"/>
+        <forward name="confirmacionConsultaIdMed" path="/modificarUsuarios.jsp"/>
+        <forward name="modificarUsuario" path="/modificarUsuarios.jsp"/>
+        <forward name="consultarUsuario" path="/consultarUsuarios.jsp"/>
+        <forward name="irmodificarUsuario" path="/modificarUsuarios.jsp"/>
+        <forward name="irAgregarUsuario" path="/mantenimientoUsuarios.jsp"/>
         
         
         

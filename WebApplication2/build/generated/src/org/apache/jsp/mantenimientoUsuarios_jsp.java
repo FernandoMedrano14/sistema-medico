@@ -11,14 +11,14 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_password_size_property_maxlength_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_select_styleClass_property;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_submit_value_styleClass_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_option_value;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_option_value_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_form_action;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_text_styleClass_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_form_styleClass_action;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_select_property;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_text_size_property_maxlength_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_password_styleClass_size_property_maxlength_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -27,25 +27,25 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
   }
 
   public void _jspInit() {
-    _jspx_tagPool_html_password_size_property_maxlength_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_html_select_styleClass_property = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_submit_value_styleClass_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_option_value = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_option_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_html_form_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_html_text_styleClass_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_form_styleClass_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_html_select_property = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_html_text_size_property_maxlength_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_html_password_styleClass_size_property_maxlength_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_html_password_size_property_maxlength_nobody.release();
+    _jspx_tagPool_html_select_styleClass_property.release();
+    _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.release();
     _jspx_tagPool_html_submit_value_styleClass_property_nobody.release();
     _jspx_tagPool_html_option_value.release();
     _jspx_tagPool_html_option_value_nobody.release();
-    _jspx_tagPool_html_form_action.release();
+    _jspx_tagPool_html_text_styleClass_property_nobody.release();
     _jspx_tagPool_html_form_styleClass_action.release();
-    _jspx_tagPool_html_select_property.release();
-    _jspx_tagPool_html_text_size_property_maxlength_nobody.release();
+    _jspx_tagPool_html_password_styleClass_size_property_maxlength_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -116,6 +116,8 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
       out.write("                            Areas\n");
       out.write("                        </a>\n");
       out.write("                        <div class=\"dropdown-menu bg-info \" aria-labelledby=\"navbarDropdown\">\n");
+      out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"iniciomedicamentos.jsp\"><b>Medicamentos</b></a>\n");
+      out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"iniciomedicos.jsp\"><b>Medicos</b></a>\n");
       out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"inicioclinicas.jsp\"><b>Clinicas</b></a>\n");
@@ -294,10 +296,11 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:form
-    org.apache.struts.taglib.html.FormTag _jspx_th_html_form_1 = (org.apache.struts.taglib.html.FormTag) _jspx_tagPool_html_form_action.get(org.apache.struts.taglib.html.FormTag.class);
+    org.apache.struts.taglib.html.FormTag _jspx_th_html_form_1 = (org.apache.struts.taglib.html.FormTag) _jspx_tagPool_html_form_styleClass_action.get(org.apache.struts.taglib.html.FormTag.class);
     _jspx_th_html_form_1.setPageContext(_jspx_page_context);
     _jspx_th_html_form_1.setParent(null);
     _jspx_th_html_form_1.setAction("/MantenimientoUsuarios");
+    _jspx_th_html_form_1.setStyleClass("form");
     int _jspx_eval_html_form_1 = _jspx_th_html_form_1.doStartTag();
     if (_jspx_eval_html_form_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
@@ -340,12 +343,21 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
           return true;
         out.write("\n");
         out.write("                                    </td>\n");
+        out.write("                                </tr>\n");
+        out.write("                                <tr>\n");
+        out.write("                                    <td> </td>\n");
+        out.write("                                    <td><h5 style=\"text-align: center\">Pregunta de seguridad: </h5></td>\n");
         out.write("                                    <td>\n");
         out.write("                                        ");
         if (_jspx_meth_html_select_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("                                    </td>\n");
+        out.write("                                    <td><h5 style=\"text-align: center\">Respuesta: </h5></td>\n");
+        out.write("                                    <td>");
+        if (_jspx_meth_html_text_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
+          return true;
+        out.write("</td>\n");
         out.write("                                </tr>\n");
         out.write("                            </tbody>\n");
         out.write("                        </table>\n");
@@ -367,10 +379,10 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
       } while (true);
     }
     if (_jspx_th_html_form_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_form_action.reuse(_jspx_th_html_form_1);
+      _jspx_tagPool_html_form_styleClass_action.reuse(_jspx_th_html_form_1);
       return true;
     }
-    _jspx_tagPool_html_form_action.reuse(_jspx_th_html_form_1);
+    _jspx_tagPool_html_form_styleClass_action.reuse(_jspx_th_html_form_1);
     return false;
   }
 
@@ -379,18 +391,19 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:text
-    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_0 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_size_property_maxlength_nobody.get(org.apache.struts.taglib.html.TextTag.class);
+    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_0 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.get(org.apache.struts.taglib.html.TextTag.class);
     _jspx_th_html_text_0.setPageContext(_jspx_page_context);
     _jspx_th_html_text_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
     _jspx_th_html_text_0.setProperty("nombre");
     _jspx_th_html_text_0.setSize("30");
     _jspx_th_html_text_0.setMaxlength("100");
+    _jspx_th_html_text_0.setStyleClass("form-control");
     int _jspx_eval_html_text_0 = _jspx_th_html_text_0.doStartTag();
     if (_jspx_th_html_text_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_text_size_property_maxlength_nobody.reuse(_jspx_th_html_text_0);
+      _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.reuse(_jspx_th_html_text_0);
       return true;
     }
-    _jspx_tagPool_html_text_size_property_maxlength_nobody.reuse(_jspx_th_html_text_0);
+    _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.reuse(_jspx_th_html_text_0);
     return false;
   }
 
@@ -399,18 +412,19 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:text
-    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_1 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_size_property_maxlength_nobody.get(org.apache.struts.taglib.html.TextTag.class);
+    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_1 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.get(org.apache.struts.taglib.html.TextTag.class);
     _jspx_th_html_text_1.setPageContext(_jspx_page_context);
     _jspx_th_html_text_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
     _jspx_th_html_text_1.setProperty("correo");
     _jspx_th_html_text_1.setSize("30");
     _jspx_th_html_text_1.setMaxlength("50");
+    _jspx_th_html_text_1.setStyleClass("form-control");
     int _jspx_eval_html_text_1 = _jspx_th_html_text_1.doStartTag();
     if (_jspx_th_html_text_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_text_size_property_maxlength_nobody.reuse(_jspx_th_html_text_1);
+      _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.reuse(_jspx_th_html_text_1);
       return true;
     }
-    _jspx_tagPool_html_text_size_property_maxlength_nobody.reuse(_jspx_th_html_text_1);
+    _jspx_tagPool_html_text_styleClass_size_property_maxlength_nobody.reuse(_jspx_th_html_text_1);
     return false;
   }
 
@@ -419,18 +433,19 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:password
-    org.apache.struts.taglib.html.PasswordTag _jspx_th_html_password_0 = (org.apache.struts.taglib.html.PasswordTag) _jspx_tagPool_html_password_size_property_maxlength_nobody.get(org.apache.struts.taglib.html.PasswordTag.class);
+    org.apache.struts.taglib.html.PasswordTag _jspx_th_html_password_0 = (org.apache.struts.taglib.html.PasswordTag) _jspx_tagPool_html_password_styleClass_size_property_maxlength_nobody.get(org.apache.struts.taglib.html.PasswordTag.class);
     _jspx_th_html_password_0.setPageContext(_jspx_page_context);
     _jspx_th_html_password_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
     _jspx_th_html_password_0.setProperty("contra");
     _jspx_th_html_password_0.setSize("30");
     _jspx_th_html_password_0.setMaxlength("16");
+    _jspx_th_html_password_0.setStyleClass("form-control");
     int _jspx_eval_html_password_0 = _jspx_th_html_password_0.doStartTag();
     if (_jspx_th_html_password_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_password_size_property_maxlength_nobody.reuse(_jspx_th_html_password_0);
+      _jspx_tagPool_html_password_styleClass_size_property_maxlength_nobody.reuse(_jspx_th_html_password_0);
       return true;
     }
-    _jspx_tagPool_html_password_size_property_maxlength_nobody.reuse(_jspx_th_html_password_0);
+    _jspx_tagPool_html_password_styleClass_size_property_maxlength_nobody.reuse(_jspx_th_html_password_0);
     return false;
   }
 
@@ -439,10 +454,11 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:select
-    org.apache.struts.taglib.html.SelectTag _jspx_th_html_select_0 = (org.apache.struts.taglib.html.SelectTag) _jspx_tagPool_html_select_property.get(org.apache.struts.taglib.html.SelectTag.class);
+    org.apache.struts.taglib.html.SelectTag _jspx_th_html_select_0 = (org.apache.struts.taglib.html.SelectTag) _jspx_tagPool_html_select_styleClass_property.get(org.apache.struts.taglib.html.SelectTag.class);
     _jspx_th_html_select_0.setPageContext(_jspx_page_context);
     _jspx_th_html_select_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
     _jspx_th_html_select_0.setProperty("genero");
+    _jspx_th_html_select_0.setStyleClass("form-control");
     int _jspx_eval_html_select_0 = _jspx_th_html_select_0.doStartTag();
     if (_jspx_eval_html_select_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       if (_jspx_eval_html_select_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
@@ -473,10 +489,10 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
         out = _jspx_page_context.popBody();
     }
     if (_jspx_th_html_select_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_select_property.reuse(_jspx_th_html_select_0);
+      _jspx_tagPool_html_select_styleClass_property.reuse(_jspx_th_html_select_0);
       return true;
     }
-    _jspx_tagPool_html_select_property.reuse(_jspx_th_html_select_0);
+    _jspx_tagPool_html_select_styleClass_property.reuse(_jspx_th_html_select_0);
     return false;
   }
 
@@ -554,10 +570,11 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:select
-    org.apache.struts.taglib.html.SelectTag _jspx_th_html_select_1 = (org.apache.struts.taglib.html.SelectTag) _jspx_tagPool_html_select_property.get(org.apache.struts.taglib.html.SelectTag.class);
+    org.apache.struts.taglib.html.SelectTag _jspx_th_html_select_1 = (org.apache.struts.taglib.html.SelectTag) _jspx_tagPool_html_select_styleClass_property.get(org.apache.struts.taglib.html.SelectTag.class);
     _jspx_th_html_select_1.setPageContext(_jspx_page_context);
     _jspx_th_html_select_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
     _jspx_th_html_select_1.setProperty("tipo");
+    _jspx_th_html_select_1.setStyleClass("form-control");
     int _jspx_eval_html_select_1 = _jspx_th_html_select_1.doStartTag();
     if (_jspx_eval_html_select_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       if (_jspx_eval_html_select_1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
@@ -588,10 +605,10 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
         out = _jspx_page_context.popBody();
     }
     if (_jspx_th_html_select_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_select_property.reuse(_jspx_th_html_select_1);
+      _jspx_tagPool_html_select_styleClass_property.reuse(_jspx_th_html_select_1);
       return true;
     }
-    _jspx_tagPool_html_select_property.reuse(_jspx_th_html_select_1);
+    _jspx_tagPool_html_select_styleClass_property.reuse(_jspx_th_html_select_1);
     return false;
   }
 
@@ -669,10 +686,11 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:select
-    org.apache.struts.taglib.html.SelectTag _jspx_th_html_select_2 = (org.apache.struts.taglib.html.SelectTag) _jspx_tagPool_html_select_property.get(org.apache.struts.taglib.html.SelectTag.class);
+    org.apache.struts.taglib.html.SelectTag _jspx_th_html_select_2 = (org.apache.struts.taglib.html.SelectTag) _jspx_tagPool_html_select_styleClass_property.get(org.apache.struts.taglib.html.SelectTag.class);
     _jspx_th_html_select_2.setPageContext(_jspx_page_context);
     _jspx_th_html_select_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
-    _jspx_th_html_select_2.setProperty("");
+    _jspx_th_html_select_2.setProperty("pregunta");
+    _jspx_th_html_select_2.setStyleClass("form-control");
     int _jspx_eval_html_select_2 = _jspx_th_html_select_2.doStartTag();
     if (_jspx_eval_html_select_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       if (_jspx_eval_html_select_2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
@@ -711,10 +729,10 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
         out = _jspx_page_context.popBody();
     }
     if (_jspx_th_html_select_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_select_property.reuse(_jspx_th_html_select_2);
+      _jspx_tagPool_html_select_styleClass_property.reuse(_jspx_th_html_select_2);
       return true;
     }
-    _jspx_tagPool_html_select_property.reuse(_jspx_th_html_select_2);
+    _jspx_tagPool_html_select_styleClass_property.reuse(_jspx_th_html_select_2);
     return false;
   }
 
@@ -723,16 +741,31 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:option
-    org.apache.struts.taglib.html.OptionTag _jspx_th_html_option_6 = (org.apache.struts.taglib.html.OptionTag) _jspx_tagPool_html_option_value_nobody.get(org.apache.struts.taglib.html.OptionTag.class);
+    org.apache.struts.taglib.html.OptionTag _jspx_th_html_option_6 = (org.apache.struts.taglib.html.OptionTag) _jspx_tagPool_html_option_value.get(org.apache.struts.taglib.html.OptionTag.class);
     _jspx_th_html_option_6.setPageContext(_jspx_page_context);
     _jspx_th_html_option_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_select_2);
     _jspx_th_html_option_6.setValue("");
     int _jspx_eval_html_option_6 = _jspx_th_html_option_6.doStartTag();
+    if (_jspx_eval_html_option_6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      if (_jspx_eval_html_option_6 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+        out = _jspx_page_context.pushBody();
+        _jspx_th_html_option_6.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+        _jspx_th_html_option_6.doInitBody();
+      }
+      do {
+        out.write("Selecione una pregunta");
+        int evalDoAfterBody = _jspx_th_html_option_6.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+      if (_jspx_eval_html_option_6 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
+        out = _jspx_page_context.popBody();
+    }
     if (_jspx_th_html_option_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_6);
+      _jspx_tagPool_html_option_value.reuse(_jspx_th_html_option_6);
       return true;
     }
-    _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_6);
+    _jspx_tagPool_html_option_value.reuse(_jspx_th_html_option_6);
     return false;
   }
 
@@ -744,7 +777,7 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     org.apache.struts.taglib.html.OptionTag _jspx_th_html_option_7 = (org.apache.struts.taglib.html.OptionTag) _jspx_tagPool_html_option_value_nobody.get(org.apache.struts.taglib.html.OptionTag.class);
     _jspx_th_html_option_7.setPageContext(_jspx_page_context);
     _jspx_th_html_option_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_select_2);
-    _jspx_th_html_option_7.setValue("");
+    _jspx_th_html_option_7.setValue("¿Cuál es tu fecha de nacimiento?");
     int _jspx_eval_html_option_7 = _jspx_th_html_option_7.doStartTag();
     if (_jspx_th_html_option_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_7);
@@ -762,7 +795,7 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     org.apache.struts.taglib.html.OptionTag _jspx_th_html_option_8 = (org.apache.struts.taglib.html.OptionTag) _jspx_tagPool_html_option_value_nobody.get(org.apache.struts.taglib.html.OptionTag.class);
     _jspx_th_html_option_8.setPageContext(_jspx_page_context);
     _jspx_th_html_option_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_select_2);
-    _jspx_th_html_option_8.setValue("");
+    _jspx_th_html_option_8.setValue("¿Cuál es el nombre de tu mascota?");
     int _jspx_eval_html_option_8 = _jspx_th_html_option_8.doStartTag();
     if (_jspx_th_html_option_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_8);
@@ -780,7 +813,7 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     org.apache.struts.taglib.html.OptionTag _jspx_th_html_option_9 = (org.apache.struts.taglib.html.OptionTag) _jspx_tagPool_html_option_value_nobody.get(org.apache.struts.taglib.html.OptionTag.class);
     _jspx_th_html_option_9.setPageContext(_jspx_page_context);
     _jspx_th_html_option_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_select_2);
-    _jspx_th_html_option_9.setValue("");
+    _jspx_th_html_option_9.setValue("¿Cuál es tu equipo de futbol favorito?");
     int _jspx_eval_html_option_9 = _jspx_th_html_option_9.doStartTag();
     if (_jspx_th_html_option_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_9);
@@ -798,13 +831,32 @@ public final class mantenimientoUsuarios_jsp extends org.apache.jasper.runtime.H
     org.apache.struts.taglib.html.OptionTag _jspx_th_html_option_10 = (org.apache.struts.taglib.html.OptionTag) _jspx_tagPool_html_option_value_nobody.get(org.apache.struts.taglib.html.OptionTag.class);
     _jspx_th_html_option_10.setPageContext(_jspx_page_context);
     _jspx_th_html_option_10.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_select_2);
-    _jspx_th_html_option_10.setValue("");
+    _jspx_th_html_option_10.setValue("¿Cuál es el nombre de la primera escuela a la que asististe?");
     int _jspx_eval_html_option_10 = _jspx_th_html_option_10.doStartTag();
     if (_jspx_th_html_option_10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_10);
       return true;
     }
     _jspx_tagPool_html_option_value_nobody.reuse(_jspx_th_html_option_10);
+    return false;
+  }
+
+  private boolean _jspx_meth_html_text_2(javax.servlet.jsp.tagext.JspTag _jspx_th_html_form_1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  html:text
+    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_2 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_styleClass_property_nobody.get(org.apache.struts.taglib.html.TextTag.class);
+    _jspx_th_html_text_2.setPageContext(_jspx_page_context);
+    _jspx_th_html_text_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_1);
+    _jspx_th_html_text_2.setProperty("respuesta");
+    _jspx_th_html_text_2.setStyleClass("form-control");
+    int _jspx_eval_html_text_2 = _jspx_th_html_text_2.doStartTag();
+    if (_jspx_th_html_text_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_html_text_styleClass_property_nobody.reuse(_jspx_th_html_text_2);
+      return true;
+    }
+    _jspx_tagPool_html_text_styleClass_property_nobody.reuse(_jspx_th_html_text_2);
     return false;
   }
 
