@@ -91,6 +91,8 @@ public final class inicioFarmacias_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                            Areas\n");
       out.write("                        </a>\n");
       out.write("                        <div class=\"dropdown-menu bg-info \" aria-labelledby=\"navbarDropdown\">\n");
+      out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"iniciomedicamentos.jsp\"><b>Medicamentos</b></a>\n");
+      out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"iniciomedicos.jsp\"><b>Medicos</b></a>\n");
       out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"inicioclinicas.jsp\"><b>Clinicas</b></a>\n");
@@ -222,16 +224,13 @@ public final class inicioFarmacias_jsp extends org.apache.jasper.runtime.HttpJsp
     if (_jspx_eval_html_form_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
+        out.write("                    \n");
         out.write("                    ");
         if (_jspx_meth_html_submit_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
         out.write("<p>  </p>\n");
         out.write("                    ");
         if (_jspx_meth_html_submit_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
-          return true;
-        out.write("<p>  </p>\n");
-        out.write("                    ");
-        if (_jspx_meth_html_submit_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("                ");
@@ -257,8 +256,8 @@ public final class inicioFarmacias_jsp extends org.apache.jasper.runtime.HttpJsp
     _jspx_th_html_submit_0.setPageContext(_jspx_page_context);
     _jspx_th_html_submit_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
     _jspx_th_html_submit_0.setProperty("action");
-    _jspx_th_html_submit_0.setValue("Agregar Usuario");
-    _jspx_th_html_submit_0.setStyleClass("btn btn-outline-info my-2 my-sm-0");
+    _jspx_th_html_submit_0.setValue("Configuracion");
+    _jspx_th_html_submit_0.setStyleClass("btn btn-outline-info disabled");
     int _jspx_eval_html_submit_0 = _jspx_th_html_submit_0.doStartTag();
     if (_jspx_th_html_submit_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_0);
@@ -277,34 +276,14 @@ public final class inicioFarmacias_jsp extends org.apache.jasper.runtime.HttpJsp
     _jspx_th_html_submit_1.setPageContext(_jspx_page_context);
     _jspx_th_html_submit_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
     _jspx_th_html_submit_1.setProperty("action");
-    _jspx_th_html_submit_1.setValue("Configuracion");
-    _jspx_th_html_submit_1.setStyleClass("btn btn-outline-info disabled");
+    _jspx_th_html_submit_1.setValue("Cerrar Sesion");
+    _jspx_th_html_submit_1.setStyleClass("btn btn-outline-danger my-2 my-sm-0");
     int _jspx_eval_html_submit_1 = _jspx_th_html_submit_1.doStartTag();
     if (_jspx_th_html_submit_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_1);
       return true;
     }
     _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_html_submit_2(javax.servlet.jsp.tagext.JspTag _jspx_th_html_form_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  html:submit
-    org.apache.struts.taglib.html.SubmitTag _jspx_th_html_submit_2 = (org.apache.struts.taglib.html.SubmitTag) _jspx_tagPool_html_submit_value_styleClass_property_nobody.get(org.apache.struts.taglib.html.SubmitTag.class);
-    _jspx_th_html_submit_2.setPageContext(_jspx_page_context);
-    _jspx_th_html_submit_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
-    _jspx_th_html_submit_2.setProperty("action");
-    _jspx_th_html_submit_2.setValue("Cerrar Sesion");
-    _jspx_th_html_submit_2.setStyleClass("btn btn-outline-danger my-2 my-sm-0");
-    int _jspx_eval_html_submit_2 = _jspx_th_html_submit_2.doStartTag();
-    if (_jspx_th_html_submit_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_2);
-      return true;
-    }
-    _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_2);
     return false;
   }
 }

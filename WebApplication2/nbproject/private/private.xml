@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/web/WEB-INF/struts-config.xml</file>
             <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/actionforms/ActionFormClinicas.java</file>
             <file>file:/C:/Users/david.floresusam/Documents/Proyectos/sistema-medico/WebApplication2/src/java/action/ActionClinicas.java</file>
@@ -23,6 +24,9 @@
             <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/src/java/persistencia/Usuarios.java</file>
             <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/src/java/actionforms/LoginForm.java</file>
             <file>file:/C:/Users/julio.benavidesusam/Desktop/sistema-medico/WebApplication2/src/java/action/ActionUsuarios.java</file>
+>>>>>>> Stashed changes
+=======
+            <file>file:/C:/Users/eliseo.garciausam/Desktop/git/2/sistema-medico/WebApplication2/web/iniciomedicos.jsp</file>
 >>>>>>> Stashed changes
         </group>
     </open-files>

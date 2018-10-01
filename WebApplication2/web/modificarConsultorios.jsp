@@ -78,7 +78,7 @@
                     <p>  </p>
                 </ul>
                 <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
-                    <html:submit property="action" value="Agregar Usuario" styleClass="btn btn-outline-info my-2 my-sm-0"/><p>  </p>
+                    
                     <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
                     <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
                 </html:form>
