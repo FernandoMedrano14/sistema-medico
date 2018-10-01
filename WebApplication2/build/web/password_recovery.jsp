@@ -27,7 +27,8 @@
                     <div class="card card-container">
                          
                         <h3 style="text-align: center">Recuperacion de contraseña</h3>
-                         
+                         <br>
+                         <br>
                         <html:form action="/AgregarUsuario">
                             <div class="form-row">
                                 <div class="form-group col-md-1"></div>
@@ -40,14 +41,41 @@
                                     <html:text property="e_mail" styleClass="form-control"/>
                                 </div>
                                 <div class="form-group col-md-1"></div>
-                                <div class="row">
-                                    <div class="form-group col-md-1"></div>
-                                    <div class="form-group col-md-5">
-                                        <label>Pregunta de seguridad</label>
+                                <div class="row" ${mensaje}>
+                                    <div class="form-group col-md-2"></div>
+                                    <div class="form-group col-md-8">
+                                        <label>Debe ingrese su usuario y su correo para poder continuar la recuperación de su cuenta</label>
                                     </div>
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-2"></div>
+                                    <div class="form-group col-5"></div>
+                                    <div class="form-group col-2">
+                                        <html:submit property="action" value="Ingresar" styleClass="btn btn-sm btn-info"/>
+                                    </div>
+                                    <div class="form-group col-5"></div>
+                                </div>
+                                <div class="row" ${mensaje3}>
+                                    <div class="form-group col-md-1"> </div>
+                                    <div class="form-group col-md-10">
+                                        <label>Pregunta de seguridad: </label>
+                                        <bean:write name="LoginForm" property="pregunta"/><p> </p>
                                     </div>
                                     <div class="form-group col-md-1"></div>
+                                    <div class="form-group col-md-1"></div>
+                                    <div class="form-group col-md-10">
+                                        <label>Respuesta: </label>
+                                        <html:text property="respuesta" styleClass="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-1"></div>
+                                    <div class="form-group col-md-2"></div>
+                                    <div class="form-group col-md-8">
+                                        <label>Ingrese la respuesta a su pregunta de seguridad y de clic a enviar para verificar la información</label>
+                                    </div>
+                                    <div class="form-group col-md-1"></div>
+                                    <div class="form-group col-md-5"></div>
+                                    <div class="form-group col-md-2">
+                                        <html:submit property="action" value="Enviar" styleClass="btn btn-sm btn-info"/>
+                                    </div>
+                                    <div class="form-group col-md-5"></div>
                                 </div>
                             </div>
                         </html:form>

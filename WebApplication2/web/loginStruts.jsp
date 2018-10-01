@@ -37,7 +37,7 @@
                         <label>Contraseña</label>
                         <html:password property="password" styleClass="form-control"/>
                         <br>
-                        <div id="remember" class="checkbox">
+                        <div>
                             ${mensaje}
                             <label>
                                 <input type="checkbox" value="remember-me"> Recordar

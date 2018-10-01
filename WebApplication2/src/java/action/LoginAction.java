@@ -24,17 +24,21 @@ public class LoginAction extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String loginError = "loginError";
-    private static final String agregarUsuario= "agregarUsuario";
+    private static final String agregarUsuario = "agregarUsuario";
+    private static final String recuperar = "recuperar";
 
     /* User Session */
     private static String acceso;
     private String mensaje;
+    private String mensaje2;
+    private String mensaje3;
     private int intentos;
 
     public LoginAction() {
         acceso = "";
         this.mensaje = "";
-        this.intentos = 0;        
+        this.mensaje2 = "";
+        this.intentos = 0;
     }
 
     /**
@@ -53,6 +57,7 @@ public class LoginAction extends org.apache.struts.action.Action {
             throws Exception {
         LoginForm loginform = (LoginForm) form;
         MantenimientoUsuarios mantenimientoUsuarios = new MantenimientoUsuarios();
+        List<Usuarios> listaUsuarios = null;
         //
 //        String name = loginform.getUsername();
 //        String pass = loginform.getPassword();
@@ -67,7 +72,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 //
         switch (loginform.getAction()) {
             case "Iniciar Sesion":
-                List<Usuarios> listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
+                listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
 //                for (Usuarios usuarios : listaUsuarios) {
 //                    if ((loginform.getUsername().equals(usuarios.getNombre()) || loginform.getUsername().equals(usuarios.getCorreo())) && loginform.getPassword().equals(usuarios.getContra())) {
 //                        acceso = usuarios.getTipo();
@@ -85,8 +90,8 @@ public class LoginAction extends org.apache.struts.action.Action {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Usuario o contraseña incorrecta</div>";
                     request.setAttribute("mensaje", mensaje);
                     intentos++;
-                    if (intentos>2) {
-                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Usuario o contraseña incorrecta</div>";
+                    if (intentos > 3) {
+                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">¡Usuario o contraseña incorrecta!<br/><br/>¿Olvidaste tu contraseña?<br/><html:form action=\"/AgregarUsuario\"><html:submit property=\"action\" value=\"Recuperar contraseña\"/></html:form></div>";
                         request.setAttribute("mensaje", mensaje);
                     }
                     return mapping.findForward(loginError);
@@ -104,7 +109,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                 }
                 break;
             case "Agregar Usuario":
-                System.out.println("En agregar usuario\nAcceso: ("+acceso+")");
+                System.out.println("En agregar usuario\nAcceso: (" + acceso + ")");
                 if (acceso.equals("")) {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion<strong/></div>";
                     request.setAttribute("mensaje", mensaje);
@@ -119,7 +124,34 @@ public class LoginAction extends org.apache.struts.action.Action {
                 if (acceso.equals("Admin")) {
                     return mapping.findForward(agregarUsuario);
                 }
-                
+
+                break;
+            case "Recuperar contraseña":
+                mensaje2 = "";
+                request.setAttribute("mensaje", mensaje);
+                mensaje3 = "style=\"visibility: hidden\"";
+                request.setAttribute("mensaje", mensaje);
+                if (true) {
+                    return mapping.findForward(recuperar);
+                }
+                break;
+            case "Ingresar":
+                if ((loginform.getUsername() == null || loginform.getUsername().equals("")) && (loginform.getE_mail() == null || loginform.getE_mail().equals(""))) {
+                    mensaje2 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje", mensaje);
+                    mensaje3 = "";
+                    request.setAttribute("mensaje2", mensaje2);
+                    return mapping.findForward(recuperar);
+                }
+
+                listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
+                for (Usuarios usuarios : listaUsuarios) {
+                    if (loginform.getUsername().equals(usuarios.getNombre()) && loginform.getE_mail().equals(usuarios.getCorreo())) {
+                        loginform.setPregunta(usuarios.getPregunta());
+                    }
+                }
+                break;
+            case "Enviar":
                 break;
             case "":
                 break;

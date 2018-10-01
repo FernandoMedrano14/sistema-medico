@@ -3,7 +3,6 @@ package actionforms;
 
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
@@ -41,6 +40,22 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
         this.password = password;
     }
 
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
+    
     public String getAction() {
         return action;
     }
