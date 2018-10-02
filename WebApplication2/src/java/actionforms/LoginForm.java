@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionMessage;
 
 public class LoginForm extends org.apache.struts.action.ActionForm {
     
+    private int idUsuario;
     private String username;
     private String e_mail;
     private String password;
@@ -16,6 +17,14 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
     private String respuesta;
     private String action;
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
     public String getUsername() {
         return username;
     }

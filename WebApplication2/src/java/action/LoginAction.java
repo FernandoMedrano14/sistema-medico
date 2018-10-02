@@ -38,6 +38,7 @@ public class LoginAction extends org.apache.struts.action.Action {
         acceso = "";
         this.mensaje = "";
         this.mensaje2 = "";
+        this.mensaje3 = "";
         this.intentos = 0;
     }
 
@@ -91,7 +92,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                     request.setAttribute("mensaje", mensaje);
                     intentos++;
                     if (intentos > 3) {
-                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">¡Usuario o contraseña incorrecta!<br/><br/>¿Olvidaste tu contraseña?<br/><html:form action=\"/AgregarUsuario\"><html:submit property=\"action\" value=\"Recuperar contraseña\"/></html:form></div>";
+                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">¡Usuario o contraseña incorrecta!<br/><br/>¿Olvidaste tu contraseña?<br/><html:form action=\"/AgregarUsuario\"><html:submit property=\"action\" value=\"Recuperar contraseña\"/></html:form><a class=\"btn btn-link\" href=\"AgregarUsuario.do?action=Recuperar contraseña\">Aquí</a></div>";
                         request.setAttribute("mensaje", mensaje);
                     }
                     return mapping.findForward(loginError);
@@ -127,29 +128,39 @@ public class LoginAction extends org.apache.struts.action.Action {
 
                 break;
             case "Recuperar contraseña":
+                mensaje = "";
+                request.setAttribute("mensaje", mensaje);
                 mensaje2 = "";
-                request.setAttribute("mensaje", mensaje);
+                request.setAttribute("mensaje2", mensaje2);
                 mensaje3 = "style=\"visibility: hidden\"";
-                request.setAttribute("mensaje", mensaje);
+                request.setAttribute("mensaje3", mensaje3);
                 if (true) {
                     return mapping.findForward(recuperar);
                 }
                 break;
             case "Ingresar":
-                if ((loginform.getUsername() == null || loginform.getUsername().equals("")) && (loginform.getE_mail() == null || loginform.getE_mail().equals(""))) {
-                    mensaje2 = "style=\"visibility: hidden\"";
+                if ((loginform.getUsername() == null || loginform.getUsername().equals("")) || (loginform.getE_mail() == null || loginform.getE_mail().equals(""))) {
+                    mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-2\"></div><div class=\"alert alert-warning form-group col-md-8\" style=\"text-align: center\">Usuario y Correo son campos requeridos</div><div class=\"form-group col-md-2\"></div></div>";
                     request.setAttribute("mensaje", mensaje);
-                    mensaje3 = "";
+                    mensaje2 = "";
                     request.setAttribute("mensaje2", mensaje2);
+                    mensaje3 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje3", mensaje3);
                     return mapping.findForward(recuperar);
                 }
-
                 listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
                 for (Usuarios usuarios : listaUsuarios) {
                     if (loginform.getUsername().equals(usuarios.getNombre()) && loginform.getE_mail().equals(usuarios.getCorreo())) {
-                        loginform.setPregunta(usuarios.getPregunta());
+                        loginform.setIdUsuario(usuarios.getIdUsuario());
+                        loginform.setIdUsuario(usuarios.getIdUsuario());
+                        loginform.setIdUsuario(usuarios.getIdUsuario());
                     }
                 }
+                if (true) {
+                    
+                }
+                
+                
                 break;
             case "Enviar":
                 break;

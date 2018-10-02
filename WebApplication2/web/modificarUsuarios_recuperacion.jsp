@@ -17,7 +17,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="favicon.ico" />
-        <title>Modificar Farmacia</title>
+        <title>Recuperar</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -84,26 +84,32 @@
             <div class="container">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-4"></div>
+                        <div class="col-2"></div>
                         <div class="col-8">
-                            <div class="form-group col-md-2">
-                                <label class="font-weight-bold">Id Usuario:</label>
-                                <html:text readonly="true" property="idUsuario" size="5" maxlength="" styleClass="form-control"></html:text>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label class="font-weight-bold">Id Usuario:</label>
+                                    <html:text readonly="true" property="idUsuario" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    </div>
+                                    <div class="form-group col-md-1"></div>
+                                    <div class="form-group col-md-5">
+                                        <label class="font-weight-bold">Nombre Usuario:</label>
+                                    <html:text property="nombre" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    </div>    
                                 </div>
-                                <div class="form-group col-md-5">
-                                    <label class="font-weight-bold">Nombre Usuario:</label>
-                                <html:text property="nombre" size="5" maxlength="" styleClass="form-control"></html:text>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label class="font-weight-bold">Correo Usuario:</label>
+                                    <html:text property="correo" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    </div> 
+                                    <div class="form-group col-md-5">
+                                        <label class="font-weight-bold">Contraseña Usuario:</label>
+                                    <html:password property="contra" size="5" maxlength="" styleClass="form-control"/>
                                 </div> 
-                                <div class="form-group col-md-5">
-                                    <label class="font-weight-bold">Correo Usuario:</label>
-                                <html:text property="correo" size="5" maxlength="" styleClass="form-control"></html:text>
-                                </div> 
-                                <div class="form-group col-md-5">
-                                    <label class="font-weight-bold">Contraseña Usuario:</label>
-                                <html:password property="contra" size="5" maxlength="" styleClass="form-control"/>
-                                </div> 
-                                <div class="form-group col-md-5">
-                                    <label class="font-weight-bold">Genero Usuario:</label>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label class="font-weight-bold">Genero Usuario:</label>
                                 <html:text property="genero" size="5" maxlength="" styleClass="form-control"></html:text>
                                 </div> 
                                 <div class="form-group col-md-5">

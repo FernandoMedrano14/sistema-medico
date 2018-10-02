@@ -28,6 +28,9 @@
                          
                         <h3 style="text-align: center">Recuperacion de contraseña</h3>
                          <br>
+                        
+                        
+                        ${mensaje}
                          <br>
                         <html:form action="/AgregarUsuario">
                             <div class="form-row">
@@ -37,14 +40,14 @@
                                     <html:text property="username" styleClass="form-control"/>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label><b>Correo:</b></label>
+                                    <label><b>Correo:</b></label>                                    
                                     <html:text property="e_mail" styleClass="form-control"/>
                                 </div>
                                 <div class="form-group col-md-1"></div>
-                                <div class="row" ${mensaje}>
+                                <div class="row" ${mensaje2}>
                                     <div class="form-group col-md-2"></div>
                                     <div class="form-group col-md-8">
-                                        <label>Debe ingrese su usuario y su correo para poder continuar la recuperación de su cuenta</label>
+                                        <label>Ingrese su usuario y su correo para continuar la recuperación de su cuenta</label>
                                     </div>
                                     <div class="form-group col-2"></div>
                                     <div class="form-group col-5"></div>
@@ -71,7 +74,7 @@
                                         <label>Ingrese la respuesta a su pregunta de seguridad y de clic a enviar para verificar la información</label>
                                     </div>
                                     <div class="form-group col-md-1"></div>
-                                    <div class="form-group col-md-5"></div>
+                                    <div class="form-group col-md-5"><html:text property="idUsuario" styleClass="form-control"/></div>
                                     <div class="form-group col-md-2">
                                         <html:submit property="action" value="Enviar" styleClass="btn btn-sm btn-info"/>
                                     </div>

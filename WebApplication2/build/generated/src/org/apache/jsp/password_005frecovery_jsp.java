@@ -11,8 +11,9 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_text_styleClass_property_disabled_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_submit_value_styleClass_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_form_action;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_submit_value_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_text_styleClass_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_bean_write_property_name_nobody;
 
@@ -23,15 +24,17 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
   }
 
   public void _jspInit() {
+    _jspx_tagPool_html_text_styleClass_property_disabled_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_form_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_html_submit_value_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_text_styleClass_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_bean_write_property_name_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_html_text_styleClass_property_disabled_nobody.release();
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody.release();
     _jspx_tagPool_html_form_action.release();
-    _jspx_tagPool_html_submit_value_property_nobody.release();
     _jspx_tagPool_html_text_styleClass_property_nobody.release();
     _jspx_tagPool_bean_write_property_name_nobody.release();
   }
@@ -85,7 +88,13 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
       out.write("                    <div class=\"card card-container\">\n");
       out.write("                         \n");
       out.write("                        <h3 style=\"text-align: center\">Recuperacion de contraseña</h3>\n");
-      out.write("                         \n");
+      out.write("                         <br>\n");
+      out.write("                        \n");
+      out.write("                        \n");
+      out.write("                        ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensaje}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\n");
+      out.write("                         <br>\n");
       out.write("                        ");
       if (_jspx_meth_html_form_0(_jspx_page_context))
         return;
@@ -134,44 +143,63 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
         out.write("                                </div>\n");
         out.write("                                <div class=\"form-group col-md-5\">\n");
         out.write("                                    <label><b>Correo:</b></label>\n");
-        out.write("                                    <button class=\"btn btn-group-sm\" style=\"\"></button>\n");
         out.write("                                    ");
         if (_jspx_meth_html_text_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("                                </div>\n");
         out.write("                                <div class=\"form-group col-md-1\"></div>\n");
-        out.write("                                <div class=\"row\">\n");
-        out.write("                                    <div class=\"form-group col-1\"></div>\n");
-        out.write("                                    <div class=\"form-group col-10\">");
+        out.write("                                <div class=\"row\" ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensaje2}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write(">\n");
+        out.write("                                    <div class=\"form-group col-md-2\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-8\">\n");
+        out.write("                                        <label>Ingrese su usuario y su correo para continuar la recuperación de su cuenta</label>\n");
+        out.write("                                    </div>\n");
+        out.write("                                    <div class=\"form-group col-2\"></div>\n");
+        out.write("                                    <div class=\"form-group col-5\"></div>\n");
+        out.write("                                    <div class=\"form-group col-2\">\n");
+        out.write("                                        ");
         if (_jspx_meth_html_submit_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
-        out.write("</div>\n");
-        out.write("                                    <div class=\"form-group col-1\"></div>\n");
+        out.write("\n");
+        out.write("                                    </div>\n");
+        out.write("                                    <div class=\"form-group col-5\"></div>\n");
         out.write("                                </div>\n");
-        out.write("                                <div class=\"row\">\n");
+        out.write("                                <div class=\"row\" ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensaje3}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write(">\n");
         out.write("                                    <div class=\"form-group col-md-1\"> </div>\n");
         out.write("                                    <div class=\"form-group col-md-10\">\n");
         out.write("                                        <label>Pregunta de seguridad: </label>\n");
         out.write("                                        ");
         if (_jspx_meth_bean_write_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
-        out.write("                                        \n");
+        out.write("<p> </p>\n");
         out.write("                                    </div>\n");
         out.write("                                    <div class=\"form-group col-md-1\"></div>\n");
-        out.write("                                    <div class=\"form-group col-md-1\"> </div>\n");
+        out.write("                                    <div class=\"form-group col-md-1\"></div>\n");
         out.write("                                    <div class=\"form-group col-md-10\">\n");
         out.write("                                        <label>Respuesta: </label>\n");
         out.write("                                        ");
         if (_jspx_meth_html_text_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
         out.write("\n");
+        out.write("                                    </div>\n");
+        out.write("                                    <div class=\"form-group col-md-1\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-2\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-8\">\n");
+        out.write("                                        <label>Ingrese la respuesta a su pregunta de seguridad y de clic a enviar para verificar la información</label>\n");
+        out.write("                                    </div>\n");
+        out.write("                                    <div class=\"form-group col-md-1\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-5\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-2\">\n");
         out.write("                                        ");
         if (_jspx_meth_html_submit_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("                                    </div>\n");
-        out.write("                                    <div class=\"form-group col-md-1\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-5\"></div>\n");
         out.write("                                </div>\n");
         out.write("                            </div>\n");
         out.write("                        ");
@@ -212,17 +240,18 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:text
-    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_1 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_styleClass_property_nobody.get(org.apache.struts.taglib.html.TextTag.class);
+    org.apache.struts.taglib.html.TextTag _jspx_th_html_text_1 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_styleClass_property_disabled_nobody.get(org.apache.struts.taglib.html.TextTag.class);
     _jspx_th_html_text_1.setPageContext(_jspx_page_context);
     _jspx_th_html_text_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
     _jspx_th_html_text_1.setProperty("e_mail");
     _jspx_th_html_text_1.setStyleClass("form-control");
+    _jspx_th_html_text_1.setDisabled(false);
     int _jspx_eval_html_text_1 = _jspx_th_html_text_1.doStartTag();
     if (_jspx_th_html_text_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_text_styleClass_property_nobody.reuse(_jspx_th_html_text_1);
+      _jspx_tagPool_html_text_styleClass_property_disabled_nobody.reuse(_jspx_th_html_text_1);
       return true;
     }
-    _jspx_tagPool_html_text_styleClass_property_nobody.reuse(_jspx_th_html_text_1);
+    _jspx_tagPool_html_text_styleClass_property_disabled_nobody.reuse(_jspx_th_html_text_1);
     return false;
   }
 
@@ -231,17 +260,18 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:submit
-    org.apache.struts.taglib.html.SubmitTag _jspx_th_html_submit_0 = (org.apache.struts.taglib.html.SubmitTag) _jspx_tagPool_html_submit_value_property_nobody.get(org.apache.struts.taglib.html.SubmitTag.class);
+    org.apache.struts.taglib.html.SubmitTag _jspx_th_html_submit_0 = (org.apache.struts.taglib.html.SubmitTag) _jspx_tagPool_html_submit_value_styleClass_property_nobody.get(org.apache.struts.taglib.html.SubmitTag.class);
     _jspx_th_html_submit_0.setPageContext(_jspx_page_context);
     _jspx_th_html_submit_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
     _jspx_th_html_submit_0.setProperty("action");
-    _jspx_th_html_submit_0.setValue("recuperar");
+    _jspx_th_html_submit_0.setValue("Ingresar");
+    _jspx_th_html_submit_0.setStyleClass("btn btn-sm btn-info");
     int _jspx_eval_html_submit_0 = _jspx_th_html_submit_0.doStartTag();
     if (_jspx_th_html_submit_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_submit_value_property_nobody.reuse(_jspx_th_html_submit_0);
+      _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_0);
       return true;
     }
-    _jspx_tagPool_html_submit_value_property_nobody.reuse(_jspx_th_html_submit_0);
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_0);
     return false;
   }
 
@@ -288,17 +318,18 @@ public final class password_005frecovery_jsp extends org.apache.jasper.runtime.H
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  html:submit
-    org.apache.struts.taglib.html.SubmitTag _jspx_th_html_submit_1 = (org.apache.struts.taglib.html.SubmitTag) _jspx_tagPool_html_submit_value_property_nobody.get(org.apache.struts.taglib.html.SubmitTag.class);
+    org.apache.struts.taglib.html.SubmitTag _jspx_th_html_submit_1 = (org.apache.struts.taglib.html.SubmitTag) _jspx_tagPool_html_submit_value_styleClass_property_nobody.get(org.apache.struts.taglib.html.SubmitTag.class);
     _jspx_th_html_submit_1.setPageContext(_jspx_page_context);
     _jspx_th_html_submit_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
     _jspx_th_html_submit_1.setProperty("action");
-    _jspx_th_html_submit_1.setValue("modificar");
+    _jspx_th_html_submit_1.setValue("Enviar");
+    _jspx_th_html_submit_1.setStyleClass("btn btn-sm btn-info");
     int _jspx_eval_html_submit_1 = _jspx_th_html_submit_1.doStartTag();
     if (_jspx_th_html_submit_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_html_submit_value_property_nobody.reuse(_jspx_th_html_submit_1);
+      _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_1);
       return true;
     }
-    _jspx_tagPool_html_submit_value_property_nobody.reuse(_jspx_th_html_submit_1);
+    _jspx_tagPool_html_submit_value_styleClass_property_nobody.reuse(_jspx_th_html_submit_1);
     return false;
   }
 }
