@@ -118,7 +118,7 @@
         <forward name="irAgregarUsuario" path="/mantenimientoUsuarios.jsp"/>
         
         
-        
+                        <!-- Forward Recuperación-->
         <forward name="recuperacion" path="/recuperacion.jsp"/>
         <forward name="welcome"  path="/Welcome.do"/>
     </global-forwards>

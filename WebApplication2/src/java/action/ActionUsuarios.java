@@ -13,7 +13,7 @@ import persistencia.Usuarios;
 public class ActionUsuarios extends org.apache.struts.action.Action {
 
     private static final String Confirmar = "confirmacionNuevoUsuario";
-    private static final String Eliminar = "confirmacionEliminarUsuario";
+    private static final String Eliminar = "eliminarUsuario";
     private static final String Error = "errorMantenimientoUsuario";
     private static final String guardado = "guardadoUsuario";//
     private static final String AGREGAR = "irAgregarUsuario";//
@@ -109,8 +109,20 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Eliminar")) {
+            String advertencia = "";
             MantenimientoUsuarios usuarios = new MantenimientoUsuarios();
-            usuarios.eliminarUsuario(idUsuario);
+            int idRecibido = (Integer.parseInt(request.getParameter("id")));
+
+            if (usuarios.eliminarUsuario(idRecibido) == 0) {
+                formBean.setError("<spam style='color:red'> El registro no existe" + "<br></spam>");
+                return mapping.findForward(Error);
+            }else{
+            List<Usuarios> lista = usuarios.consultarTodoUsuario();
+            formBean.setListaUsuarios(lista);
+            formBean.setIdUsuario(idRecibido);
+            advertencia = ("<div class=\"alert alert-danger\">\n<strong>Registro eliminado:</strong> El usuario ha sido eliminado.\n</div>");
+            request.setAttribute("advertencia", advertencia);
+        }
             return mapping.findForward(Eliminar);
         }
 
@@ -134,31 +146,30 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
                 formBean.setTipo(usuario.getTipo());
                 formBean.setPregunta(pregunta);
                 formBean.setRespuesta(respuesta);*/
-                
                 return mapping.findForward(confirmarID);
             }
         }
 
-        if (action.equals("modificar")) {
+        if (action.equals("Modificar")) {
             MantenimientoUsuarios usuarios = new MantenimientoUsuarios();
-            
+
             int confirmar = usuarios.modificar(idUsuario, nombre, correo, contra, genero, tipo, pregunta, respuesta);
             //usuarios.modificar(idUsuario, nombre, correo, contra, genero, tipo, pregunta, respuesta);
             System.out.println(confirmar);
-            
+
             List<Usuarios> lista = usuarios.consultarTodoUsuario();
             formBean.setListaUsuarios(lista);
             return mapping.findForward(consultar);
         }
-        
-              if(action.equals("irModificar")){
+
+        if (action.equals("irModificar")) {
             System.out.println("estoy en ir modificar");
             String id = request.getParameter("id");
             idUsuario = Integer.parseInt(id);
             System.out.println(id);
             MantenimientoUsuarios usuario = new MantenimientoUsuarios();
             Usuarios usuarios = usuario.consultaId(idUsuario);
-            
+
             formBean.setIdUsuario(usuarios.getIdUsuario());
             formBean.setNombre(usuarios.getNombre());
             formBean.setCorreo(usuarios.getCorreo());
