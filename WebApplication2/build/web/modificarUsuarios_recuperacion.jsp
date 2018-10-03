@@ -87,56 +87,99 @@
                         <div class="col-2"></div>
                         <div class="col-8">
                             <div class="form-row">
+                                <div class="form-group col-md-5"></div>
+                                <div class="form-group col-md-2">
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#Modal">
+                                        Información
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ModalLabel">Sobre recuperacion de contraseña</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Solo podrás modificar tu contraseña para poder acceder de nuevo por lo que los demás datos no podrán ser cambiados a excepción de tu pregunta de seguridad.
+                                                    <br>
+                                                    <br>
+                                                    Recuerda que debe ser una contraseña que puedas recordar fácilmente pero que por seguridad no sea corta u obvia para que sea difícil acceder a tu cuenta por terceros.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-5"></div>
+                            </div>
+                            <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <label class="font-weight-bold">Id Usuario:</label>
-                                    <html:text readonly="true" property="idUsuario" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    <html:text property="idUsuario" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
                                     </div>
                                     <div class="form-group col-md-1"></div>
                                     <div class="form-group col-md-5">
                                         <label class="font-weight-bold">Nombre Usuario:</label>
-                                    <html:text property="nombre" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    <html:text property="nombre" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
                                     </div>    
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <label class="font-weight-bold">Correo Usuario:</label>
-                                    <html:text property="correo" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    <html:text property="correo" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
                                     </div> 
+                                    <div class="form-group col-md-1"></div>
                                     <div class="form-group col-md-5">
                                         <label class="font-weight-bold">Contraseña Usuario:</label>
                                     <html:password property="contra" size="5" maxlength="" styleClass="form-control"/>
                                 </div> 
                             </div>
-
-                            <div class="form-group col-md-5">
-                                <label class="font-weight-bold">Genero Usuario:</label>
-                                <html:text property="genero" size="5" maxlength="" styleClass="form-control"></html:text>
-                                </div> 
+                            <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <label class="font-weight-bold">Tipo:</label>
-                                <html:select property="tipo" styleClass="form-control">
-                                    <html:option value="">Seleccione</html:option>
-                                    <html:option value="Admin"/>
-                                    <html:option value="Usuario"/>
-                                </html:select>
-                            </div> 
-                            <div class="form-group col-md-7">
-                                <label class="font-weight-bold">Pregunta de Seguridad:</label>
-                                <html:select property="pregunta" styleClass="form-control">
-                                    <html:option value="">Selecione una pregunta</html:option>
-                                    <html:option value="¿Cuál es tu fecha de nacimiento?"/>
-                                    <html:option value="¿Cuál es el nombre de tu mascota?"/>
-                                    <html:option value="¿Cuál es tu equipo de futbol favorito?"/>
-                                    <html:option value="¿Cuál es el nombre de la primera escuela a la que asististe?"/>
-                                </html:select>
-                            </div> 
-                            <div class="form-group col-md-7">
-                                <label class="font-weight-bold">Respuesta:</label>
-                                <html:text property="respuesta" size="5" maxlength="" styleClass="form-control"></html:text>
-                                </div> 
+                                    <label class="font-weight-bold">Genero Usuario:</label>
+                                    <html:text property="genero" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
+                                    </div>
+                                    <div class="form-group col-md-1"></div>
+                                    <div class="form-group col-md-5">
+                                        <label class="font-weight-bold">Tipo:</label>
+                                    <html:select property="tipo" styleClass="form-control" disabled="true">
+                                        <html:option value="">Seleccione</html:option>
+                                        <html:option value="Admin"/>
+                                        <html:option value="Usuario"/>
+                                    </html:select>
+                                </div>
+                            </div>
+                            <div class="form-row">
                                 <div class="form-group col-md-7">
-                                <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
-                            </div> 
+                                    <label class="font-weight-bold">Pregunta de Seguridad:</label>
+                                    <html:select property="pregunta" styleClass="form-control">
+                                        <html:option value="">Selecione una pregunta</html:option>
+                                        <html:option value="¿Cual es tu animal favorito?"/>
+                                        <html:option value="¿Cual es el nombre de tu mascota?"/>
+                                        <html:option value="¿Cual es tu equipo de futbol favorito?"/>
+                                        <html:option value="¿Cual es el nombre de la primera escuela a la que asististe?"/>
+                                    </html:select>
+                                </div> 
+                                <div class="form-group col-md-1"></div>
+                                <div class="form-group col-md-3">
+                                    <label class="font-weight-bold">Respuesta:</label>
+                                    <html:text property="respuesta" size="5" maxlength="" styleClass="form-control"></html:text>
+                                    </div> 
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5"></div>
+                                    <div class="form-group"><br>
+                                    <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                                </div>
+                                <div class="form-group col-md-1"></div>
+                            </div>
+
                             <p align="center">${advertencia}</p>
                         </div>
                     </div>

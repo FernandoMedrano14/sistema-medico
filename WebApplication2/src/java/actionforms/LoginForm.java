@@ -13,6 +13,8 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
     private String username;
     private String e_mail;
     private String password;
+    private String genero;
+    private String tipo;
     private String pregunta;
     private String respuesta;
     private String action;
@@ -49,6 +51,22 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
         this.password = password;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
     public String getPregunta() {
         return pregunta;
     }

@@ -26,6 +26,7 @@ public class LoginAction extends org.apache.struts.action.Action {
     private static final String loginError = "loginError";
     private static final String agregarUsuario = "agregarUsuario";
     private static final String recuperar = "recuperar";
+    private static final String cambiar_contra = "cambiar_contra";
 
     /* User Session */
     private static String acceso;
@@ -92,7 +93,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                     request.setAttribute("mensaje", mensaje);
                     intentos++;
                     if (intentos > 3) {
-                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">¡Usuario o contraseña incorrecta!<br/><br/>¿Olvidaste tu contraseña?<br/><html:form action=\"/AgregarUsuario\"><html:submit property=\"action\" value=\"Recuperar contraseña\"/></html:form><a class=\"btn btn-link\" href=\"AgregarUsuario.do?action=Recuperar contraseña\">Aquí</a></div>";
+                        mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">¡Usuario o contraseña incorrecta!<br/><br/>¿Olvidaste tu contraseña?<br/>Recuperala<a class=\"btn btn-link\" href=\"AgregarUsuario.do?action=Recuperar contraseña\">Aquí</a></div>";
                         request.setAttribute("mensaje", mensaje);
                     }
                     return mapping.findForward(loginError);
@@ -152,17 +153,51 @@ public class LoginAction extends org.apache.struts.action.Action {
                 for (Usuarios usuarios : listaUsuarios) {
                     if (loginform.getUsername().equals(usuarios.getNombre()) && loginform.getE_mail().equals(usuarios.getCorreo())) {
                         loginform.setIdUsuario(usuarios.getIdUsuario());
-                        loginform.setIdUsuario(usuarios.getIdUsuario());
-                        loginform.setIdUsuario(usuarios.getIdUsuario());
+                        loginform.setUsername(usuarios.getNombre());
+                        loginform.setE_mail(usuarios.getCorreo());
+                        loginform.setPregunta(usuarios.getPregunta());
+                        mensaje = "";
+                        request.setAttribute("mensaje", mensaje);
+                        mensaje2 = "style=\"visibility: hidden\"";
+                        request.setAttribute("mensaje2", mensaje2);
+                        mensaje3 = "";
+                        request.setAttribute("mensaje3", mensaje3);
+                        return mapping.findForward(recuperar);
                     }
                 }
                 if (true) {
-                    
+                    mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-2\"></div><div class=\"alert alert-warning form-group col-md-8\" style=\"text-align: center\">El Usuario o Correo no se encontro.<br/>Ambos campos deben de coinsidir</div><div class=\"form-group col-md-2\"></div></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    mensaje2 = "";
+                    request.setAttribute("mensaje2", mensaje2);
+                    mensaje3 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje3", mensaje3);
+                    return mapping.findForward(recuperar);
                 }
-                
-                
                 break;
             case "Enviar":
+                Usuarios usuario = mantenimientoUsuarios.consultaId(loginform.getIdUsuario());
+                if (loginform.getRespuesta().equals(usuario.getRespuesta())) {
+                    loginform.setIdUsuario(usuario.getIdUsuario());
+                    loginform.setUsername(usuario.getNombre());
+                    loginform.setE_mail(usuario.getCorreo());
+                    loginform.setPassword(usuario.getContra());
+                    loginform.setGenero(usuario.getGenero());
+                    loginform.setTipo(usuario.getTipo());
+                    loginform.setPregunta(usuario.getPregunta());
+                    loginform.setRespuesta(usuario.getRespuesta());
+                } else {
+                    mensaje = "La respuesta a la pregunta es incorrecta";
+                    request.setAttribute("mensaje", mensaje);
+                    mensaje2 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje2", mensaje2);
+                    mensaje3 = "";
+                    request.setAttribute("mensaje3", mensaje3);
+                    return mapping.findForward(recuperar);
+                }
+                if (true) {
+                    return mapping.findForward(cambiar_contra);
+                }
                 break;
             case "":
                 break;

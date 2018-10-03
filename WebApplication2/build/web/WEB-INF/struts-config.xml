@@ -36,6 +36,7 @@
         <forward name="agregarUsuario" path="/mantenimientoUsuarios.jsp"/>        
         <forward name="loginError" path="/loginStruts.jsp"/>        
         <forward name="recuperar" path="/password_recovery.jsp"/>        
+        <forward name="cambiar_contra" path="/modificarUsuarios_recuperacion.jsp"/>        
         
         <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>

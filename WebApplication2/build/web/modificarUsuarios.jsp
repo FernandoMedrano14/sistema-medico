@@ -101,9 +101,9 @@
                                 <div class="form-group col-md-5">
                                     <label class="font-weight-bold">Contraseña Usuario:</label>
                                 <html:password property="contra" size="5" maxlength="" styleClass="form-control"/>
-                                </div> 
-                                <div class="form-group col-md-5">
-                                    <label class="font-weight-bold">Genero Usuario:</label>
+                            </div> 
+                            <div class="form-group col-md-5">
+                                <label class="font-weight-bold">Genero Usuario:</label>
                                 <html:text property="genero" size="5" maxlength="" styleClass="form-control"></html:text>
                                 </div> 
                                 <div class="form-group col-md-5">
@@ -118,10 +118,10 @@
                                 <label class="font-weight-bold">Pregunta de Seguridad:</label>
                                 <html:select property="pregunta" styleClass="form-control">
                                     <html:option value="">Selecione una pregunta</html:option>
-                                    <html:option value="¿Cuál es tu fecha de nacimiento?"/>
-                                    <html:option value="¿Cuál es el nombre de tu mascota?"/>
-                                    <html:option value="¿Cuál es tu equipo de futbol favorito?"/>
-                                    <html:option value="¿Cuál es el nombre de la primera escuela a la que asististe?"/>
+                                    <html:option value="¿Cual es tu animal favorito?"/>
+                                    <html:option value="¿Cual es el nombre de tu mascota?"/>
+                                    <html:option value="¿Cual es tu equipo de futbol favorito?"/>
+                                    <html:option value="¿Cual es el nombre de la primera escuela a la que asististe?"/>
                                 </html:select>
                             </div> 
                             <div class="form-group col-md-7">

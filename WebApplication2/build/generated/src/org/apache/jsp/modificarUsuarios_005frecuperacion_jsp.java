@@ -90,7 +90,7 @@ public final class modificarUsuarios_005frecuperacion_jsp extends org.apache.jas
       out.write("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>\n");
       out.write("        <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>\n");
       out.write("        <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n");
-      out.write("        <title>Modificar Farmacia</title>\n");
+      out.write("        <title>Recuperar</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n");
@@ -265,38 +265,44 @@ public final class modificarUsuarios_005frecuperacion_jsp extends org.apache.jas
         out.write("            <div class=\"container\">\n");
         out.write("                <div class=\"card-header\">\n");
         out.write("                    <div class=\"row\">\n");
-        out.write("                        <div class=\"col-4\"></div>\n");
+        out.write("                        <div class=\"col-2\"></div>\n");
         out.write("                        <div class=\"col-8\">\n");
-        out.write("                            <div class=\"form-group col-md-2\">\n");
-        out.write("                                <label class=\"font-weight-bold\">Id Usuario:</label>\n");
-        out.write("                                ");
+        out.write("                            <div class=\"form-row\">\n");
+        out.write("                                <div class=\"form-group col-md-5\">\n");
+        out.write("                                    <label class=\"font-weight-bold\">Id Usuario:</label>\n");
+        out.write("                                    ");
         if (_jspx_meth_html_text_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
           return true;
         out.write("\n");
-        out.write("                                </div>\n");
-        out.write("                                <div class=\"form-group col-md-5\">\n");
-        out.write("                                    <label class=\"font-weight-bold\">Nombre Usuario:</label>\n");
-        out.write("                                ");
+        out.write("                                    </div>\n");
+        out.write("                                    <div class=\"form-group col-md-1\"></div>\n");
+        out.write("                                    <div class=\"form-group col-md-5\">\n");
+        out.write("                                        <label class=\"font-weight-bold\">Nombre Usuario:</label>\n");
+        out.write("                                    ");
         if (_jspx_meth_html_text_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
           return true;
         out.write("\n");
-        out.write("                                </div> \n");
-        out.write("                                <div class=\"form-group col-md-5\">\n");
-        out.write("                                    <label class=\"font-weight-bold\">Correo Usuario:</label>\n");
-        out.write("                                ");
+        out.write("                                    </div>    \n");
+        out.write("                                </div>\n");
+        out.write("                                <div class=\"form-row\">\n");
+        out.write("                                    <div class=\"form-group col-md-5\">\n");
+        out.write("                                        <label class=\"font-weight-bold\">Correo Usuario:</label>\n");
+        out.write("                                    ");
         if (_jspx_meth_html_text_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
           return true;
         out.write("\n");
-        out.write("                                </div> \n");
-        out.write("                                <div class=\"form-group col-md-5\">\n");
-        out.write("                                    <label class=\"font-weight-bold\">Contraseña Usuario:</label>\n");
-        out.write("                                ");
+        out.write("                                    </div> \n");
+        out.write("                                    <div class=\"form-group col-md-5\">\n");
+        out.write("                                        <label class=\"font-weight-bold\">Contraseña Usuario:</label>\n");
+        out.write("                                    ");
         if (_jspx_meth_html_password_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("                                </div> \n");
-        out.write("                                <div class=\"form-group col-md-5\">\n");
-        out.write("                                    <label class=\"font-weight-bold\">Genero Usuario:</label>\n");
+        out.write("                            </div>\n");
+        out.write("\n");
+        out.write("                            <div class=\"form-group col-md-5\">\n");
+        out.write("                                <label class=\"font-weight-bold\">Genero Usuario:</label>\n");
         out.write("                                ");
         if (_jspx_meth_html_text_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_1, _jspx_page_context))
           return true;
