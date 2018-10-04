@@ -78,8 +78,8 @@
         </nav>
         <html:form action = "/MantenimientoUsuarios">
             <br>
-            <h4 align="center">Formulario de modificación de Usuarios</h4>
-            <h4 align="center">Ingrese los nuevos datos del usuario</h4>
+            <h4 align="center" class="font-weight-bold">Formulario de modificación de Usuarios</h4>
+            <h4 align="center" class="font-weight-bold">Ingrese los nuevos datos del usuario</h4>
             <br>
             <div class="container">
                 <div class="card-header">
@@ -127,10 +127,10 @@
                             <div class="form-group col-md-7">
                                 <label class="font-weight-bold">Respuesta:</label>
                                 <html:text property="respuesta" size="5" maxlength="" styleClass="form-control"></html:text>
-                                </div> 
-                                <div class="form-group col-md-7">
+                                </div>  
+                                <div class="form-group col-md-7 text-center">
                                 <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
-                            </div> 
+                            </div>
                             <p align="center">${advertencia}</p>
                         </div>
                     </div>

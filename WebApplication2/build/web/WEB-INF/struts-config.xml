@@ -23,6 +23,10 @@
      
      <form-bean name="ActionFormMedicamentos" type="actionforms.ActionFormMedicamentos"/>
      
+     <form-bean name="ActionFormCitas" type="actionforms.ActionFormCitas"/>
+     
+     <form-bean name="ActionFormPacientes" type="actionforms.ActionFormPacientes"/>
+     
      <form-bean name="LoginForm" type="actionforms.LoginForm"/>
     </form-beans>
     
@@ -38,12 +42,12 @@
         <forward name="recuperar" path="/password_recovery.jsp"/>        
         <forward name="cambiar_contra" path="/modificarUsuarios_recuperacion.jsp"/>        
         
-        <!-- Fordward ??? -->
+                                       <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
         <forward name="confirmacionNuevoUsuario" path="/mantenimientoUsuarios.jsp"/>
         <forward name="errorMantenimientoUsuario" path="/mantenimientoUsuarios.jsp"/>
         
-                                          <!-- Forward Farmacias --> 
+                                      <!-- Forward Farmacias --> 
         <forward name="eliminarFarmacia" path="/consultarFarmacias.jsp"/>
         <forward name="guardadoFarmacia" path="/mantenimientoFarmacias.jsp"/>
         <forward name="confirmacionConsultaIdFarmacia" path="/modificarFarmacias.jsp"/>
@@ -118,6 +122,26 @@
         <forward name="irmodificarUsuario" path="/modificarUsuarios.jsp"/>
         <forward name="irAgregarUsuario" path="/mantenimientoUsuarios.jsp"/>
         
+                         <!-- Forward Citas-->
+        <forward name="eliminarCita" path="/consultarCitas.jsp"/>
+        <forward name="consultaIdCita" path="/modificarCitas.jsp"/>
+        <forward name="guardadoCita" path="/mantenimientoCitas.jsp"/>
+        <forward name="confirmacionConsultaIdCita" path="/modificarCitas.jsp"/>
+        <forward name="modificarCita" path="/modificarCitas.jsp"/>
+        <forward name="consultarCita" path="/consultarCitas.jsp"/>
+        <forward name="irmodificarCita" path="/modificarCitas.jsp"/>
+        <forward name="irAgregarMedico" path="/mantenimientoCitas.jsp"/>
+        
+                       <!-- Forward Pacientes-->
+        <forward name="EliminarPacientes" path="/consultarPacientes.jsp"/>
+        <forward name="consultaIdPacientes" path="/modificarPaciente.jsp"/>
+        <forward name="guardadopacientes" path="/mantenimientoPacientes.jsp"/>
+        <forward name="confirmacionConsultaIdPacientes" path="/modificarPacientes.jsp"/>
+        <forward name="modificarPacientes" path="/modificarPacientes.jsp"/>
+        <forward name="consultarPacientes" path="/consultarPacientes.jsp"/>
+        <forward name="irmodificarPacientes" path="/modificarPacientes.jsp"/>
+        <forward name="irAgregarPacientes" path="/mantenimientoPacientes.jsp"/>
+        
         
                         <!-- Forward Recuperación-->
         <forward name="recuperacion" path="/recuperacion.jsp"/>
@@ -133,6 +157,8 @@
         <action name="ActionFormClinicas" path="/MantenimientoClinicas" scope="request" type="action.ActionClinicas"/>
         <action name="ActionFormMedicos" path="/MantenimientoMedicos" scope="request" type="action.ActionMedicos"/>
         <action name="ActionFormMedicamentos" path="/MantenimientoMedicamentos" scope="request" type="action.ActionMedicamentos"/>
+        <action name="ActionFormCitas" path="/MantenimientoCitas" scope="request" type="action.ActionCitas"/>
+        <action name="ActionFormPacientes" path="/MantenimientoPacientes" scope="request" type="action.ActionPacientes"/>
         <!--<action name="LoginForm" path="/LAct" scope="request" type="action.ActionUsuarios"/>-->
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         

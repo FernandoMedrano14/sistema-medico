@@ -89,9 +89,9 @@ public class MantenimientoPacientes {
             mensaje = "Exito al consultar";
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        } /*finally {
             session.close();
-        }
+        }*/
         return lista;
     }
 

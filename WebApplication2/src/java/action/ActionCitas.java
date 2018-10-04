@@ -23,13 +23,16 @@ public class ActionCitas extends org.apache.struts.action.Action {
     private static final String Eliminar = "confirmacionEliminarCita";
     private static final String Error = "errorMantenimientoCita";
     private static final String guardado = "guardadoCita";
-    private static final String agregar = "irAgregar";
+    private static final String AGREGAR = "irAgregarMedico";
     private static final String confirmarID = "consultaId";
     private static final String consultar = "consultarCitas";
     private static final String modificar = "modificarCitas";
     private static final String irmodificar = "irmodificarCitas";
 
     MantenimientoCitas cita = new MantenimientoCitas();
+    MantenimientoMedicos medicos = new MantenimientoMedicos();
+    MantenimientoPacientes pacientes = new MantenimientoPacientes();
+    MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -49,21 +52,19 @@ public class ActionCitas extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Agregar Citas")) {
-            MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
+            
             List<Consultorios> listaConsultorio = consultorios.mostrarConsultorio();
             formci.setListaConsultorio(listaConsultorio);
             request.setAttribute("listaConsultorios", listaConsultorio);
-
-            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            
             List<Pacientes> listaPacientes = pacientes.mostrar();
             formci.setListaPacientes(listaPacientes);
             request.setAttribute("listaPacientes", listaPacientes);
-
-            MantenimientoMedicos medicos = new MantenimientoMedicos();
+            
             List<Medicos> listamedi = medicos.consultar();
             formci.setListamedi(listamedi);
             request.setAttribute("listaMedicos", listamedi);
-            return mapping.findForward(agregar);
+            return mapping.findForward(AGREGAR);
 
         }
 

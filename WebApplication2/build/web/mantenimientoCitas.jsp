@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +18,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/Style.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="favicon.ico" />
-        <title>Mantenimiento de Consultorios</title>
+        <title>Mantenimiento Citas</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -62,60 +62,77 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="mantenimientoUsuarios.jsp" class="btn btn-outline-info my-2 my-sm-0" margin="2px">Agregar Usuario</a>
-                    <p>  </p>
-                    <a href="#" class="btn btn-outline-info disabled">Configuracion</a>
-                    <p>   </p>
-                    <a href="loginStruts.jsp" class="btn btn-outline-danger my-2 my-sm-0">Salir</a>
-                </form>
+                <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
+
+                    <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
+                    <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
+                </html:form>
             </div>
         </nav>
-        <html:form action="/MantenimientoCitas">
-            <br>
-            <br>
-            <br>  
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h4 align="center">Formulario de ingreso para nueva cita</h4>
-            <h4 align="center">Ingrese la Informacion de la cita</h4>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h4 align="center">Formulario de ingreso para nueva CITA</h4>
+        <h4 align="center">Ingrese la Informacion de la cita</h4>
+        <br>            
+        <div class="container">
+            <div class="row>">
+                <div class="col-12">
+                    <html:form action="/MantenimientoCitas" styleClass="form">
                         <table class="table table-striped">
                             <thead align="center">
-                            <th>Id</th>
-                            <th>Id Consultorio</th>
-                            <th>Id Paciente</th>
-                            <th>Id Medico</th>
-                            <th>Fecha de la cita</th>
-                            <th>Hora de la cita</th>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Id Paciente</th>
+                                    <th scope="col">Id Consultorio</th>
+                                    <th scope="col">Id Medico</th>
+                                    <th scope="col">Fecha Cita</th>
+                                    <th scope="col">Hora Cita</th>
+                                </tr>
                             </thead>
-                            <tbody align="center">
-                            <td><p>El id se colocará automaticamente.  </p></td>
-                            <td><html:text property="idConsultorio" size="30" maxlength="100"></html:text></td>
-                            <td><html:text property="idPaciente" size="30" maxlength="100"></html:text></td>
-                            <td><html:text property="idMedico" size="30" maxlength="100"></html:text></td>
-                            <td><html:text property="fecha_cita" size="30" maxlength="100"></html:text></td>
-                            <td><html:text property="hora_cita" size="30" maxlength="100"></html:text></td>
-                            <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
-                            <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Citas "/></td>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td><html:text property="idPaciente" size="50" maxlength="100" styleClass="form-control"/></td>
+                                    <td>
+                                        <html:select property="idConsultorio">
+                                            <logic:notEmpty name="ActionFormCitas" property="listaConsultorio">
+                                                <logic:iterate id="ver" name="ActionFormCitas" property="listaConsultorio">
+                                                    <html:option value="${ver.idConsultorio}">
+                                                        ${ver.idConsultorio}
+                                                    </html:option>
+                                                </logic:iterate>
+                                            </logic:notEmpty>
+                                        </html:select>
+                                    </td>
+                                    <td>
+                                        <html:select property="idMedico">
+                                            <logic:notEmpty name="ActionFormCitas" property="listamedi">
+                                                <logic:iterate id="ver" name="ActionFormClinicas" property="listamedi">
+                                                    <html:option value="${ver.idMedico}">
+                                                        ${ver.idConsultorio}
+                                                    </html:option>
+                                                </logic:iterate>
+                                            </logic:notEmpty>
+                                        </html:select>
+                                    </td>
+                                    <td><html:password property="fecha_cita" size="30" maxlength="16" styleClass="form-control"/></td>
+                                    <td><html:password property="hora_cita" size="30" maxlength="16" styleClass="form-control"/></td>
+                                </tr>
                             </tbody>
                         </table>
-                        <p align="center">${advertencia}</p>
-                    </div>
+                        <br>
+                        <center>${advertencia}</center>
+                        <br>
+                        <div align="center">
+                            <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
+                        </div>
+                    </html:form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>${error}</h4> 
-                </div>
-            </div>
-        </html:form>
+        </div>
     </body>
 </html>

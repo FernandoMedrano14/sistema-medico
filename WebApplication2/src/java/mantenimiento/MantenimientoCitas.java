@@ -18,10 +18,10 @@ public class MantenimientoCitas {
     Session session = factory.openSession();
     String mensaje = "Error en el try-catch";
 
-    public MantenimientoCitas() {
-        this.factory = factory;
-        this.session = session;
-    }
+//    public MantenimientoCitas() {
+  //      this.factory = factory;
+    //    this.session = session;
+    //}
 
     public String guardar(Integer idCita, Integer idConsultorio, Integer idPaciente, Integer idMedico, String fecha_cita, String hora_cita) {
         Citas ci = new Citas();

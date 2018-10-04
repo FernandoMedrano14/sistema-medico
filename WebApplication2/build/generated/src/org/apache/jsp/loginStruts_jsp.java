@@ -181,7 +181,7 @@ public final class loginStruts_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.struts.taglib.html.TextTag _jspx_th_html_text_0 = (org.apache.struts.taglib.html.TextTag) _jspx_tagPool_html_text_styleClass_property_nobody.get(org.apache.struts.taglib.html.TextTag.class);
     _jspx_th_html_text_0.setPageContext(_jspx_page_context);
     _jspx_th_html_text_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
-    _jspx_th_html_text_0.setProperty("nombre");
+    _jspx_th_html_text_0.setProperty("username");
     _jspx_th_html_text_0.setStyleClass("form-control");
     int _jspx_eval_html_text_0 = _jspx_th_html_text_0.doStartTag();
     if (_jspx_th_html_text_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -200,7 +200,7 @@ public final class loginStruts_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.struts.taglib.html.PasswordTag _jspx_th_html_password_0 = (org.apache.struts.taglib.html.PasswordTag) _jspx_tagPool_html_password_styleClass_property_nobody.get(org.apache.struts.taglib.html.PasswordTag.class);
     _jspx_th_html_password_0.setPageContext(_jspx_page_context);
     _jspx_th_html_password_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
-    _jspx_th_html_password_0.setProperty("contra");
+    _jspx_th_html_password_0.setProperty("password");
     _jspx_th_html_password_0.setStyleClass("form-control");
     int _jspx_eval_html_password_0 = _jspx_th_html_password_0.doStartTag();
     if (_jspx_th_html_password_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
