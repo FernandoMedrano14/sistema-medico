@@ -31,11 +31,11 @@
                         <span id="reauth-email" class="reauth-email"></span>
                         <%--<input type="email" name="username" value="" class="form-control" placeholder="Correo" required autofocus>--%>
                         <label>Usuario / Correo</label>
-                        <html:text property="username" styleClass="form-control"/>
+                        <html:text property="nombre" styleClass="form-control"/>
                         <br>
                         <%--<input type="password" name="password" value="" class="form-control" placeholder="Contraseña" required>--%>
                         <label>Contraseña</label>
-                        <html:password property="password" styleClass="form-control"/>
+                        <html:password property="contra" styleClass="form-control"/>
                         <br>
                         <div>
                             ${mensaje}

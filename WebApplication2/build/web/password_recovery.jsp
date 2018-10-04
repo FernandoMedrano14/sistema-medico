@@ -37,11 +37,11 @@
                                 <div class="form-group col-md-1"></div>
                                 <div class="form-group col-md-5">
                                     <label><b>Usuario:</b></label>
-                                    <html:text property="username" styleClass="form-control"/>
+                                    <html:text property="nombre" styleClass="form-control"/>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label><b>Correo:</b></label>                                    
-                                    <html:text property="e_mail" styleClass="form-control"/>
+                                    <html:text property="correo" styleClass="form-control"/>
                                 </div>
                                 <div class="form-group col-md-1"></div>
                                 <div class="row" ${mensaje2}>

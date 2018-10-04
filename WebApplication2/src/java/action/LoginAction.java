@@ -80,12 +80,12 @@ public class LoginAction extends org.apache.struts.action.Action {
 //                        acceso = usuarios.getTipo();
 //                    }
 //                }
-                if (loginform.getUsername().equals("") || loginform.getPassword().equals("")) {
+                if (loginform.getNombre().equals("") || loginform.getContra().equals("")) {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Falta usuario o contraseña<br/><strong>Complete los campos<strong/></div>";
                     request.setAttribute("mensaje", mensaje);
                     return mapping.findForward(loginError);
                 }
-                listaUsuarios.stream().filter((usuarios) -> ((loginform.getUsername().equals(usuarios.getNombre()) || loginform.getUsername().equals(usuarios.getCorreo())) && loginform.getPassword().equals(usuarios.getContra()))).forEachOrdered((usuarios) -> {
+                listaUsuarios.stream().filter((usuarios) -> ((loginform.getNombre().equals(usuarios.getNombre()) || loginform.getNombre().equals(usuarios.getCorreo())) && loginform.getContra().equals(usuarios.getContra()))).forEachOrdered((usuarios) -> {
                     acceso = usuarios.getTipo();
                 });
                 if (acceso.equals("")) {
@@ -140,7 +140,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                 }
                 break;
             case "Ingresar":
-                if ((loginform.getUsername() == null || loginform.getUsername().equals("")) || (loginform.getE_mail() == null || loginform.getE_mail().equals(""))) {
+                if ((loginform.getNombre() == null || loginform.getNombre().equals("")) || (loginform.getCorreo() == null || loginform.getCorreo().equals(""))) {
                     mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-2\"></div><div class=\"alert alert-warning form-group col-md-8\" style=\"text-align: center\">Usuario y Correo son campos requeridos</div><div class=\"form-group col-md-2\"></div></div>";
                     request.setAttribute("mensaje", mensaje);
                     mensaje2 = "";
@@ -151,10 +151,10 @@ public class LoginAction extends org.apache.struts.action.Action {
                 }
                 listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
                 for (Usuarios usuarios : listaUsuarios) {
-                    if (loginform.getUsername().equals(usuarios.getNombre()) && loginform.getE_mail().equals(usuarios.getCorreo())) {
+                    if (loginform.getNombre().equals(usuarios.getNombre()) && loginform.getCorreo().equals(usuarios.getCorreo())) {
                         loginform.setIdUsuario(usuarios.getIdUsuario());
-                        loginform.setUsername(usuarios.getNombre());
-                        loginform.setE_mail(usuarios.getCorreo());
+                        loginform.setNombre(usuarios.getNombre());
+                        loginform.setCorreo(usuarios.getCorreo());
                         loginform.setPregunta(usuarios.getPregunta());
                         mensaje = "";
                         request.setAttribute("mensaje", mensaje);
@@ -179,9 +179,9 @@ public class LoginAction extends org.apache.struts.action.Action {
                 Usuarios usuario = mantenimientoUsuarios.consultaId(loginform.getIdUsuario());
                 if (loginform.getRespuesta().equals(usuario.getRespuesta())) {
                     loginform.setIdUsuario(usuario.getIdUsuario());
-                    loginform.setUsername(usuario.getNombre());
-                    loginform.setE_mail(usuario.getCorreo());
-                    loginform.setPassword(usuario.getContra());
+                    loginform.setNombre(usuario.getNombre());
+                    loginform.setCorreo(usuario.getCorreo());
+                    loginform.setContra(usuario.getContra());
                     loginform.setGenero(usuario.getGenero());
                     loginform.setTipo(usuario.getTipo());
                     loginform.setPregunta(usuario.getPregunta());
@@ -196,6 +196,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                     return mapping.findForward(recuperar);
                 }
                 if (true) {
+                    System.out.println("Informacion usuario: "+usuario.toString());
                     return mapping.findForward(cambiar_contra);
                 }
                 break;

@@ -10,9 +10,9 @@ import org.apache.struts.action.ActionMessage;
 public class LoginForm extends org.apache.struts.action.ActionForm {
     
     private int idUsuario;
-    private String username;
-    private String e_mail;
-    private String password;
+    private String nombre;
+    private String correo;
+    private String contra;
     private String genero;
     private String tipo;
     private String pregunta;
@@ -27,28 +27,28 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
         this.idUsuario = idUsuario;
     }
     
-    public String getUsername() {
-        return username;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getE_mail() {
-        return e_mail;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setE_mail(String e_mail) {
-        this.e_mail = e_mail;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     
-    public String getPassword() {
-        return password;
+    public String getContra() {
+        return contra;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContra(String contra) {
+        this.contra = contra;
     }
 
     public String getGenero() {

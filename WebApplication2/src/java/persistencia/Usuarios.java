@@ -89,12 +89,12 @@ public class Usuarios  implements java.io.Serializable {
     public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
     }
+
+    @Override
+    public String toString() {
+        return "Usuarios{" + "idUsuario=" + idUsuario + ", nombre=" + nombre + ", correo=" + correo + ", contra=" + contra + ", genero=" + genero + ", tipo=" + tipo + ", pregunta=" + pregunta + ", respuesta=" + respuesta + '}';
+    }
     
-    
-
-
-
-
 }
 
 
