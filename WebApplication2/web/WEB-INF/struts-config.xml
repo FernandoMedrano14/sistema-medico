@@ -139,7 +139,7 @@
         <forward name="confirmacionConsultaIdCita" path="/modificarCitas.jsp"/>
         <forward name="modificarCitas" path="/modificarCitas.jsp"/>
         <forward name="consultarCita" path="/consultarCitas.jsp"/>
-        <forward name="consultarCitas" path="/modificarCitas.jsp"/>
+        <forward name="consultarCitas" path="/consultarCitas.jsp"/>
         <forward name="irmodificarCitas" path="/modificarCitas.jsp"/>
         <forward name="irAgregarCita" path="/mantenimientoCitas.jsp"/>
         
