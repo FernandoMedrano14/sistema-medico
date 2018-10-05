@@ -21,7 +21,7 @@ public class ActionCitas extends org.apache.struts.action.Action {
 
     private static final String Confirmar = "confirmacionNuevaCita";
     private static final String Eliminar = "EliminarCita";
-    private static final String Error = "errorMantenimientoCita";
+    private static final String Error = "errorCita";
     private static final String guardado = "guardadoCita";
     private static final String AGREGAR = "irAgregarCita";
     private static final String confirmarID = "consultaIdCita";
@@ -29,11 +29,10 @@ public class ActionCitas extends org.apache.struts.action.Action {
     private static final String modificar = "modificarCitas";
     private static final String irmodificar = "irmodificarCitas";
 
-    MantenimientoCitas cita = new MantenimientoCitas();
+    /*MantenimientoCitas cita = new MantenimientoCitas();
     MantenimientoMedicos medicos = new MantenimientoMedicos();
     MantenimientoPacientes pacientes = new MantenimientoPacientes();
-    MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
-
+    MantenimientoConsultorios consultorios = new MantenimientoConsultorios();*/
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response) {
@@ -46,34 +45,38 @@ public class ActionCitas extends org.apache.struts.action.Action {
         String fecha_cita = formci.getFecha_cita();
         String hora_cita = formci.getHora_cita();
         String action = formci.getAction();
-        
-        System.out.println("El valor de Action es = "+action);
-        
+
+        System.out.println("El valor de Action es = " + action);
+
         if (formci == null || action == null) {
             return mapping.findForward(Error);
         }
 
         if (action.equals("irAgregar")) {
+            MantenimientoCitas cita = new MantenimientoCitas();
+            MantenimientoMedicos medicos = new MantenimientoMedicos();
+            MantenimientoPacientes pacientes = new MantenimientoPacientes();
+            MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
             
             System.out.println(" en ir Agregar");
-            
+
             List<Consultorios> listaConsultorio = consultorios.mostrarConsultorio();
             formci.setListaConsultorio(listaConsultorio);
             request.setAttribute("listaConsultorios", listaConsultorio);
-            
+
             System.out.println("luego de lista consultorios ");
             List<Pacientes> listaPacientes = pacientes.mostrar();
             formci.setListaPacientes(listaPacientes);
             request.setAttribute("listaPacientes", listaPacientes);
-            
+
             System.out.println("luego de lista pacientes ");
             List<Medicos> listamedi = medicos.consultar();
-            System.out.println("Lista Medicos "+listamedi.toString());
+            System.out.println("Lista Medicos " + listamedi.toString());
             formci.setListamedi(listamedi);
             request.setAttribute("listaMedicos", listamedi);
-            
+
             System.out.println("luego de lista medicos ");
-            
+
             return mapping.findForward(AGREGAR);
 
         }
@@ -110,7 +113,7 @@ public class ActionCitas extends org.apache.struts.action.Action {
             MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
             MantenimientoPacientes pacientes = new MantenimientoPacientes();
             MantenimientoMedicos medicos = new MantenimientoMedicos();
-            String respuesta = cita.guardar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
+            String respuesta = citas.guardar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
             String advertencia = "";
             if (respuesta.equals("")) {
                 formci.setError("Ocurrio un error al guardar");
@@ -138,11 +141,13 @@ public class ActionCitas extends org.apache.struts.action.Action {
 
         if (action.equals("Consultar_Citas")) {
             MantenimientoCitas citas = new MantenimientoCitas();
-            List<Citas> lista = cita.mostrar();
+            List<Citas> lista = citas.mostrar();
+            System.out.println("pura mierda");
             if (lista == null) {
-                formci.setError("no logramos hacer la consulta");
+                formci.setError("<span style='color:white'>Error al consultar el listado de pacientes" + "<br></span>");
                 return mapping.findForward(Error);
             } else {
+                System.out.println("mas mierda todavia");
                 formci.setListaCitas(lista);
                 return mapping.findForward(consultar);
             }

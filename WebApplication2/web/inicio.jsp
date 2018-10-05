@@ -161,7 +161,7 @@
                     </li>
                     <p>  </p>
                     <li class="nav-item">
-                        <a class="btn btn-outline-info" href="#">Galeria</a>
+                        <a class="btn btn-outline-info" href="galeria.jsp">Galeria</a>
                     </li>
                     <p>  </p>
                     <li class="nav-item dropdown">

@@ -73,7 +73,7 @@ public class MantenimientoCitas {
                 session.getTransaction().rollback();
                 mensaje = 2;
             }
-        } /*finally {
+        }/*finally {
             session.close();
         }*/
         return mensaje;
@@ -81,15 +81,15 @@ public class MantenimientoCitas {
 
     public List<Citas> mostrar() {
         List<Citas> lista = null;
-        session.beginTransaction();
         try {
+            session.beginTransaction();
             Query query = session.createQuery("from Citas");
             lista = query.list();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            session.close();
-        }
+        } //finally {
+            //session.close();
+        //}
         return lista;
     }
 
@@ -123,7 +123,7 @@ public class MantenimientoCitas {
                 session.getTransaction().rollback();
                 mensaje = 2;
             }
-        } /*finally {
+        }/*finally {
             session.close();
         }*/
         return mensaje;

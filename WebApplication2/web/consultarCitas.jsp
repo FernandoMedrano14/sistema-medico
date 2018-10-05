@@ -71,9 +71,7 @@
                             Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoClinicas.do?action=Agregar Clinica" ><b>Agregar Clinica</b></b></a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoFarmacias.do?action=Consultar_Farmacias"><b>Consultar Farmacias</b></a>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoCitas.do?action=irAgregar" ><b>Agregar Clinica</b></b></a>
                         </div>
                     </li>
                 </ul>
@@ -98,6 +96,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr align="center">
+                                <th>Id Cita</th>
                                 <th>Id Paciente</th>
                                 <th>Id Consultorio</th>
                                 <th>Id Medico</th>
@@ -113,7 +112,7 @@
                                         <html:form action="/MantenimientoCitas">
                                             <td>
                                                 <bean:write name="ver" property="idCita"/>
-                                                <div hidden="hidden"><html:text name="ver" property="idCita" styleClass="hidden"/></div>
+                                                <div readonly="true" hidden="hidden"><html:text name="ver" property="idCita" styleClass="hidden"/></div>
                                             </td>
                                             <td>
                                                 <bean:write name="ver" property="pacientes.idPaciente"/>
@@ -125,10 +124,10 @@
                                                 <bean:write name="ver" property="medicos.idMedico"/>
                                             </td>
                                             <td>
-                                                <bean:write name="ver" property="fecha_cita"/>
+                                                <bean:write name="ver" property="fechaCita"/>
                                             </td>
                                             <td>
-                                                <bean:write name="ver" property="hora_cita"/>
+                                                <bean:write name="ver" property="horaCita"/>
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoCitas.do?action=BuscarId&id=<bean:write name="ver" property="idCita"/>">Modificar</a>
