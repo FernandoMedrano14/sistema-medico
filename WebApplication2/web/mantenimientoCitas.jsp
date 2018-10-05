@@ -93,10 +93,19 @@
                                     <th scope="col">Hora Cita</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <tr>
                                     <th scope="row"></th>
-                                    <td><html:text property="idPaciente" size="50" maxlength="100" styleClass="form-control"/></td>
+                                    <td>
+                                        <html:select property="idPaciente">
+                                            <logic:notEmpty name="ActionFormCitas" property="listaPacientes">
+                                                <logic:iterate id="ver" name="ActionFormCitas" property="listaPacientes">
+                                                    <html:option value="${ver.idPaciente}">
+                                                        ${ver.idPaciente}
+                                                    </html:option>
+                                                </logic:iterate>
+                                            </logic:notEmpty>
+                                        </html:select>
                                     <td>
                                         <html:select property="idConsultorio">
                                             <logic:notEmpty name="ActionFormCitas" property="listaConsultorio">
@@ -111,16 +120,16 @@
                                     <td>
                                         <html:select property="idMedico">
                                             <logic:notEmpty name="ActionFormCitas" property="listamedi">
-                                                <logic:iterate id="ver" name="ActionFormClinicas" property="listamedi">
+                                                <logic:iterate id="ver" name="ActionFormCitas" property="listamedi">
                                                     <html:option value="${ver.idMedico}">
-                                                        ${ver.idConsultorio}
+                                                        ${ver.idMedico}
                                                     </html:option>
                                                 </logic:iterate>
                                             </logic:notEmpty>
                                         </html:select>
                                     </td>
-                                    <td><html:password property="fecha_cita" size="30" maxlength="16" styleClass="form-control"/></td>
-                                    <td><html:password property="hora_cita" size="30" maxlength="16" styleClass="form-control"/></td>
+                                    <td><html:text property="fecha_cita" size="15" maxlength="50" styleClass="form-control"/></td>
+                                    <td><html:text property="hora_cita" size="15" maxlength="50" styleClass="form-control"/></td>
                                 </tr>
                             </tbody>
                         </table>

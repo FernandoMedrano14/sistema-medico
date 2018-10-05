@@ -146,9 +146,9 @@ public class MantenimientoPacientes {
                 mensaje = "Error al buscar por Id por " + e;
             }
             e.printStackTrace();
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return pa;
     }
 

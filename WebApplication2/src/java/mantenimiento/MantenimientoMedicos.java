@@ -11,14 +11,14 @@ import persistencia.Medicos;
 
 public class MantenimientoMedicos {
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         MantenimientoMedicos medi = new MantenimientoMedicos();
         //MantenimientoEspecialidades espe = new MantenimientoEspecialidades();
         //System.out.println(medi.guardar(0, 1, "Dante", "Vergili", "pedriatra", "12458989"));
 
         /*int idMedico =5;
         String respuesta = medi.eliminar(idMedico);
-        System.out.println("se elimino con exito");*/
+        System.out.println("se elimino con exito");
         List<Medicos> listamedi = null;
         listamedi = medi.consultar();
         //System.out.println(listamedi.get(0).getNombre());
@@ -30,7 +30,7 @@ public class MantenimientoMedicos {
             System.out.println("telefono" + m.getTelefono());
         
         }
-    }
+    }*/
 
     SessionFactory factory = HibernateUtil.getSessionFactory();
     Session session = factory.openSession();
@@ -60,9 +60,9 @@ public class MantenimientoMedicos {
                 session.getTransaction().rollback();
                 mensaje = "ERROR al guardar los datos " + e;
             }
-        } finally {
+        } /*finally {
             session.close();
-        }
+        }*/
         return mensaje;
     }
 
@@ -88,6 +88,8 @@ public class MantenimientoMedicos {
         //}
         return mensaje;
     }
+    
+   
 
     public List<Medicos> consultar() {
         List<Medicos> lista = null;
@@ -97,12 +99,17 @@ public class MantenimientoMedicos {
             lista = query.list();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        } /*finally {
             session.close();
-        }
+        }*/
         return lista;
     }
-
+    public static void main(String[] args) {
+        MantenimientoMedicos man = new MantenimientoMedicos();
+        List<Medicos> lista = man.consultar();
+        System.out.println("Lista "+lista.toString());
+    }
+    
     public String modificar(Integer idMedico, Integer idEspecialidad, String nombre, String apellido, String telefono) {
         
         SessionFactory factory = HibernateUtil.getSessionFactory();
@@ -153,9 +160,9 @@ public class MantenimientoMedicos {
                 mensaje = "no pudo busar por id por " + e;
             }
             e.printStackTrace();
-        } finally {
+        } /*finally {
             session.close();
-        }
+        }*/
         return medi;
     }
 }

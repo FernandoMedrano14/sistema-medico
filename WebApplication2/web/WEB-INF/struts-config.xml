@@ -41,6 +41,16 @@
         <forward name="loginError" path="/loginStruts.jsp"/>        
         <forward name="recuperar" path="/password_recovery.jsp"/>        
         <forward name="cambiar_contra" path="/modificarUsuarios_recuperacion.jsp"/>        
+        <forward name="denegarcita" path="/iniciocitas.jsp"/>        
+        <forward name="denegarpacientes" path="/iniciopacientes.jsp"/>        
+        <forward name="denegarmedicamentos" path="/iniciomedicamentos.jsp"/>        
+        <forward name="denegarmedicos" path="/iniciomedicos.jsp"/>        
+        <forward name="denegarclinicas" path="/inicioclinicas.jsp"/>        
+        <forward name="denegarproveedores" path="/inicioproveedores.jsp"/>        
+        <forward name="denegarfarmacias" path="/inicioFarmacias.jsp"/>        
+        <forward name="denegarconsultorios" path="/inicioconsultorios.jsp"/>        
+        <forward name="denegarespecialidad" path="/inicioespecialidades.jsp"/>        
+
         
                                        <!-- Fordward ??? -->
         <forward name="confirmacionEliminarUsuario" path="/confirmacionEliminarUsuario.jsp"/>
@@ -123,14 +133,15 @@
         <forward name="irAgregarUsuario" path="/mantenimientoUsuarios.jsp"/>
         
                          <!-- Forward Citas-->
-        <forward name="eliminarCita" path="/consultarCitas.jsp"/>
+        <forward name="EliminarCita" path="/consultarCitas.jsp"/>
         <forward name="consultaIdCita" path="/modificarCitas.jsp"/>
         <forward name="guardadoCita" path="/mantenimientoCitas.jsp"/>
         <forward name="confirmacionConsultaIdCita" path="/modificarCitas.jsp"/>
-        <forward name="modificarCita" path="/modificarCitas.jsp"/>
+        <forward name="modificarCitas" path="/modificarCitas.jsp"/>
         <forward name="consultarCita" path="/consultarCitas.jsp"/>
-        <forward name="irmodificarCita" path="/modificarCitas.jsp"/>
-        <forward name="irAgregarMedico" path="/mantenimientoCitas.jsp"/>
+        <forward name="consultarCitas" path="/modificarCitas.jsp"/>
+        <forward name="irmodificarCitas" path="/modificarCitas.jsp"/>
+        <forward name="irAgregarCita" path="/mantenimientoCitas.jsp"/>
         
                        <!-- Forward Pacientes-->
         <forward name="EliminarPacientes" path="/consultarPacientes.jsp"/>

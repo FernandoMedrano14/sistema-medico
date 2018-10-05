@@ -20,11 +20,11 @@ import persistencia.Pacientes;
 public class ActionCitas extends org.apache.struts.action.Action {
 
     private static final String Confirmar = "confirmacionNuevaCita";
-    private static final String Eliminar = "confirmacionEliminarCita";
+    private static final String Eliminar = "EliminarCita";
     private static final String Error = "errorMantenimientoCita";
     private static final String guardado = "guardadoCita";
-    private static final String AGREGAR = "irAgregarMedico";
-    private static final String confirmarID = "consultaId";
+    private static final String AGREGAR = "irAgregarCita";
+    private static final String confirmarID = "consultaIdCita";
     private static final String consultar = "consultarCitas";
     private static final String modificar = "modificarCitas";
     private static final String irmodificar = "irmodificarCitas";
@@ -46,24 +46,34 @@ public class ActionCitas extends org.apache.struts.action.Action {
         String fecha_cita = formci.getFecha_cita();
         String hora_cita = formci.getHora_cita();
         String action = formci.getAction();
-
+        
+        System.out.println("El valor de Action es = "+action);
+        
         if (formci == null || action == null) {
             return mapping.findForward(Error);
         }
 
-        if (action.equals("Agregar Citas")) {
+        if (action.equals("irAgregar")) {
+            
+            System.out.println(" en ir Agregar");
             
             List<Consultorios> listaConsultorio = consultorios.mostrarConsultorio();
             formci.setListaConsultorio(listaConsultorio);
             request.setAttribute("listaConsultorios", listaConsultorio);
             
+            System.out.println("luego de lista consultorios ");
             List<Pacientes> listaPacientes = pacientes.mostrar();
             formci.setListaPacientes(listaPacientes);
             request.setAttribute("listaPacientes", listaPacientes);
             
+            System.out.println("luego de lista pacientes ");
             List<Medicos> listamedi = medicos.consultar();
+            System.out.println("Lista Medicos "+listamedi.toString());
             formci.setListamedi(listamedi);
             request.setAttribute("listaMedicos", listamedi);
+            
+            System.out.println("luego de lista medicos ");
+            
             return mapping.findForward(AGREGAR);
 
         }
@@ -121,7 +131,7 @@ public class ActionCitas extends org.apache.struts.action.Action {
             List<Medicos> listamedi = medicos.consultar();
             formci.setListamedi(listamedi);
             request.setAttribute("listamedi", listamedi);
-            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> Las citas han sido guardadas.\n</div>");
+            advertencia = ("<div class=\"alert alert-success\">\n<strong>Registro guardado:</strong> La nueva cita ha sido guardada.\n</div>");
             request.setAttribute("advertencia", advertencia);
             return mapping.findForward(guardado);
         }

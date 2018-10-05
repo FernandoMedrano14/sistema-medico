@@ -77,9 +77,9 @@ public class MantenimientoConsultorios {
             lista = query.list();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        }/* finally {
             session.close();
-        }
+        }*/
         return lista;
     }
     
