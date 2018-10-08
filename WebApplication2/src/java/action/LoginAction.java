@@ -28,11 +28,13 @@ public class LoginAction extends org.apache.struts.action.Action {
     private static final String agregarUsuario = "agregarUsuario";
     private static final String recuperar = "recuperar";
     private static final String cambiar_contra = "cambiar_contra";
-    private static final String redirecciondenegada = "";
+    private static String redirecciondenegada = "";
+    private static String redireccionconcedida = "";
 
     /* User Session */
-    private static String acceso;
+    static String acceso;
     private String mensaje;
+    private String agregar;
 //    private String mensaje2;
 //    private String mensaje3;
     private int intentos;
@@ -74,6 +76,12 @@ public class LoginAction extends org.apache.struts.action.Action {
 //            return mapping.findForward("failure");
 //        }
 //
+        agregar = loginform.getAction().substring(0, 7);
+        System.out.println("valor agregar: "+agregar);
+        if (agregar.equals("Agregar")) {
+            loginform.setAction("Acceso");
+        }
+
         switch (loginform.getAction()) {
             case "Iniciar Sesion":
                 listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
@@ -112,20 +120,23 @@ public class LoginAction extends org.apache.struts.action.Action {
                     return mapping.findForward(loginError);
                 }
                 break;
-            case "Agregar Usuario":
+            case "Acceso":
                 if (acceso.equals("")) {
                     mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion<strong/></div>";
-                    request.setAttribute("mensaje", mensaje);
+                    request.setAttribute("mensaje", mensaje);                    
                     return mapping.findForward(loginError);
                 }
                 if (acceso.equals("Usuario")) {
 //                    mensaje = "<div class=\"alert alert-warning\" style=\"text-align: center\">Acceso no permitido<br/><strong>Inicie sesion como administrador<strong/></div>";
                     mensaje = "onload=\"document.getElementById('id01').style.display='block'\" style=\"width:auto;\"";
                     request.setAttribute("mensaje", mensaje);
-                    return mapping.findForward(SUCCESS);
+                    redirecciondenegada = loginform.getNombrepagina();
+                    System.out.println("nombre pagina: "+loginform.getNombrepagina());
+                    return mapping.findForward(redirecciondenegada);
                 }
                 if (acceso.equals("Admin")) {
-                    return mapping.findForward(agregarUsuario);
+                    redireccionconcedida = loginform.getAccesoagregar();
+                    return mapping.findForward(redireccionconcedida);
                 }
                 break;
 //            case "Recuperar contraseña":

@@ -19,6 +19,7 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
     private String respuesta;
     private String action;
     private String nombrepagina;
+    private String accesoagregar;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -99,5 +100,13 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
     public void setNombrepagina(String nombrepagina) {
         this.nombrepagina = nombrepagina;
     }
-    
+
+    public String getAccesoagregar() {
+        return accesoagregar;
+    }
+
+    public void setAccesoagregar(String accesoagregar) {
+        this.accesoagregar = accesoagregar;
+    }
+        
 }

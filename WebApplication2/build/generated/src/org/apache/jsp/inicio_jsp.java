@@ -11,6 +11,7 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_hidden_value_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_submit_value_styleClass_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_form_styleClass_action;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_html_submit_value_styleClass_property_onclick_nobody;
@@ -22,12 +23,14 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_html_hidden_value_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_submit_value_styleClass_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_form_styleClass_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_html_submit_value_styleClass_property_onclick_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_html_hidden_value_property_nobody.release();
     _jspx_tagPool_html_submit_value_styleClass_property_nobody.release();
     _jspx_tagPool_html_form_styleClass_action.release();
     _jspx_tagPool_html_submit_value_styleClass_property_onclick_nobody.release();
@@ -69,140 +72,9 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("         <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>-->\n");
       out.write("        <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n");
       out.write("        <link href=\"css/styleinicio.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <link href=\"css/accesodenegado.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <script src=\"js/accesodenegado.js\" type=\"text/javascript\"></script>\n");
       out.write("        <title>Inicio</title>\n");
-      out.write("        <style>\n");
-      out.write("            body {font-family: Arial, Helvetica, sans-serif;}\n");
-      out.write("\n");
-      out.write("            /* Full-width input fields */\n");
-      out.write("            input[type=text], input[type=password] {\n");
-      out.write("                width: 100%;\n");
-      out.write("                padding: 12px 20px;\n");
-      out.write("                margin: 8px 0;\n");
-      out.write("                display: inline-block;\n");
-      out.write("                border: 1px solid #ccc;\n");
-      out.write("                box-sizing: border-box;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* Set a style for all buttons */\n");
-      out.write("            button {\n");
-      out.write("                background-color: #4CAF50;\n");
-      out.write("                color: white;\n");
-      out.write("                padding: 14px 20px;\n");
-      out.write("                margin: 8px 0;\n");
-      out.write("                border: none;\n");
-      out.write("                cursor: pointer;\n");
-      out.write("                width: 100%;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            button:hover {\n");
-      out.write("                opacity: 0.8;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* Extra styles for the cancel button */\n");
-      out.write("            .cancelbtn {\n");
-      out.write("                width: auto;\n");
-      out.write("                padding: 10px 18px;\n");
-      out.write("                background-color: #f44336;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* Center the image and position the close button */\n");
-      out.write("            .imgcontainer {\n");
-      out.write("                text-align: center;\n");
-      out.write("                margin: 24px 0 12px 0;\n");
-      out.write("                position: relative;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            img.avatar {\n");
-      out.write("                width: 80%;\n");
-      out.write("                border-radius: 20%;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .container {\n");
-      out.write("                padding: 16px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            span.psw {\n");
-      out.write("                float: right;\n");
-      out.write("                padding-top: 16px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* The Modal (background) */\n");
-      out.write("            .modal {\n");
-      out.write("                display: none; /* Hidden by default */\n");
-      out.write("                position: fixed; /* Stay in place */\n");
-      out.write("                z-index: 1; /* Sit on top */\n");
-      out.write("                left: 0;\n");
-      out.write("                top: 0;\n");
-      out.write("                width: 100%; /* Full width */\n");
-      out.write("                height: 100%; /* Full height */\n");
-      out.write("                overflow: auto; /* Enable scroll if needed */\n");
-      out.write("                background-color: rgb(0,0,0); /* Fallback color */\n");
-      out.write("                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\n");
-      out.write("                padding-top: 60px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* Modal Content/Box */\n");
-      out.write("            .modal-content {\n");
-      out.write("                background-color: #fefefe;\n");
-      out.write("                margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */\n");
-      out.write("                border: 1px solid #888;\n");
-      out.write("                width: 40%; /* Could be more or less, depending on screen size */\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* The Close Button (x) */\n");
-      out.write("            .close {\n");
-      out.write("                position: absolute;\n");
-      out.write("                right: 25px;\n");
-      out.write("                top: 0;\n");
-      out.write("                color: #000;\n");
-      out.write("                font-size: 35px;\n");
-      out.write("                font-weight: bold;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .close:hover,\n");
-      out.write("            .close:focus {\n");
-      out.write("                color: red;\n");
-      out.write("                cursor: pointer;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* Add Zoom Animation */\n");
-      out.write("            .animate {\n");
-      out.write("                -webkit-animation: animatezoom 0.6s;\n");
-      out.write("                animation: animatezoom 0.6s\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            @-webkit-keyframes animatezoom {\n");
-      out.write("                from {-webkit-transform: scale(0)} \n");
-      out.write("                to {-webkit-transform: scale(1)}\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            @keyframes animatezoom {\n");
-      out.write("                from {transform: scale(0)} \n");
-      out.write("                to {transform: scale(1)}\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            /* Change styles for span and cancel button on extra small screens */\n");
-      out.write("            @media screen and (max-width: 300px) {\n");
-      out.write("                span.psw {\n");
-      out.write("                    display: block;\n");
-      out.write("                    float: none;\n");
-      out.write("                }\n");
-      out.write("                .cancelbtn {\n");
-      out.write("                    width: 100%;\n");
-      out.write("                }\n");
-      out.write("            }\n");
-      out.write("        </style>\n");
-      out.write("        <script>\n");
-      out.write("// Get the modal\n");
-      out.write("            var modal = document.getElementById('id01');\n");
-      out.write("\n");
-      out.write("// When the user clicks anywhere outside of the modal, close it\n");
-      out.write("            window.onclick = function (event) {\n");
-      out.write("                if (event.target == modal) {\n");
-      out.write("                    modal.style.display = \"none\";\n");
-      out.write("                }\n");
-      out.write("            }\n");
-      out.write("        </script>\n");
       out.write("    </head>\n");
       out.write("    <body ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensaje}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -247,8 +119,6 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"inicioconsultorios.jsp\"><b>Consultorios</b></a>\n");
       out.write("                            <div class=\"dropdown-divider\"></div>\n");
       out.write("                            <a class=\"dropdown-item bg-info text-white\" href=\"inicioespecialidades.jsp\"><b>Especialidades</b></a>\n");
-      out.write("                            ");
-      out.write("\n");
       out.write("                        </div>\n");
       out.write("                    </li>\n");
       out.write("                </ul>\n");
@@ -271,7 +141,12 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("\n");
       out.write("                <div class=\"container\" style=\"background-color:#f1f1f1\">\n");
-      out.write("                    <button type=\"button\" onclick=\"document.getElementById('id01').style.display = 'none'\" class=\"btn btn-info\">Aceptar</button>                    \n");
+      out.write("                    <div class=\"form-row\">\n");
+      out.write("                        <div class=\"form-group col-md-3\"></div>\n");
+      out.write("                        <div class=\"form-group col-md-6\"><button type=\"button\" onclick=\"document.getElementById('id01').style.display = 'none'\" class=\"btn btn-info\">Aceptar</button></div>\n");
+      out.write("                        <div class=\"form-group col-md-3\"></div>\n");
+      out.write("                    </div>\n");
+      out.write("                    \n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
@@ -352,6 +227,14 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       do {
         out.write("\n");
         out.write("                    ");
+        if (_jspx_meth_html_hidden_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
+        if (_jspx_meth_html_hidden_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                    ");
         if (_jspx_meth_html_submit_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_html_form_0, _jspx_page_context))
           return true;
         out.write("<p>  </p>\n");
@@ -374,6 +257,44 @@ public final class inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_html_form_styleClass_action.reuse(_jspx_th_html_form_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_html_hidden_0(javax.servlet.jsp.tagext.JspTag _jspx_th_html_form_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  html:hidden
+    org.apache.struts.taglib.html.HiddenTag _jspx_th_html_hidden_0 = (org.apache.struts.taglib.html.HiddenTag) _jspx_tagPool_html_hidden_value_property_nobody.get(org.apache.struts.taglib.html.HiddenTag.class);
+    _jspx_th_html_hidden_0.setPageContext(_jspx_page_context);
+    _jspx_th_html_hidden_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
+    _jspx_th_html_hidden_0.setProperty("nombrepagina");
+    _jspx_th_html_hidden_0.setValue("success");
+    int _jspx_eval_html_hidden_0 = _jspx_th_html_hidden_0.doStartTag();
+    if (_jspx_th_html_hidden_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_html_hidden_value_property_nobody.reuse(_jspx_th_html_hidden_0);
+      return true;
+    }
+    _jspx_tagPool_html_hidden_value_property_nobody.reuse(_jspx_th_html_hidden_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_html_hidden_1(javax.servlet.jsp.tagext.JspTag _jspx_th_html_form_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  html:hidden
+    org.apache.struts.taglib.html.HiddenTag _jspx_th_html_hidden_1 = (org.apache.struts.taglib.html.HiddenTag) _jspx_tagPool_html_hidden_value_property_nobody.get(org.apache.struts.taglib.html.HiddenTag.class);
+    _jspx_th_html_hidden_1.setPageContext(_jspx_page_context);
+    _jspx_th_html_hidden_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_form_0);
+    _jspx_th_html_hidden_1.setProperty("accesoagregar");
+    _jspx_th_html_hidden_1.setValue("agregarUsuario");
+    int _jspx_eval_html_hidden_1 = _jspx_th_html_hidden_1.doStartTag();
+    if (_jspx_th_html_hidden_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_html_hidden_value_property_nobody.reuse(_jspx_th_html_hidden_1);
+      return true;
+    }
+    _jspx_tagPool_html_hidden_value_property_nobody.reuse(_jspx_th_html_hidden_1);
     return false;
   }
 

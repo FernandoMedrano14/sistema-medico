@@ -13,9 +13,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="shortcut icon" href="favicon.ico" />
         <link href="css/styleinicio.css" rel="stylesheet" type="text/css"/>
+        <link href="css/accesodenegado.css" rel="stylesheet" type="text/css"/>
+        <script src="js/accesodenegado.js" type="text/javascript"></script>
         <title>Inicio Proveedores</title>
     </head>
-    <body>
+    <body ${mensaje}>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
                 <img id="logo" src="https://res.cloudinary.com/disputebills/image/upload/v1462474206/blue-mark_cnzgry.png">
@@ -64,6 +66,11 @@
                             Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
+                                <html:hidden property="nombrepagina" value="denegarproveedores"/>
+                                <html:hidden property="accesoagregar" value="guardadoProveedor"/>
+                                <html:submit property="action" value="Agregar Proveedor" styleClass="dropdown-item bg-info text-white"/>
+                            </html:form>
                             <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Agregar" ><b>Agregar Proveedor</b></b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Consultar_Proveedores"><b>Consultar Proveedores</b></a>
@@ -77,6 +84,28 @@
                 </html:form>
             </div>
         </nav>
+        <div id="id01" class="modal">
+
+            <div class="modal-content animate">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+                    <img src="ACCESODENEGADO.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container">
+                    <h4 style="text-align: center">El acceso fue negado porque la accion<br/>requiere permisos de administración</h4>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <div class="form-row">
+                        <div class="form-group col-md-3"></div>
+                        <div class="form-group col-md-6"><button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="btn btn-info">Aceptar</button></div>
+                        <div class="form-group col-md-3"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <br>
     <center><h2>¡BIENVENIDOS A NUESTROS PROVEEDORES!</center></h2>
 <br>

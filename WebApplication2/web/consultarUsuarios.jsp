@@ -113,7 +113,7 @@
                                 <th>Tipo</th>
                                 <th>Pregunta</th>
                                 <th>Respuesta</th>
-                                <th>        Acciones        </th>
+                                <th style="display: none">        Acciones        </th>
                             </tr>
                         </thead>
                         <tbody>
