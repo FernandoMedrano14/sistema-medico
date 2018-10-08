@@ -121,4 +121,10 @@ public class ActionFormUsuarios extends org.apache.struts.action.ActionForm {
         this.action = action;
     }
 
+    @Override
+    public String toString() {
+        return "ActionFormUsuarios{" + "idUsuario=" + idUsuario + ", nombre=" + nombre + ", correo=" + correo + ", contra=" + contra + ", genero=" + genero + ", tipo=" + tipo + ", pregunta=" + pregunta + ", respuesta=" + respuesta + '}';
+    }
+    
+
 }

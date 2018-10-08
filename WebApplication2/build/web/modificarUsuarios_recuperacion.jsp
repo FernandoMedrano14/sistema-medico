@@ -121,18 +121,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <label class="font-weight-bold">Id Usuario:</label>
-                                    <html:text property="idUsuario" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
+                                    <html:text property="idUsuario" size="5" maxlength="" styleClass="form-control" readonly="true"></html:text>
                                     </div>
                                     <div class="form-group col-md-1"></div>
                                     <div class="form-group col-md-5">
                                         <label class="font-weight-bold">Nombre Usuario:</label>
-                                    <html:text property="nombre" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
+                                    <html:text property="nombre" size="5" maxlength="" styleClass="form-control" readonly="true"></html:text>
                                     </div>    
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <label class="font-weight-bold">Correo Usuario:</label>
-                                    <html:text property="correo" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
+                                    <html:text property="correo" size="5" maxlength="" styleClass="form-control" readonly="true"></html:text>
                                     </div> 
                                     <div class="form-group col-md-1"></div>
                                     <div class="form-group col-md-5">
@@ -143,16 +143,12 @@
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <label class="font-weight-bold">Genero Usuario:</label>
-                                    <html:text property="genero" size="5" maxlength="" styleClass="form-control" disabled="true"></html:text>
+                                    <html:text property="genero" size="5" maxlength="" styleClass="form-control" readonly="true"></html:text>
                                     </div>
                                     <div class="form-group col-md-1"></div>
                                     <div class="form-group col-md-5">
                                         <label class="font-weight-bold">Tipo:</label>
-                                    <html:select property="tipo" styleClass="form-control" disabled="true">
-                                        <html:option value="">Seleccione</html:option>
-                                        <html:option value="Admin"/>
-                                        <html:option value="Usuario"/>
-                                    </html:select>
+                                    <html:text property="tipo" styleClass="form-control" readonly="true"/>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -160,10 +156,10 @@
                                     <label class="font-weight-bold">Pregunta de Seguridad:</label>
                                     <html:select property="pregunta" styleClass="form-control">
                                         <html:option value="">Selecione una pregunta</html:option>
-                                        <html:option value="¿Cual es tu animal favorito?"/>
-                                        <html:option value="¿Cual es el nombre de tu mascota?"/>
-                                        <html:option value="¿Cual es tu equipo de futbol favorito?"/>
-                                        <html:option value="¿Cual es el nombre de la primera escuela a la que asististe?"/>
+                                        <html:option value="Cual es tu animal favorito?"/>
+                                        <html:option value="Cual es el nombre de tu mascota?"/>
+                                        <html:option value="Cual es tu equipo de futbol favorito?"/>
+                                        <html:option value="Cual es el nombre de la primera escuela a la que asististe?"/>
                                     </html:select>
                                 </div> 
                                 <div class="form-group col-md-1"></div>
@@ -172,15 +168,14 @@
                                     <html:text property="respuesta" size="5" maxlength="" styleClass="form-control"></html:text>
                                     </div> 
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-5"></div>
-                                    <div class="form-group"><br>
-                                    <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                            ${mensaje}
+                            <div class="form-row">
+                                <div class="form-group col-md-5"></div>
+                                <div class="form-group">
+                                    <html:submit styleClass="btn btn-success" property="action" value="Reestablecer"/>
                                 </div>
                                 <div class="form-group col-md-1"></div>
                             </div>
-
-                            <p align="center">${advertencia}</p>
                         </div>
                     </div>
                 </div>

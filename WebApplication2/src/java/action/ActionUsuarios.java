@@ -21,6 +21,9 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
     private static final String consultar = "consultarUsuario";//
     private static final String modificar = "modificarUsuario";//
     private static final String irmodificar = "irmodificarUsuario";//
+    //recuperacion
+    private static final String recuperar = "recuperar";
+    private static final String cambiar_contra = "cambiar_contra";
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -116,13 +119,13 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
             if (usuarios.eliminarUsuario(idRecibido) == 0) {
                 formBean.setError("<spam style='color:red'> El registro no existe" + "<br></spam>");
                 return mapping.findForward(Error);
-            }else{
-            List<Usuarios> lista = usuarios.consultarTodoUsuario();
-            formBean.setListaUsuarios(lista);
-            formBean.setIdUsuario(idRecibido);
-            advertencia = ("<div class=\"alert alert-danger\">\n<strong>Registro eliminado:</strong> El usuario ha sido eliminado.\n</div>");
-            request.setAttribute("advertencia", advertencia);
-        }
+            } else {
+                List<Usuarios> lista = usuarios.consultarTodoUsuario();
+                formBean.setListaUsuarios(lista);
+                formBean.setIdUsuario(idRecibido);
+                advertencia = ("<div class=\"alert alert-danger\">\n<strong>Registro eliminado:</strong> El usuario ha sido eliminado.\n</div>");
+                request.setAttribute("advertencia", advertencia);
+            }
             return mapping.findForward(Eliminar);
         }
 
@@ -179,6 +182,113 @@ public class ActionUsuarios extends org.apache.struts.action.Action {
             formBean.setPregunta(usuarios.getPregunta());
             formBean.setRespuesta(usuarios.getRespuesta());
             return mapping.findForward(irmodificar);
+        }
+        
+        //Recuperacion de contraseña
+        
+        MantenimientoUsuarios mantenimientoUsuarios = new MantenimientoUsuarios();
+        List<Usuarios> listaUsuarios = null;
+        String mensaje;
+        String mensaje2;
+        String mensaje3;
+
+        System.out.println("action: " + formBean.getAction());
+        switch (formBean.getAction()) {
+            case "Recuperar contraseña":
+                mensaje = "";
+                request.setAttribute("mensaje", mensaje);
+                mensaje2 = "";
+                request.setAttribute("mensaje2", mensaje2);
+                mensaje3 = "style=\"visibility: hidden\"";
+                request.setAttribute("mensaje3", mensaje3);
+                if (true) {
+                    return mapping.findForward(recuperar);
+                }
+                break;
+            case "Ingresar":
+                if ((formBean.getNombre() == null || formBean.getNombre().equals("")) || (formBean.getCorreo() == null || formBean.getCorreo().equals(""))) {
+                    mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-2\"></div><div class=\"alert alert-warning form-group col-md-8\" style=\"text-align: center\">Usuario y Correo son campos requeridos</div><div class=\"form-group col-md-2\"></div></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    mensaje2 = "";
+                    request.setAttribute("mensaje2", mensaje2);
+                    mensaje3 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje3", mensaje3);
+                    return mapping.findForward(recuperar);
+                }
+                listaUsuarios = mantenimientoUsuarios.consultarTodoUsuario();
+                for (Usuarios usuarios : listaUsuarios) {
+                    if (formBean.getNombre().equals(usuarios.getNombre()) && formBean.getCorreo().equals(usuarios.getCorreo())) {
+                        formBean.setIdUsuario(usuarios.getIdUsuario());
+                        formBean.setNombre(usuarios.getNombre());
+                        formBean.setCorreo(usuarios.getCorreo());
+                        formBean.setPregunta(usuarios.getPregunta());
+                        mensaje = "";
+                        request.setAttribute("mensaje", mensaje);
+                        mensaje2 = "style=\"visibility: hidden\"";
+                        request.setAttribute("mensaje2", mensaje2);
+                        mensaje3 = "";
+                        request.setAttribute("mensaje3", mensaje3);
+                        return mapping.findForward(recuperar);
+                    }
+                }
+                if (true) {
+                    mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-2\"></div><div class=\"alert alert-warning form-group col-md-8\" style=\"text-align: center\">El Usuario o Correo no se encontro.<br/>Ambos campos deben de coinsidir</div><div class=\"form-group col-md-2\"></div></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    mensaje2 = "";
+                    request.setAttribute("mensaje2", mensaje2);
+                    mensaje3 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje3", mensaje3);
+                    return mapping.findForward(recuperar);
+                }
+                break;
+            case "Enviar":
+                Usuarios usuario = mantenimientoUsuarios.consultaId(formBean.getIdUsuario());
+                boolean answer = false;
+                if (formBean.getRespuesta().equals(usuario.getRespuesta())) {                    
+                    formBean.setIdUsuario(usuario.getIdUsuario());
+                    formBean.setNombre(usuario.getNombre());
+                    formBean.setCorreo(usuario.getCorreo());
+                    formBean.setContra(usuario.getContra());
+                    formBean.setGenero(usuario.getGenero());
+                    formBean.setTipo(usuario.getTipo());
+                    formBean.setPregunta(usuario.getPregunta());
+                    formBean.setRespuesta(usuario.getRespuesta());
+                    answer = true;
+                } else {
+                    mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-2\"></div><div class=\"alert alert-warning form-group col-md-8\" style=\"text-align: center\">La respuesta a la pregunta es incorrecta</div><div class=\"form-group col-md-2\"></div></div>";
+                    request.setAttribute("mensaje", mensaje);
+                    mensaje2 = "style=\"visibility: hidden\"";
+                    request.setAttribute("mensaje2", mensaje2);
+                    mensaje3 = "";
+                    request.setAttribute("mensaje3", mensaje3);
+                    return mapping.findForward(recuperar);
+                }
+                if (answer) {
+                    System.out.println("Informacion usuario: " + usuario.toString());
+                    System.out.println("Informacion usuarioForm: " + formBean.toString());
+                    return mapping.findForward(cambiar_contra);
+                }
+                break;
+                case "Reestablecer":
+                    usuario = new Usuarios();
+                    
+                    usuario.setIdUsuario(formBean.getIdUsuario());
+                    usuario.setNombre(formBean.getNombre());
+                    
+                    System.out.println("Informacion usuario: " + usuario.toString());
+                    System.out.println("Informacion usuarioForm: " + formBean.toString());
+                    
+                    if (mantenimientoUsuarios.modificar(idUsuario, nombre, correo, contra, genero, tipo, pregunta, respuesta) == 1) {
+                        mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-3\"></div><div class=\"alert alert-primary form-group col-6\" style=\"text-align: center\">Su contraseña fue reestablecida correctamente</div><div class=\"form-group col-md-3\"></div></div>";
+                        request.setAttribute("mensaje", mensaje);
+                    } else {
+                        mensaje = "<div class=\"form-row\"><div class=\"form-group col-md-3\"></div><div class=\"alert alert-danger form-group col-6\" style=\"text-align: center\">Su contraseña no pudo ser reestablecida</div><div class=\"form-group col-md-3\"></div></div>";
+                        request.setAttribute("mensaje", mensaje);
+                    }
+                    if (true) {
+                        return mapping.findForward(cambiar_contra);
+                    }
+                    break;
         }
 
         return mapping.findForward(Confirmar);

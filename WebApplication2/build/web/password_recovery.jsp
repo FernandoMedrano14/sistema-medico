@@ -28,11 +28,9 @@
                          
                         <h3 style="text-align: center">Recuperacion de contraseña</h3>
                          <br>
-                        
-                        
                         ${mensaje}
                          <br>
-                        <html:form action="/AgregarUsuario">
+                        <html:form action="/MantenimientoUsuarios">
                             <div class="form-row">
                                 <div class="form-group col-md-1"></div>
                                 <div class="form-group col-md-5">
@@ -60,7 +58,8 @@
                                     <div class="form-group col-md-1"> </div>
                                     <div class="form-group col-md-10">
                                         <label>Pregunta de seguridad: </label>
-                                        <bean:write name="LoginForm" property="pregunta"/><p> </p>
+                                        <br>
+                                        <div class="alert alert-info" style="text-align: center"><bean:write name="ActionFormUsuarios" property="pregunta"/></div>
                                     </div>
                                     <div class="form-group col-md-1"></div>
                                     <div class="form-group col-md-1"></div>
@@ -74,7 +73,7 @@
                                         <label>Ingrese la respuesta a su pregunta de seguridad y de clic a enviar para verificar la información</label>
                                     </div>
                                     <div class="form-group col-md-1"></div>
-                                    <div class="form-group col-md-5"><html:text property="idUsuario" styleClass="form-control"/></div>
+                                    <div class="form-group col-md-5"><html:hidden property="idUsuario" styleClass="form-control"/></div>
                                     <div class="form-group col-md-2">
                                         <html:submit property="action" value="Enviar" styleClass="btn btn-sm btn-info"/>
                                     </div>
