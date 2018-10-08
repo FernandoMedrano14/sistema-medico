@@ -44,7 +44,7 @@
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
-                           <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
@@ -64,9 +64,18 @@
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
                     </li>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoProveedores.do?action=Consultar_Proveedores"><b>Consultar Proveedores</b></a>
+                        </div>
+                    </li>
                 </ul>
                 <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
-                    
+
                     <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
                     <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
                 </html:form>
@@ -93,15 +102,20 @@
                             <thead align="center">
                                 <tr>
                                     <th scope="col"></th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Rubro del proveedor</th>
                                     <th scope="col">Nombre del encargado</th>
                                     <th scope="col">Acciones</th>
-                                    <th scope="col">Extra</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
                                 <tr>
                                     <th scope="row"></th>
+                                    <td>
+                                        <p>
+                                            El id se colocará automaticamente.
+                                        </p>
+                                    </td>
                                     <td>
                                         <html:text property="rubro" size="50" maxlength="100"></html:text>
                                         </td>
@@ -110,9 +124,6 @@
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
-                                    </td>
-                                    <td>
-                                        <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Proveedores"/>
                                     </td>
                                 </tr>
                             </tbody>

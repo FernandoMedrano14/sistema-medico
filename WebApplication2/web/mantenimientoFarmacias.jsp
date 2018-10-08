@@ -112,7 +112,6 @@
                                     <th>Id</th>
                                     <th>Dirección de Farmacia</th>
                                     <th>Acciones</th>
-                                    <th>Extra</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -129,9 +128,6 @@
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
-                                    </td>
-                                    <td>
-                                        <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Farmacias"/>
                                     </td>
                                     <th escope="row"></th>
                                 </tr>

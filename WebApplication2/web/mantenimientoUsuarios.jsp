@@ -95,6 +95,7 @@
                             <thead align="center">
                                 <tr>
                                     <th scope="col"></th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Correo</th>
                                     <th scope="col">Contraseña</th>
@@ -105,6 +106,11 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"></th>
+                                    <td>
+                                        <p>
+                                            El id se colocará automaticamente.
+                                        </p>
+                                    </td>
                                     <td><html:text property="nombre" size="50" maxlength="100" styleClass="form-control"/></td>
                                     <td><html:text property="correo" size="30" maxlength="50" styleClass="form-control"/></td>
                                     <td><html:password property="contra" size="30" maxlength="16" styleClass="form-control"/></td>

@@ -49,7 +49,7 @@
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
-                            <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
@@ -69,9 +69,18 @@
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
                     </li>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicos.do?action=Consultar_Medicos"><b>Consultar Medicos</b></a>
+                        </div>
+                    </li>
                 </ul>
                 <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
-                    
+
                     <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
                     <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
                 </html:form>
@@ -95,6 +104,7 @@
                     <div class="col-12">
                         <table class="table table-striped">
                             <thead align="center">
+                            <th>Id</th>
                             <th>Especialidad</th>
                             <th>Nombres Medico</th>
                             <th>Apellidos Medico</th>
@@ -102,6 +112,11 @@
                             <th>Acciones</th>
                             </thead>
                             <tbody align="center">
+                            <td>
+                                <p>
+                                    El id se colocará automaticamente.
+                                </p>
+                            </td>
                             <td>
                                 <html:select property="idEspecialidad">
                                     <logic:notEmpty name="ActionFormMedicos" property="listaEspecialidad">
@@ -117,7 +132,6 @@
                             <td><html:text property="apellido" size="40" maxlength="100"></html:text></td>
                             <td><html:text property="telefono" size="10" maxlength="100"></html:text></td>
                             <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
-                            <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Medicos"/></td>
                             </tbody>
                         </table>
                         <p align="center">${advertencia}</p>

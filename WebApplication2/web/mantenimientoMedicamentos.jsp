@@ -43,7 +43,7 @@
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
-                          <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
@@ -63,73 +63,87 @@
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
                         </div>
                     </li>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoMedicamentos.do?action=Consultar_Medicamentos"><b>Consultar Medicamentos</b></a>
+                        </div>
+                    </li>
                 </ul>
                 <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
-                    
+
                     <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
                     <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
                 </html:form>
             </div>
         </nav>
-    <html:form action="/MantenimientoMedicamentos"> 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h4 align="center">Formulario de ingreso para nuevo medicamento</h4>
-        <h4 align="center">Ingrese la Informacion del medicamento</h4>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <table class="table table-striped">
-                        <thead align="center">
-                        <th>Id Proveedor</th>
-                        <th>Id Farmacia</th>
-                        <th>Nombre</th>
-                        <th>tipo</th>
-                        <th>Acciones</th>
-                        </thead>
-                        <tbody align="center">
-                        <td>
-                        <html:select property="idProveedor">
-                            <logic:notEmpty name="ActionFormMedicamentos" property="listaProveedores">
-                                <logic:iterate id="ver" name="ActionFormMedicamentos" property="listaProveedores">
-                                    <html:option value="${ver.idProveedor}">
-                                        ${ver.idProveedor}
-                                    </html:option>
-                                </logic:iterate>
-                            </logic:notEmpty>
-                        </html:select>
-                        </td>
-                        <td>
-                        <html:select property="idFarmacia">
-                            <logic:notEmpty name="ActionFormMedicamentos" property="listaFarmacias">
-                                <logic:iterate id="ver" name="ActionFormMedicamentos" property="listaFarmacias">
-                                    <html:option value="${ver.idFarmacia}">
-                                        ${ver.idFarmacia}
-                                    </html:option>
-                                </logic:iterate>
-                            </logic:notEmpty>
-                        </html:select>
-                        </td>
-                        <td><html:text property="nombre" size="20" maxlength="100"></html:text></td>
-                        <td><html:text property="tipo" size="20" maxlength="100"></html:text></td>
-                        <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
-                        <td><html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Medicamentos"/></td>
-                        </tbody>
-                    </table>
-                    <p align="center">${advertencia}</p>
+        <html:form action="/MantenimientoMedicamentos"> 
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h4 align="center">Formulario de ingreso para nuevo medicamento</h4>
+            <h4 align="center">Ingrese la Informacion del medicamento</h4>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-striped">
+                            <thead align="center">
+                            <th>Id</th>
+                            <th>Id Proveedor</th>
+                            <th>Id Farmacia</th>
+                            <th>Nombre</th>
+                            <th>tipo</th>
+                            <th>Acciones</th>
+                            </thead>
+                            <tbody align="center">
+                            <td>
+                                <p>
+                                    El id se colocará automaticamente.
+                                </p>
+                            </td>
+                            <td>
+                                <html:select property="idProveedor">
+                                    <logic:notEmpty name="ActionFormMedicamentos" property="listaProveedores">
+                                        <logic:iterate id="ver" name="ActionFormMedicamentos" property="listaProveedores">
+                                            <html:option value="${ver.idProveedor}">
+                                                ${ver.idProveedor}
+                                            </html:option>
+                                        </logic:iterate>
+                                    </logic:notEmpty>
+                                </html:select>
+                            </td>
+                            <td>
+                                <html:select property="idFarmacia">
+                                    <logic:notEmpty name="ActionFormMedicamentos" property="listaFarmacias">
+                                        <logic:iterate id="ver" name="ActionFormMedicamentos" property="listaFarmacias">
+                                            <html:option value="${ver.idFarmacia}">
+                                                ${ver.idFarmacia}
+                                            </html:option>
+                                        </logic:iterate>
+                                    </logic:notEmpty>
+                                </html:select>
+                            </td>
+                            <td><html:text property="nombre" size="30" maxlength="100"></html:text></td>
+                            <td><html:text property="tipo" size="30" maxlength="100"></html:text></td>
+                            <td><html:submit styleClass="btn btn-info" property="action" value="Agregar"/></td>
+                            </tbody>
+                        </table>
+                        <p align="center">${advertencia}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <h4>${error}</h4> 
+            <div class="row">
+                <div class="col-4">
+                    <h4>${error}</h4> 
+                </div>
             </div>
-        </div>
-    </html:form>
-</body>
+        </html:form>
+    </body>
 </html>

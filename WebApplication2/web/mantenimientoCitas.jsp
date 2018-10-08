@@ -97,6 +97,7 @@
                             <thead align="center">
                                 <tr>
                                     <th scope="col"></th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Id Paciente</th>
                                     <th scope="col">Id Consultorio</th>
                                     <th scope="col">Id Medico</th>
@@ -107,6 +108,11 @@
                             <tbody align="center">
                                 <tr>
                                     <th scope="row"></th>
+                                    <td>
+                                        <p>
+                                            El id se colocará automaticamente.
+                                        </p>
+                                    </td>
                                     <td>
                                         <html:select property="idPaciente">
                                             <logic:notEmpty name="ActionFormCitas" property="listaPacientes">
