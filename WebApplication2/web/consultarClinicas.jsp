@@ -113,7 +113,7 @@
                                         <html:form action="/MantenimientoClinicas">
                                             <td>
                                                 <bean:write name="ver" property="idClinica"/>
-                                                <div hidden="hidden"><html:text name="ver" property="idClinica" styleClass="hidden"/></div>
+                                                <div readonly="" hidden="hidden"><html:text name="ver" property="idClinica" styleClass="hidden"/></div>
                                             </td>
                                             <td>
                                                 <bean:write name="ver" property="farmacias.idFarmacia"/>
@@ -126,7 +126,11 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoClinicas.do?action=BuscarId&id=<bean:write name="ver" property="idClinica"/>">Modificar</a>
+<<<<<<< Updated upstream
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoClinicas.do?action=Eliminar&id=<bean:write name="ver" property="idClinica"/>">Eliminar</a>
+=======
+                                                <a class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminar?') " href="MantenimientoClinicas.do?action=Eliminar&id=<bean:write name="ver" property="idClinica"/>">Eliminar</a>
+>>>>>>> Stashed changes
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
                                             </td>
                                         </html:form>

@@ -117,10 +117,12 @@ public class MantenimientoCitas {
             session.beginTransaction();
             session.update(ci);
             session.getTransaction().commit();
+            System.out.println("Mantenimiento Citas Modificado correcto");
             mensaje = 1;
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
+                System.out.println("error al modificar en mantenimiento citas "+e);
                 mensaje = 2;
             }
         }/*finally {
@@ -135,18 +137,18 @@ public class MantenimientoCitas {
         try {
             session.getTransaction();
             ci = (Citas) session.get(Citas.class, idCita);
-            session.getTransaction().commit();
-            mensaje="exito al buscar por id";
+ //           session.getTransaction()//.commit();
+            System.out.println("exito al buscar por id");
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
                 mensaje="no consulto por id"+e;
                 ci=null;
-                System.out.println("error"+e);
+                System.out.println(mensaje);
             }
             e.printStackTrace();
         } finally {
-            session.close();
+            //session.close();
         }
         return ci;
     }

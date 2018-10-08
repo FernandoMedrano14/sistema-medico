@@ -73,8 +73,13 @@
                                         <label>Ingrese la respuesta a su pregunta de seguridad y de clic a enviar para verificar la información</label>
                                     </div>
                                     <div class="form-group col-md-1"></div>
+<<<<<<< Updated upstream
                                     <div class="form-group col-md-5"><html:hidden property="idUsuario" styleClass="form-control"/></div>
                                     <div class="form-group col-md-2">
+=======
+                                    <div class="form-group col-md-5"><html:hidden property="idUsuario"  styleClass="form-control" /></div> 
+                                    <div class="form-group col-md-2" align ="center">
+>>>>>>> Stashed changes
                                         <html:submit property="action" value="Enviar" styleClass="btn btn-sm btn-info"/>
                                     </div>
                                     <div class="form-group col-md-5"></div>

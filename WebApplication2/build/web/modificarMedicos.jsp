@@ -116,7 +116,11 @@
                                         <html:text readonly="true" property="idMedico" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
+<<<<<<< Updated upstream
                                         <html:text readonly="" property="idEspecialidad" size="5" maxlength="" ></html:text>
+=======
+                                        <html:text readonly="true" property="idEspecialidad" size="5" maxlength="" ></html:text> 
+>>>>>>> Stashed changes
                                         </td>
                                         <td>
                                         <html:text property="nombre" size="40" maxlength="" readonly="re"></html:text>

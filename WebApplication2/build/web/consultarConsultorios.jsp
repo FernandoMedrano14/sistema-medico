@@ -119,7 +119,11 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoConsultorios.do?action=irModificar&id=<bean:write name="ver" property="idConsultorio"/>">Modificar</a>
+<<<<<<< Updated upstream
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoConsultorios.do?action=Eliminar&id=<bean:write name="ver" property="idConsultorio"/>">Eliminar</a>
+=======
+                                                <a class="btn btn-danger" onclick="return confirm('¿Seguro que desea Eliminar el registro?')" href="MantenimientoConsultorios.do?action=Eliminar&id=<bean:write name="ver" property="idConsultorio"/>">Eliminar</a>
+>>>>>>> Stashed changes
 
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
                                             </td>

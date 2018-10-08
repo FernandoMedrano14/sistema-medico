@@ -57,7 +57,7 @@ public class ActionCitas extends org.apache.struts.action.Action {
             MantenimientoMedicos medicos = new MantenimientoMedicos();
             MantenimientoPacientes pacientes = new MantenimientoPacientes();
             MantenimientoConsultorios consultorios = new MantenimientoConsultorios();
-            
+
             System.out.println(" en ir Agregar");
 
             List<Consultorios> listaConsultorio = consultorios.mostrarConsultorio();
@@ -184,23 +184,41 @@ public class ActionCitas extends org.apache.struts.action.Action {
         }
 
         if (action.equals("Modificar")) {
+            MantenimientoCitas citas = new MantenimientoCitas();
             String advertencia = "";
             Citas c = new Citas();
             c.setIdCita(idCita);
+
+            Citas cit = citas.consultarId(idCita);
+
+            idConsultorio = cit.getConsultorios().getIdConsultorio();
+            idPaciente = cit.getPacientes().getIdPaciente();
+            idMedico = cit.getMedicos().getIdMedico();
+
             Consultorios con = new Consultorios();
             con.setIdConsultorio(idConsultorio);
+            
             Pacientes p = new Pacientes();
             p.setIdPaciente(idPaciente);
+            
             Medicos med = new Medicos();
             med.setIdMedico(idMedico);
+            
             c.setConsultorios(con);
             c.setPacientes(p);
             c.setMedicos(med);
             c.setFechaCita(fecha_cita);
             c.setHoraCita(hora_cita);
 
-            MantenimientoCitas citas = new MantenimientoCitas();
+            System.out.println("idCita " + idCita);
+            System.out.println("idConsultorio " + idConsultorio);
+            System.out.println("idPaciente " + idPaciente);
+            System.out.println("idMedico " + idMedico);
+            System.out.println("fecha_cita" + fecha_cita);
+            System.out.println("hora_cita " + hora_cita);
+
             citas.modificar(idCita, idConsultorio, idPaciente, idMedico, fecha_cita, hora_cita);
+
             formci.setError("<div class=\"alert alert-success\">\n<strong>Registro modificado:</strong> las citas han sido modificadas.\n</div>");
             formci.setIdConsultorio(c.getConsultorios().getIdConsultorio());
             formci.setIdPaciente(c.getPacientes().getIdPaciente());
@@ -212,6 +230,14 @@ public class ActionCitas extends org.apache.struts.action.Action {
             request.setAttribute("advertencia", advertencia);
             List<Citas> listc = citas.mostrar();
             formci.setListaCitas(listc);
+            System.out.println("Antes del return");
+
+            List<Citas> lista = citas.mostrar();
+            System.out.println("pura mierda");
+
+            System.out.println("mas mierda todavia");
+            formci.setListaCitas(lista);
+
             return mapping.findForward(consultar);
         }
 
