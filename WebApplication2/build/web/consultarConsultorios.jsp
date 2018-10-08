@@ -98,7 +98,7 @@
                                 <th>Id Consultorio</th>
                                 <th>Numero</th>
                                 <th>Área</th>
-                                <th>Acciones</th>
+                                <th  ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,7 +117,7 @@
                                             <td>
                                                 <bean:write name="ver" property="area"/>
                                             </td>
-                                            <td>
+                                            <td  ${message}>
                                                 <a class="btn btn-success" href="MantenimientoConsultorios.do?action=irModificar&id=<bean:write name="ver" property="idConsultorio"/>">Modificar</a>
 <<<<<<< Updated upstream
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoConsultorios.do?action=Eliminar&id=<bean:write name="ver" property="idConsultorio"/>">Eliminar</a>

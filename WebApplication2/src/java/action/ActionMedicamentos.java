@@ -123,6 +123,10 @@ public class ActionMedicamentos extends org.apache.struts.action.Action {
                 return mapping.findForward(Error);
             } else {
                 formed.setListaMedicamentos(lista);
+                String message = "";
+                if (!LoginAction.acceso.equals("Admin")) {
+                    message = "style=\"display: none\"";
+                }
                 return mapping.findForward(consultar);
             }
         }

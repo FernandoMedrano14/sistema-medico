@@ -149,6 +149,10 @@ public class ActionCitas extends org.apache.struts.action.Action {
             } else {
                 System.out.println("mas mierda todavia");
                 formci.setListaCitas(lista);
+                String message = "";
+                if (!LoginAction.acceso.equals("Admin")) {
+                    message = "style=\"display: none\"";
+                }
                 return mapping.findForward(consultar);
             }
         }

@@ -92,6 +92,10 @@ public class ActionClinicas extends org.apache.struts.action.Action {
                 return mapping.findForward(Error);
             } else {
                 formCli.setListaClinicas(lista);
+                String message = "";
+                if (!LoginAction.acceso.equals("Admin")) {
+                    message = "style=\"display: none\"";
+                }
                 return mapping.findForward(consultar);
             }
         }

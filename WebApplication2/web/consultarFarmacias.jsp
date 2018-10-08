@@ -98,7 +98,7 @@
                             <tr align="center">
                                 <th>Id Farmacia</th>
                                 <th>Direccion Farmacias</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,7 +113,7 @@
                                             <td>
                                                 <bean:write name="ver" property="direccion"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoFarmacias.do?action=irModificar&id=<bean:write name="ver" property="idFarmacia"/>">Modificar</a>
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoFarmacias.do?action=Eliminar&id=<bean:write name="ver" property="idFarmacia"/>">Eliminar</a>
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>

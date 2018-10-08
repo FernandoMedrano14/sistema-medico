@@ -105,7 +105,7 @@
                                 <th>Fecha de nacimiento</th>
                                 <th>Telefono</th>
                                 <th>Direccion</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -142,7 +142,7 @@
                                             <td>
                                                 <bean:write name="ver" property="direccion"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoPacientes.do?action=BuscarId&id=<bean:write name="ver" property="idPaciente"/>">Modificar</a>
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoPacientes.do?action=Eliminar&id=<bean:write name="ver" property="idPaciente"/>">Eliminar</a>
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>

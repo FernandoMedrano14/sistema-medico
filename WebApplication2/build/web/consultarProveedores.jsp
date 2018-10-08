@@ -98,7 +98,7 @@
                                 <th>Id Proveedor</th>
                                 <th>Rubro Proveedor</th>
                                 <th>Encargado</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,7 +117,7 @@
                                             <td>
                                                 <bean:write name="ver" property="encargado"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoProveedores.do?action=irModificar&id=<bean:write name="ver" property="idProveedor"/>">Modificar</a>
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoProveedores.do?action=Eliminar&id=<bean:write name="ver" property="idProveedor"/>">Eliminar</a>
                                             </td>

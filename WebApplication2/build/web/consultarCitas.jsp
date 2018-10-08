@@ -102,7 +102,7 @@
                                 <th>Id Medico</th>
                                 <th>Fecha Cita</th>
                                 <th>Hora Cita</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,7 +130,7 @@
                                             <td>
                                                 <bean:write name="ver" property="horaCita"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoCitas.do?action=BuscarId&id=<bean:write name="ver" property="idCita"/>">Modificar</a>
 <<<<<<< Updated upstream
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoCitas.do?action=Eliminar&id=<bean:write name="ver" property="idCita"/>">Eliminar</a>

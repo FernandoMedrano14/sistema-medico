@@ -97,7 +97,7 @@
                             <tr align="center">
                                 <th>Id Especialidad</th>
                                 <th>Tipo</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,7 +113,7 @@
                                             <td>
                                                 <bean:write name="ver" property="tipo"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoEspecialidades.do?action=irModificar&id=<bean:write name="ver" property="idEspecialidad"/>">Modificar</a>
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoEspecialidades.do?action=Eliminar&id=<bean:write name="ver" property="idEspecialidad"/>">Eliminar</a>
 

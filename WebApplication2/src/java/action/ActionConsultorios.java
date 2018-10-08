@@ -79,6 +79,10 @@ public class ActionConsultorios extends org.apache.struts.action.Action {
                 return mapping.findForward(Error);
             } else {
                 formcon.setListaConsultorio(lista);
+                String message = "";
+                if (!LoginAction.acceso.equals("Admin")) {
+                    message = "style=\"display: none\"";
+                }
                 return mapping.findForward(consultar);
             }
         }

@@ -113,7 +113,7 @@
                                 <th>Tipo</th>
                                 <th>Pregunta</th>
                                 <th>Respuesta</th>
-                                <th style="display: none">        Acciones        </th>
+                                <th ${message}>        Acciones        </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -146,7 +146,7 @@
                                             <td>
                                                 <bean:write name="ver" property="respuesta"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-sm btn-success" href="MantenimientoUsuarios.do?action=irModificar&id=<bean:write name="ver" property="idUsuario"/>">Modificar</a>
                                                 <a class="btn btn-sm btn-danger" href="MantenimientoUsuarios.do?action=Eliminar&id=<bean:write name="ver" property="idUsuario"/>" onclick="return confirm('¿Seguro que desea eliminar?')">Eliminar</a>
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>

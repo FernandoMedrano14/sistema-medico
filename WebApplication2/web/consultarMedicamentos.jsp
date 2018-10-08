@@ -100,7 +100,7 @@
                                 <th>Id Farmacia</th>
                                 <th>Nombre</th>
                                 <th>Tipo</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -125,7 +125,7 @@
                                             <td>
                                                 <bean:write name="ver" property="tipo"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoMedicamentos.do?action=BuscarId&id=<bean:write name="ver" property="idMedicamento"/>">Modificar</a>
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoMedicamentos.do?action=Eliminar&id=<bean:write name="ver" property="idMedicamento"/>">Eliminar</a>
                                             </td>

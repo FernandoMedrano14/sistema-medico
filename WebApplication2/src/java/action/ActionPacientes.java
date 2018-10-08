@@ -132,6 +132,10 @@ public class ActionPacientes extends org.apache.struts.action.Action {
                 return mapping.findForward(Error);
             } else {
                 formpa.setListaPacientes(lista);
+                String message = "";
+                if (!LoginAction.acceso.equals("Admin")) {
+                    message = "style=\"display: none\"";
+                }
                 return mapping.findForward(consultar);
             }
         }

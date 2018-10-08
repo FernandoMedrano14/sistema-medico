@@ -103,7 +103,7 @@
                                 <th>Nombre Medico</th>
                                 <th>Apellido Medico</th>
                                 <th>Telefono Medico</th>
-                                <th>Acciones</th>
+                                <th ${message}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +128,7 @@
                                             <td>
                                                 <bean:write name="ver" property="telefono"/>
                                             </td>
-                                            <td>
+                                            <td ${message}>
                                                 <a class="btn btn-success" href="MantenimientoMedicos.do?action=BuscarId&id=<bean:write name="ver" property="idMedico"/>">Modificar</a>
                                                 <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoMedicos.do?action=Eliminar&id=<bean:write name="ver" property="idMedico"/>">Eliminar</a>
                                             </td>
