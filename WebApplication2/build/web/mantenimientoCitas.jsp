@@ -112,7 +112,7 @@
                                             <logic:notEmpty name="ActionFormCitas" property="listaPacientes">
                                                 <logic:iterate id="ver" name="ActionFormCitas" property="listaPacientes">
                                                     <html:option value="${ver.idPaciente}">
-                                                        ${ver.idPaciente}
+                                                        ${ver.nombre}
                                                     </html:option>
                                                 </logic:iterate>
                                             </logic:notEmpty>
@@ -122,7 +122,7 @@
                                             <logic:notEmpty name="ActionFormCitas" property="listaConsultorio">
                                                 <logic:iterate id="ver" name="ActionFormCitas" property="listaConsultorio">
                                                     <html:option value="${ver.idConsultorio}">
-                                                        ${ver.idConsultorio}
+                                                        ${ver.area}
                                                     </html:option>
                                                 </logic:iterate>
                                             </logic:notEmpty>
@@ -133,7 +133,7 @@
                                             <logic:notEmpty name="ActionFormCitas" property="listamedi">
                                                 <logic:iterate id="ver" name="ActionFormCitas" property="listamedi">
                                                     <html:option value="${ver.idMedico}">
-                                                        ${ver.idMedico}
+                                                        ${ver.nombre}
                                                     </html:option>
                                                 </logic:iterate>
                                             </logic:notEmpty>

@@ -45,7 +45,9 @@
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
-                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciomedicamentos.jsp"><b>Medicamentos</b></a>
@@ -61,8 +63,6 @@
                             <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
                     <p>  </p>
@@ -144,7 +144,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoPacientes.do?action=BuscarId&id=<bean:write name="ver" property="idPaciente"/>">Modificar</a>
-                                                <a class="btn btn-danger" href="MantenimientoPacientes.do?action=Eliminar&id=<bean:write name="ver" property="idPaciente"/>">Eliminar</a>
+                                                <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoPacientes.do?action=Eliminar&id=<bean:write name="ver" property="idPaciente"/>">Eliminar</a>
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
                                             </td>
                                         </html:form>

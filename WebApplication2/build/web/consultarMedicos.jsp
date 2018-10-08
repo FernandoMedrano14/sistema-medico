@@ -45,8 +45,12 @@
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
-                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                             <a class="dropdown-item bg-info text-white" href="iniciomedicamentos.jsp"><b>Medicamentos</b></a>
+                            <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicamentos.jsp"><b>Medicamentos</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
                             <div class="dropdown-divider"></div>
@@ -59,8 +63,6 @@
                             <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
                     <p>  </p>
@@ -115,7 +117,7 @@
                                                 <div hidden="hidden"><html:text name="ver" property="idMedico" styleClass="hidden"/></div>
                                             </td>
                                             <td>
-                                                <bean:write name="ver" property="especialidades.idEspecialidad"/>
+                                                <bean:write name="ver" property="especialidades.tipo"/>
                                             </td>
                                             <td>
                                                 <bean:write name="ver" property="nombre"/>
@@ -128,7 +130,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoMedicos.do?action=BuscarId&id=<bean:write name="ver" property="idMedico"/>">Modificar</a>
-                                                <a class="btn btn-danger" href="MantenimientoMedicos.do?action=Eliminar&id=<bean:write name="ver" property="idMedico"/>">Eliminar</a>
+                                                <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoMedicos.do?action=Eliminar&id=<bean:write name="ver" property="idMedico"/>">Eliminar</a>
                                             </td>
                                         </html:form>
                                     </tr>

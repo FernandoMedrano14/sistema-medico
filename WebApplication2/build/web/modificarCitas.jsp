@@ -118,7 +118,7 @@
                             <tbody>
                                 <tr align="center">
                                     <td>
-                                        <html:text property="idCita" size="15" maxlength="" readonly="re"></html:text>
+                                        <html:text readonly="true" property="idCita" size="15" maxlength=""></html:text>
                                         </td>
                                         <td>
                                         <html:text readonly="true" property="idPaciente" size="5" maxlength="" ></html:text>
@@ -136,7 +136,7 @@
                                         <html:text property="hora_cita" size="15" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
-                                        <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                                        <html:submit styleClass="btn btn-success" onclick="return confirm('¿Está realmente conforme con los cambios?')" property="action" value="Modificar"/>
                                     </td>
                                 </tr>
                             <br>

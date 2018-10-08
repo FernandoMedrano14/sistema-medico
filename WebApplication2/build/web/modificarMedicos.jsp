@@ -116,7 +116,7 @@
                                         <html:text readonly="true" property="idMedico" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
-                                        <html:text readonly="true" property="idEspecialidad" size="5" maxlength="" ></html:text>
+                                        <html:text readonly="" property="idEspecialidad" size="5" maxlength="" ></html:text>
                                         </td>
                                         <td>
                                         <html:text property="nombre" size="40" maxlength="" readonly="re"></html:text>
@@ -128,7 +128,7 @@
                                         <html:text property="telefono" size="15" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
-                                        <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                                        <html:submit styleClass="btn btn-success" onclick="return confirm('¿Está realmente conforme con los cambios?')"  property="action" value="Modificar"/>
                                     </td>
                                 </tr>
                             <br>

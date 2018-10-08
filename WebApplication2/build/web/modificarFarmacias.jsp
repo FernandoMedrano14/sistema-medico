@@ -115,7 +115,7 @@
                                         <html:text property="direccion" size="50" maxlength="" readonly="re" ></html:text>
                                         </td>
                                         <td>
-                                        <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                                        <html:submit styleClass="btn btn-success" onclick="return confirm('¿Está realmente conforme con los cambios?')"  property="action" value="Modificar"/>
                                     </td>
                                 </tr>
                             <br>

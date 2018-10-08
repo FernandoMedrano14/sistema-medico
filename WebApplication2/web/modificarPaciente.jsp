@@ -144,7 +144,7 @@
                                 </div>
                                 <br>
                                 <div class="form-group col-md-10 text-center">
-                                <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                                <html:submit styleClass="btn btn-success" onclick="return confirm('¿Está realmente conforme con los cambios?')"  property="action" value="Modificar"/>
                             </div>
                             <p align="center">${advertencia}</p>
                         </div>

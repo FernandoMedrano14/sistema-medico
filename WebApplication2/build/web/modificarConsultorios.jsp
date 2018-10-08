@@ -125,7 +125,7 @@
                                         <html:text property="area" size="40" maxlength="" readonly="re"></html:text>
                                         </td>
                                         <td>
-                                        <html:submit styleClass="btn btn-success" property="action" value="Modificar"/>
+                                        <html:submit onclick="return confirm('¿Está realmente conforme con los cambios?')"  styleClass="btn btn-success" property="action" value="Modificar"/>
                                     </td>
                                 </tr>
                             <br>

@@ -46,6 +46,10 @@
                             Areas
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciomedicamentos.jsp"><b>Medicamentos</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
@@ -59,14 +63,20 @@
                             <a class="dropdown-item bg-info text-white" href="inicioconsultorios.jsp"><b>Consultorios</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioespecialidades.jsp"><b>Especialidades</b></a>
-                            <%--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Configuración</a>--%>
                         </div>
                     </li>
-                    <p> </p>
+                    <p>  </p>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Acciones
+                        </a>
+                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoEspecialidades.do?action=Consultar_Especialidades"><b>Consultar Especialidades</b></a>
+                        </div>
+                    </li>
                 </ul>
                 <html:form action="/AgregarUsuario" styleClass="form-inline my-2 my-lg-0">
-                    
+
                     <html:submit property="action" value="Configuracion" styleClass="btn btn-outline-info disabled"/><p>  </p>
                     <html:submit property="action" value="Cerrar Sesion" styleClass="btn btn-outline-danger my-2 my-sm-0"/>
                 </html:form>
@@ -95,7 +105,6 @@
                             <th>Id</th>
                             <th>Tipo Especialidad</th>
                             <th>Acciones</th>
-                            <th>Extra</th>
                             </thead>
                             <tbody align="center">
                                 <tr>
@@ -110,9 +119,6 @@
                                         </td>
                                         <td>
                                         <html:submit styleClass="btn btn-info" property="action" value="Agregar"/>
-                                    </td>
-                                    <td>
-                                        <html:submit styleClass="btn btn-outline-info" property="action" value="Consultar_Especialidades"/>
                                     </td>
                                     <th escope="row"></th>
                                 </tr>

@@ -44,7 +44,13 @@
                         <a class="btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Areas
                         </a>
-                        <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                          <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item bg-info text-white" href="iniciocitas.jsp"><b>Citas</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="iniciopacientes.jsp"><b>Pacientes</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item bg-info text-white" href="iniciomedicamentos.jsp"><b>Medicamentos</b></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="iniciomedicos.jsp"><b>Medicos</b></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item bg-info text-white" href="inicioclinicas.jsp"><b>Clinicas</b></a>
@@ -109,7 +115,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoEspecialidades.do?action=irModificar&id=<bean:write name="ver" property="idEspecialidad"/>">Modificar</a>
-                                                <a class="btn btn-danger" href="MantenimientoEspecialidades.do?action=Eliminar&id=<bean:write name="ver" property="idEspecialidad"/>">Eliminar</a>
+                                                <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoEspecialidades.do?action=Eliminar&id=<bean:write name="ver" property="idEspecialidad"/>">Eliminar</a>
 
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
                                             </td>

@@ -71,7 +71,7 @@
                             Acciones
                         </a>
                         <div class="dropdown-menu bg-info " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item bg-info text-white" href="MantenimientoCitas.do?action=irAgregar" ><b>Agregar Clinica</b></b></a>
+                            <a class="dropdown-item bg-info text-white" href="MantenimientoCitas.do?action=irAgregar" ><b>Agregar Cita</b></b></a>
                         </div>
                     </li>
                 </ul>
@@ -102,6 +102,7 @@
                                 <th>Id Medico</th>
                                 <th>Fecha Cita</th>
                                 <th>Hora Cita</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -115,13 +116,13 @@
                                                 <div readonly="true" hidden="hidden"><html:text name="ver" property="idCita" styleClass="hidden"/></div>
                                             </td>
                                             <td>
-                                                <bean:write name="ver" property="pacientes.idPaciente"/>
+                                                <bean:write name="ver" property="pacientes.apellido"/>
                                             </td>
                                             <td>
-                                                <bean:write name="ver" property="consultorios.idConsultorio"/>
+                                                <bean:write name="ver" property="consultorios.area"/>
                                             </td>
                                             <td>
-                                                <bean:write name="ver" property="medicos.idMedico"/>
+                                                <bean:write name="ver" property="medicos.apellido"/>
                                             </td>
                                             <td>
                                                 <bean:write name="ver" property="fechaCita"/>
@@ -131,7 +132,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-success" href="MantenimientoCitas.do?action=BuscarId&id=<bean:write name="ver" property="idCita"/>">Modificar</a>
-                                                <a class="btn btn-danger" href="MantenimientoCitas.do?action=Eliminar&id=<bean:write name="ver" property="idCita"/>">Eliminar</a>
+                                                <a class="btn btn-danger" onclick="return confirm('¿seguro que desea eliminar?')" href="MantenimientoCitas.do?action=Eliminar&id=<bean:write name="ver" property="idCita"/>">Eliminar</a>
                                                 <%--<html:link styleClass="btn btn-danger" page="/eliminarFarmacia.jsp">Eliminar</html:link>--%>
                                             </td>
                                         </html:form>
